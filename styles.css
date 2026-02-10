@@ -601,6 +601,34 @@ body {
   box-shadow: 0 0 20px rgba(0, 206, 209, 0.5);
 }
 
+/* Force dropdown option styling for all browsers */
+.code-quiz .blank-dropdown option {
+  background: #1a1a2e;
+  color: white;
+  padding: 10px;
+  font-weight: 600;
+}
+
+.code-quiz .blank-dropdown option:nth-child(1) {
+  background: #1a1a2e;
+  color: #aaa;
+}
+
+.code-quiz .blank-dropdown option:nth-child(2) {
+  background: #1a1a2e;
+  color: #00ced1;
+}
+
+.code-quiz .blank-dropdown option:nth-child(3) {
+  background: #1a1a2e;
+  color: #ff6b9d;
+}
+
+.code-quiz .blank-dropdown option:nth-child(4) {
+  background: #1a1a2e;
+  color: #a855f7;
+}
+
 .code-quiz .blank-dropdown.correct {
   border-color: var(--success-color);
   background: linear-gradient(135deg, rgba(39, 174, 96, 0.4) 0%, rgba(39, 174, 96, 0.2) 100%);
