@@ -47,14 +47,44 @@ const pythonKeywordTooltips = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Keyword tooltips (Lua and Python)
+  // Keyword tooltips (Lua and Python) - using JS for proper fixed positioning
   document.querySelectorAll('.code-quiz .keyword').forEach(el => {
     const text = el.textContent.trim();
+    let tooltipText = null;
+
     // Check Lua keywords first, then Python
-    if (luaKeywordTooltips[text] && !el.hasAttribute('data-tooltip')) {
-      el.setAttribute('data-tooltip', luaKeywordTooltips[text]);
-    } else if (pythonKeywordTooltips[text] && !el.hasAttribute('data-tooltip')) {
-      el.setAttribute('data-tooltip', pythonKeywordTooltips[text]);
+    if (luaKeywordTooltips[text]) {
+      tooltipText = luaKeywordTooltips[text];
+    } else if (pythonKeywordTooltips[text]) {
+      tooltipText = pythonKeywordTooltips[text];
+    }
+
+    if (tooltipText) {
+      el.style.cursor = 'help';
+
+      // Create tooltip element
+      const tooltip = document.createElement('div');
+      tooltip.className = 'keyword-tooltip';
+      tooltip.textContent = tooltipText;
+      tooltip.style.display = 'none';
+      document.body.appendChild(tooltip);
+
+      // Show tooltip on hover
+      el.addEventListener('mouseenter', () => {
+        tooltip.style.visibility = 'hidden';
+        tooltip.style.display = 'block';
+
+        const rect = el.getBoundingClientRect();
+        const tooltipHeight = tooltip.offsetHeight;
+
+        tooltip.style.left = rect.left + 'px';
+        tooltip.style.top = (rect.top - tooltipHeight - 10) + 'px';
+        tooltip.style.visibility = 'visible';
+      });
+
+      el.addEventListener('mouseleave', () => {
+        tooltip.style.display = 'none';
+      });
     }
   });
 
