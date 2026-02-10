@@ -88,9 +88,9 @@ body {
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
-/* Main Content - WIDER */
+/* Main Content - EXTRA WIDE for code */
 .container {
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 40px 30px;
 }
@@ -296,14 +296,14 @@ body {
   color: var(--dark-color);
 }
 
-/* Code Display with Blanks - BIGGER & BETTER */
+/* Code Display with Blanks - AUTO-FIT WIDTH */
 .code-quiz {
   background: var(--code-bg);
   border-radius: 15px;
-  padding: 30px;
+  padding: 25px 20px;
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-  font-size: 1.15rem;
-  line-height: 2.4;
+  font-size: 0.95rem;
+  line-height: 2.2;
   overflow-x: auto;
   color: var(--code-text);
   border: 3px solid #333;
@@ -312,8 +312,8 @@ body {
 .code-quiz .line {
   display: block;
   white-space: nowrap;
-  min-height: 45px;
-  padding: 5px 0;
+  min-height: 40px;
+  padding: 3px 0;
 }
 
 /* Syntax highlighting - BRIGHTER colors for kids */
@@ -343,18 +343,18 @@ body {
   font-style: italic;
 }
 
-/* Dropdown blanks - BIGGER */
+/* Dropdown blanks - COMPACT */
 .code-quiz .blank-dropdown {
   background: linear-gradient(135deg, #4a4a6a 0%, #3a3a5a 100%);
-  border: 3px solid #888;
+  border: 2px solid #888;
   color: white;
-  padding: 8px 15px;
-  border-radius: 8px;
+  padding: 5px 10px;
+  border-radius: 6px;
   font-family: inherit;
-  font-size: 1rem;
-  margin: 4px 6px;
+  font-size: 0.9rem;
+  margin: 2px 4px;
   cursor: pointer;
-  min-width: 150px;
+  min-width: 110px;
   display: inline-block;
   vertical-align: middle;
   transition: all 0.3s;
