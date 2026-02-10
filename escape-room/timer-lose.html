@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer + Lose Script | Robocode</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .variables-section { background: #fff; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+    .variables-section h4 { color: var(--secondary-color); margin-bottom: 15px; font-size: 1.1rem; }
+    .variables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
+    .var-group { display: flex; flex-direction: column; gap: 5px; }
+    .var-group label { font-weight: 600; font-size: 0.9rem; color: #555; }
+    .var-group input, .var-group select { padding: 10px 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 1rem; }
+    .var-group input:focus, .var-group select:focus { outline: none; border-color: var(--secondary-color); }
+    .var-group .hint { font-size: 0.75rem; color: #888; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../football/index.html">Football</a>
+      <a href="../racing/index.html">Racing</a>
+      <a href="../obby/index.html">Obby</a>
+      <a href="../boxing/index.html">Boxing</a>
+      <a href="index.html" class="active">Escape Room</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <a href="index.html" class="back-link">&larr; Back to Escape Room Scripts</a>
+    <div class="page-title">
+      <h2>Timer + Lose Script</h2>
+      <p>Customize your variables, then fill in the blanks!</p>
+    </div>
+
+    <div class="variables-section">
+      <h4>Your Custom Settings</h4>
+      <div class="variables-grid">
+        <div class="var-group">
+          <label>Time Limit</label>
+          <select id="var-time">
+            <option value="60">60 seconds (1 min)</option>
+            <option value="120">120 seconds (2 min)</option>
+            <option value="150" selected>150 seconds (2.5 min)</option>
+            <option value="180">180 seconds (3 min)</option>
+            <option value="300">300 seconds (5 min)</option>
+          </select>
+          <span class="hint">How long to escape</span>
+        </div>
+        <div class="var-group">
+          <label>Timer GUI Name</label>
+          <input type="text" id="var-timergui" value="timerGui">
+          <span class="hint">ScreenGui name in StarterGui</span>
+        </div>
+        <div class="var-group">
+          <label>Timer Label Name</label>
+          <input type="text" id="var-timerlabel" value="timerLabel">
+          <span class="hint">TextLabel showing time</span>
+        </div>
+        <div class="var-group">
+          <label>Lose Label Name</label>
+          <input type="text" id="var-loselabel" value="loseLabel">
+          <span class="hint">TextLabel for lose message</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-section">
+      <div class="script-info">
+        <h4>LocalScript (StarterGui)</h4>
+        <p>This script counts down from your time limit and shows a lose message when time runs out. Create a ScreenGui with two TextLabels: one for the timer and one for the lose message (Visible = false)!</p>
+      </div>
+
+      <div class="code-quiz">
+        <div class="line"><span class="keyword">local</span> player = game.<select class="blank-dropdown" data-answer="Players" id="q1"><option value="">Select...</option><option value="Players">Players</option><option value="Users">Users</option><option value="Characters">Characters</option></select>.LocalPlayer</div>
+        <div class="line"><span class="keyword">local</span> gui = player:WaitForChild(<span class="string">"<select class="blank-dropdown" data-answer="PlayerGui" id="q2"><option value="">Select...</option><option value="PlayerGui">PlayerGui</option><option value="ScreenGui">ScreenGui</option><option value="GUI">GUI</option></select>"</span>).<span class="var-display" data-var="var-timergui">timerGui</span></div>
+        <div class="line"><span class="keyword">local</span> timerLabel = gui.<span class="var-display" data-var="var-timerlabel">timerLabel</span></div>
+        <div class="line"><span class="keyword">local</span> loseLabel = gui.<span class="var-display" data-var="var-loselabel">loseLabel</span></div>
+        <div class="line"></div>
+        <div class="line"><span class="keyword">local</span> timeLeft = <span class="number var-display" data-var="var-time">150</span></div>
+        <div class="line"></div>
+        <div class="line"><span class="keyword">local function</span> formatTime(seconds)</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> mins = math.<select class="blank-dropdown" data-answer="floor" id="q3"><option value="">Select...</option><option value="floor">floor</option><option value="round">round</option><option value="ceil">ceil</option></select>(seconds / <span class="number">60</span>)</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> secs = seconds % <span class="number">60</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> string.<select class="blank-dropdown" data-answer="format" id="q4"><option value="">Select...</option><option value="format">format</option><option value="concat">concat</option><option value="make">make</option></select>(<span class="string">"%02d:%02d"</span>, mins, secs)</div>
+        <div class="line"><span class="keyword">end</span></div>
+        <div class="line"></div>
+        <div class="line"><span class="keyword">while</span> timeLeft > <span class="number">0</span> <span class="keyword">do</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;timerLabel.<select class="blank-dropdown" data-answer="Text" id="q5"><option value="">Select...</option><option value="Text">Text</option><option value="Value">Value</option><option value="Content">Content</option></select> = formatTime(timeLeft)</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;task.<select class="blank-dropdown" data-answer="wait" id="q6"><option value="">Select...</option><option value="wait">wait</option><option value="delay">delay</option><option value="pause">pause</option></select>(<span class="number">1</span>)</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;timeLeft = timeLeft - <span class="number">1</span></div>
+        <div class="line"><span class="keyword">end</span></div>
+        <div class="line"></div>
+        <div class="line">timerLabel.Text = <span class="string">"00:00"</span></div>
+        <div class="line">loseLabel.<select class="blank-dropdown" data-answer="Visible" id="q7"><option value="">Select...</option><option value="Visible">Visible</option><option value="Enabled">Enabled</option><option value="Active">Active</option></select> = <span class="keyword">true</span></div>
+      </div>
+
+      <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
+      <div class="feedback" id="feedback"></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
+      <div class="modal-body">
+        <p style="margin-bottom: 15px;">Copy this code into a LocalScript in StarterGui:</p>
+        <pre class="modal-code" id="fullCode"></pre>
+      </div>
+      <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
+    </div>
+  </div>
+
+  <footer class="footer"><p>Robocode &copy; 2026 - Young Game Developers</p></footer>
+
+  <script>
+    document.querySelectorAll('.variables-section input, .variables-section select').forEach(input => {
+      input.addEventListener('change', updateVarDisplays);
+      input.addEventListener('input', updateVarDisplays);
+    });
+
+    function updateVarDisplays() {
+      document.querySelectorAll('.var-display').forEach(span => {
+        const varId = span.dataset.var;
+        const input = document.getElementById(varId);
+        if (input) span.textContent = input.value;
+      });
+    }
+
+    function generateCode() {
+      const time = document.getElementById('var-time').value;
+      const timerGui = document.getElementById('var-timergui').value;
+      const timerLabel = document.getElementById('var-timerlabel').value;
+      const loseLabel = document.getElementById('var-loselabel').value;
+      return `local player = game.Players.LocalPlayer
+local gui = player:WaitForChild("PlayerGui").${timerGui}
+local timerLabel = gui.${timerLabel}
+local loseLabel = gui.${loseLabel}
+
+local timeLeft = ${time}
+
+local function formatTime(seconds)
+    local mins = math.floor(seconds / 60)
+    local secs = seconds % 60
+    return string.format("%02d:%02d", mins, secs)
+end
+
+while timeLeft > 0 do
+    timerLabel.Text = formatTime(timeLeft)
+    task.wait(1)
+    timeLeft = timeLeft - 1
+end
+
+timerLabel.Text = "00:00"
+loseLabel.Visible = true`;
+    }
+
+    function checkAnswers() {
+      const dropdowns = document.querySelectorAll('.blank-dropdown');
+      let allCorrect = true;
+      dropdowns.forEach(dropdown => {
+        const correct = dropdown.value === dropdown.dataset.answer;
+        dropdown.classList.remove('correct', 'incorrect');
+        dropdown.classList.add(correct ? 'correct' : 'incorrect');
+        if (!correct) allCorrect = false;
+      });
+      const feedback = document.getElementById('feedback');
+      feedback.classList.add('show');
+      if (allCorrect) {
+        feedback.className = 'feedback show success';
+        feedback.textContent = 'All correct! Opening your code...';
+        document.getElementById('fullCode').textContent = generateCode();
+        setTimeout(() => { document.getElementById('modal').classList.add('show'); }, 500);
+      } else {
+        feedback.className = 'feedback show error';
+        feedback.textContent = 'Some answers are incorrect. Try again!';
+      }
+    }
+
+    function closeModal() { document.getElementById('modal').classList.remove('show'); }
+    function copyCode() {
+      const code = document.getElementById('fullCode').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('Code copied to clipboard!');
+        const btn = event.target;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy Code'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+    document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+    updateVarDisplays();
+  </script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation Script | Robocode</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .variables-section { background: #fff; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+    .variables-section h4 { color: var(--secondary-color); margin-bottom: 15px; font-size: 1.1rem; }
+    .variables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
+    .var-group { display: flex; flex-direction: column; gap: 5px; }
+    .var-group label { font-weight: 600; font-size: 0.9rem; color: #555; }
+    .var-group input, .var-group select { padding: 10px 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 1rem; }
+    .var-group input:focus, .var-group select:focus { outline: none; border-color: var(--secondary-color); }
+    .var-group .hint { font-size: 0.75rem; color: #888; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../football/index.html">Football</a>
+      <a href="../racing/index.html">Racing</a>
+      <a href="../obby/index.html">Obby</a>
+      <a href="index.html" class="active">Boxing</a>
+      <a href="../escape-room/index.html">Escape Room</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <a href="index.html" class="back-link">&larr; Back to Boxing Scripts</a>
+    <div class="page-title">
+      <h2>Animation Script</h2>
+      <p>Customize your variables, then fill in the blanks!</p>
+    </div>
+
+    <div class="variables-section">
+      <h4>Your Custom Settings</h4>
+      <div class="variables-grid">
+        <div class="var-group">
+          <label>Punch Key</label>
+          <select id="var-punchkey">
+            <option value="P" selected>P</option>
+            <option value="Q">Q</option>
+            <option value="E">E</option>
+          </select>
+          <span class="hint">Key to trigger punch</span>
+        </div>
+        <div class="var-group">
+          <label>Kick Key</label>
+          <select id="var-kickkey">
+            <option value="K" selected>K</option>
+            <option value="F">F</option>
+            <option value="R">R</option>
+          </select>
+          <span class="hint">Key to trigger kick</span>
+        </div>
+        <div class="var-group">
+          <label>Punch Animation ID</label>
+          <input type="text" id="var-punchid" value="rbxassetid://YOUR_PUNCH_ID">
+          <span class="hint">From Roblox Animation Editor</span>
+        </div>
+        <div class="var-group">
+          <label>Kick Animation ID</label>
+          <input type="text" id="var-kickid" value="rbxassetid://YOUR_KICK_ID">
+          <span class="hint">From Roblox Animation Editor</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-section">
+      <div class="script-info">
+        <h4>LocalScript (StarterCharacterScripts)</h4>
+        <p>This script plays punch and kick animations when you press keys. Create your animations in Roblox and paste the IDs above!</p>
+      </div>
+
+      <div class="code-quiz">
+        <div class="line"><span class="keyword">local</span> UIS = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"UserInputService"</span>)</div>
+        <div class="line"><span class="keyword">local</span> character = script.<select class="blank-dropdown" data-answer="Parent" id="q2"><option value="">Select...</option><option value="Parent">Parent</option><option value="Character">Character</option><option value="Model">Model</option></select></div>
+        <div class="line"><span class="keyword">local</span> humanoid = character:<select class="blank-dropdown" data-answer="WaitForChild" id="q3"><option value="">Select...</option><option value="WaitForChild">WaitForChild</option><option value="FindFirstChild">FindFirstChild</option><option value="GetChild">GetChild</option></select>(<span class="string">"Humanoid"</span>)</div>
+        <div class="line"></div>
+        <div class="line"><span class="keyword">local</span> punchAnim = Instance.new(<span class="string">"<select class="blank-dropdown" data-answer="Animation" id="q4"><option value="">Select...</option><option value="Animation">Animation</option><option value="Animator">Animator</option><option value="AnimTrack">AnimTrack</option></select>"</span>)</div>
+        <div class="line">punchAnim.<select class="blank-dropdown" data-answer="AnimationId" id="q5"><option value="">Select...</option><option value="AnimationId">AnimationId</option><option value="Id">Id</option><option value="AssetId">AssetId</option></select> = <span class="string">"<span class="var-display" data-var="var-punchid">rbxassetid://YOUR_PUNCH_ID</span>"</span></div>
+        <div class="line"></div>
+        <div class="line"><span class="keyword">local</span> kickAnim = Instance.new(<span class="string">"Animation"</span>)</div>
+        <div class="line">kickAnim.AnimationId = <span class="string">"<span class="var-display" data-var="var-kickid">rbxassetid://YOUR_KICK_ID</span>"</span></div>
+        <div class="line"></div>
+        <div class="line">UIS.<select class="blank-dropdown" data-answer="InputBegan" id="q6"><option value="">Select...</option><option value="InputBegan">InputBegan</option><option value="KeyPressed">KeyPressed</option><option value="OnInput">OnInput</option></select>:Connect(<span class="keyword">function</span>(input, gameProcessed)</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> gameProcessed <span class="keyword">then return end</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> input.KeyCode == Enum.KeyCode.<span class="var-display" data-var="var-punchkey">P</span> <span class="keyword">then</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;humanoid:<select class="blank-dropdown" data-answer="LoadAnimation" id="q7"><option value="">Select...</option><option value="LoadAnimation">LoadAnimation</option><option value="PlayAnimation">PlayAnimation</option><option value="RunAnimation">RunAnimation</option></select>(punchAnim):<select class="blank-dropdown" data-answer="Play" id="q8"><option value="">Select...</option><option value="Play">Play</option><option value="Start">Start</option><option value="Run">Run</option></select>()</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">elseif</span> input.KeyCode == Enum.KeyCode.<span class="var-display" data-var="var-kickkey">K</span> <span class="keyword">then</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;humanoid:LoadAnimation(kickAnim):Play()</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
+        <div class="line"><span class="keyword">end</span>)</div>
+      </div>
+
+      <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
+      <div class="feedback" id="feedback"></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
+      <div class="modal-body">
+        <p style="margin-bottom: 15px;">Copy this code into a LocalScript in StarterCharacterScripts:</p>
+        <pre class="modal-code" id="fullCode"></pre>
+      </div>
+      <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
+    </div>
+  </div>
+
+  <footer class="footer"><p>Robocode &copy; 2026 - Young Game Developers</p></footer>
+
+  <script>
+    document.querySelectorAll('.variables-section input, .variables-section select').forEach(input => {
+      input.addEventListener('change', updateVarDisplays);
+      input.addEventListener('input', updateVarDisplays);
+    });
+
+    function updateVarDisplays() {
+      document.querySelectorAll('.var-display').forEach(span => {
+        const varId = span.dataset.var;
+        const input = document.getElementById(varId);
+        if (input) span.textContent = input.value;
+      });
+    }
+
+    function generateCode() {
+      const punchKey = document.getElementById('var-punchkey').value;
+      const kickKey = document.getElementById('var-kickkey').value;
+      const punchId = document.getElementById('var-punchid').value;
+      const kickId = document.getElementById('var-kickid').value;
+      return `local UIS = game:GetService("UserInputService")
+local character = script.Parent
+local humanoid = character:WaitForChild("Humanoid")
+
+local punchAnim = Instance.new("Animation")
+punchAnim.AnimationId = "${punchId}"
+
+local kickAnim = Instance.new("Animation")
+kickAnim.AnimationId = "${kickId}"
+
+UIS.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if input.KeyCode == Enum.KeyCode.${punchKey} then
+        humanoid:LoadAnimation(punchAnim):Play()
+    elseif input.KeyCode == Enum.KeyCode.${kickKey} then
+        humanoid:LoadAnimation(kickAnim):Play()
+    end
+end)`;
+    }
+
+    function checkAnswers() {
+      const dropdowns = document.querySelectorAll('.blank-dropdown');
+      let allCorrect = true;
+      dropdowns.forEach(dropdown => {
+        const correct = dropdown.value === dropdown.dataset.answer;
+        dropdown.classList.remove('correct', 'incorrect');
+        dropdown.classList.add(correct ? 'correct' : 'incorrect');
+        if (!correct) allCorrect = false;
+      });
+      const feedback = document.getElementById('feedback');
+      feedback.classList.add('show');
+      if (allCorrect) {
+        feedback.className = 'feedback show success';
+        feedback.textContent = 'All correct! Opening your code...';
+        document.getElementById('fullCode').textContent = generateCode();
+        setTimeout(() => { document.getElementById('modal').classList.add('show'); }, 500);
+      } else {
+        feedback.className = 'feedback show error';
+        feedback.textContent = 'Some answers are incorrect. Try again!';
+      }
+    }
+
+    function closeModal() { document.getElementById('modal').classList.remove('show'); }
+    function copyCode() {
+      const code = document.getElementById('fullCode').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('Code copied to clipboard!');
+        const btn = event.target;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy Code'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+    document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+    updateVarDisplays();
+  </script>
+</body>
+</html>

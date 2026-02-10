@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Win Screen Script | Robocode</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .variables-section { background: #fff; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+    .variables-section h4 { color: var(--secondary-color); margin-bottom: 15px; font-size: 1.1rem; }
+    .variables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
+    .var-group { display: flex; flex-direction: column; gap: 5px; }
+    .var-group label { font-weight: 600; font-size: 0.9rem; color: #555; }
+    .var-group input, .var-group select { padding: 10px 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 1rem; }
+    .var-group input:focus, .var-group select:focus { outline: none; border-color: var(--secondary-color); }
+    .var-group .hint { font-size: 0.75rem; color: #888; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="index.html" class="active">Football</a>
+      <a href="../racing/index.html">Racing</a>
+      <a href="../obby/index.html">Obby</a>
+      <a href="../boxing/index.html">Boxing</a>
+      <a href="../escape-room/index.html">Escape Room</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <a href="index.html" class="back-link">&larr; Back to Football Scripts</a>
+    <div class="page-title">
+      <h2>Win Screen Script</h2>
+      <p>Customize your variables, then fill in the blanks!</p>
+    </div>
+
+    <div class="variables-section">
+      <h4>Your Custom Settings</h4>
+      <div class="variables-grid">
+        <div class="var-group">
+          <label>Team 1 Name</label>
+          <input type="text" id="var-team1" value="Reds">
+        </div>
+        <div class="var-group">
+          <label>Team 2 Name</label>
+          <input type="text" id="var-team2" value="Blues">
+        </div>
+        <div class="var-group">
+          <label>Goals to Win</label>
+          <select id="var-goals">
+            <option value="1">1 goal</option>
+            <option value="2" selected>2 goals</option>
+            <option value="3">3 goals</option>
+            <option value="5">5 goals</option>
+          </select>
+        </div>
+        <div class="var-group">
+          <label>Game Place ID</label>
+          <input type="text" id="var-gameid" value="123123123">
+          <span class="hint">Find in Game Settings</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-section">
+      <div class="script-info">
+        <h4>LocalScript (inside TextLabel)</h4>
+        <p>This shows a win message when a team wins. Create a TextLabel (Visible = false) and TextButton for "Play Again".</p>
+      </div>
+
+      <div class="code-quiz">
+        <div class="line"><span class="keyword">local</span> plr = game.<select class="blank-dropdown" data-answer="Players" id="q1"><option value="">Select...</option><option value="Players">Players</option><option value="Teams">Teams</option><option value="Users">Users</option></select>.<select class="blank-dropdown" data-answer="LocalPlayer" id="q2"><option value="">Select...</option><option value="LocalPlayer">LocalPlayer</option><option value="Player">Player</option><option value="CurrentPlayer">CurrentPlayer</option></select></div>
+        <div class="line"></div>
+        <div class="line"><span class="keyword">while</span> wait(<span class="number">1</span>) <span class="keyword">do</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> game.Teams.<span class="var-display" data-var="var-team1">Reds</span>.Goals.<select class="blank-dropdown" data-answer="Value" id="q3"><option value="">Select...</option><option value="Value">Value</option><option value="Score">Score</option><option value="Count">Count</option></select> > <span class="number var-display" data-var="var-goals">2</span> <span class="keyword">then</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script.Parent.<select class="blank-dropdown" data-answer="Visible" id="q4"><option value="">Select...</option><option value="Visible">Visible</option><option value="Enabled">Enabled</option><option value="Show">Show</option></select> = <span class="keyword">true</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script.Parent.<select class="blank-dropdown" data-answer="Text" id="q5"><option value="">Select...</option><option value="Text">Text</option><option value="Value">Value</option><option value="Message">Message</option></select> = <span class="string">"<span class="var-display" data-var="var-team1">Reds</span> Wins!"</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">elseif</span> game.Teams.<span class="var-display" data-var="var-team2">Blues</span>.Goals.Value > <span class="number var-display" data-var="var-goals">2</span> <span class="keyword">then</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script.Parent.Visible = <span class="keyword">true</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script.Parent.Text = <span class="string">"<span class="var-display" data-var="var-team2">Blues</span> Wins!"</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
+        <div class="line"><span class="keyword">end</span></div>
+        <div class="line"></div>
+        <div class="line">script.Parent.TextButton.<select class="blank-dropdown" data-answer="Activated" id="q6"><option value="">Select...</option><option value="Activated">Activated</option><option value="Clicked">Clicked</option><option value="Pressed">Pressed</option></select>:Connect(<span class="keyword">function</span>()</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;game:GetService(<span class="string">"<select class="blank-dropdown" data-answer="TeleportService" id="q7"><option value="">Select...</option><option value="TeleportService">TeleportService</option><option value="ReloadService">ReloadService</option><option value="RestartService">RestartService</option></select>"</span>):TeleportAsync(<span class="number var-display" data-var="var-gameid">123123123</span>, game.Players:GetPlayers())</div>
+        <div class="line"><span class="keyword">end</span>)</div>
+      </div>
+
+      <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
+      <div class="feedback" id="feedback"></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
+      <div class="modal-body">
+        <p style="margin-bottom: 15px;">Copy this code into a LocalScript inside your win TextLabel:</p>
+        <pre class="modal-code" id="fullCode"></pre>
+      </div>
+      <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
+    </div>
+  </div>
+
+  <footer class="footer"><p>Robocode &copy; 2026 - Young Game Developers</p></footer>
+
+  <script>
+    document.querySelectorAll('.variables-section input, .variables-section select').forEach(input => {
+      input.addEventListener('change', updateVarDisplays);
+      input.addEventListener('input', updateVarDisplays);
+    });
+
+    function updateVarDisplays() {
+      document.querySelectorAll('.var-display').forEach(span => {
+        const varId = span.dataset.var;
+        const input = document.getElementById(varId);
+        if (input) span.textContent = input.value;
+      });
+    }
+
+    function generateCode() {
+      const team1 = document.getElementById('var-team1').value;
+      const team2 = document.getElementById('var-team2').value;
+      const goals = document.getElementById('var-goals').value;
+      const gameid = document.getElementById('var-gameid').value;
+      return `local plr = game.Players.LocalPlayer
+
+while wait(1) do
+    if game.Teams.${team1}.Goals.Value > ${goals} then
+        script.Parent.Visible = true
+        script.Parent.Text = "${team1} Wins!"
+    elseif game.Teams.${team2}.Goals.Value > ${goals} then
+        script.Parent.Visible = true
+        script.Parent.Text = "${team2} Wins!"
+    end
+end
+
+script.Parent.TextButton.Activated:Connect(function()
+    game:GetService("TeleportService"):TeleportAsync(${gameid}, game.Players:GetPlayers())
+end)`;
+    }
+
+    function checkAnswers() {
+      const dropdowns = document.querySelectorAll('.blank-dropdown');
+      let allCorrect = true;
+      dropdowns.forEach(dropdown => {
+        const correct = dropdown.value === dropdown.dataset.answer;
+        dropdown.classList.remove('correct', 'incorrect');
+        dropdown.classList.add(correct ? 'correct' : 'incorrect');
+        if (!correct) allCorrect = false;
+      });
+      const feedback = document.getElementById('feedback');
+      feedback.classList.add('show');
+      if (allCorrect) {
+        feedback.className = 'feedback show success';
+        feedback.textContent = 'All correct! Opening your code...';
+        document.getElementById('fullCode').textContent = generateCode();
+        setTimeout(() => { document.getElementById('modal').classList.add('show'); }, 500);
+      } else {
+        feedback.className = 'feedback show error';
+        feedback.textContent = 'Some answers are incorrect. Try again!';
+      }
+    }
+
+    function closeModal() { document.getElementById('modal').classList.remove('show'); }
+    function copyCode() {
+      const code = document.getElementById('fullCode').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('Code copied to clipboard!');
+        const btn = event.target;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy Code'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+    document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+    updateVarDisplays();
+  </script>
+</body>
+</html>

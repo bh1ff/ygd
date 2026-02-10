@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Assignment Script | Robocode</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .variables-section { background: #fff; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+    .variables-section h4 { color: var(--secondary-color); margin-bottom: 15px; font-size: 1.1rem; }
+    .variables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
+    .var-group { display: flex; flex-direction: column; gap: 5px; }
+    .var-group label { font-weight: 600; font-size: 0.9rem; color: #555; }
+    .var-group input, .var-group select { padding: 10px 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 1rem; }
+    .var-group input:focus, .var-group select:focus { outline: none; border-color: var(--secondary-color); }
+    .var-group .hint { font-size: 0.75rem; color: #888; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="index.html" class="active">Football</a>
+      <a href="../racing/index.html">Racing</a>
+      <a href="../obby/index.html">Obby</a>
+      <a href="../boxing/index.html">Boxing</a>
+      <a href="../escape-room/index.html">Escape Room</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <a href="index.html" class="back-link">&larr; Back to Football Scripts</a>
+    <div class="page-title">
+      <h2>Team Assignment Script</h2>
+      <p>Customize your variables, then fill in the blanks!</p>
+    </div>
+
+    <div class="variables-section">
+      <h4>Your Custom Settings</h4>
+      <div class="variables-grid">
+        <div class="var-group">
+          <label>Team 1 Name</label>
+          <input type="text" id="var-team1" value="Blues">
+        </div>
+        <div class="var-group">
+          <label>Team 2 Name</label>
+          <input type="text" id="var-team2" value="Reds">
+        </div>
+        <div class="var-group">
+          <label>Spawn Positions</label>
+          <select id="var-positions">
+            <option value="3" selected>3 per team</option>
+            <option value="4">4 per team</option>
+            <option value="5">5 per team</option>
+            <option value="6">6 per team</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-section">
+      <div class="script-info">
+        <h4>Server Script (ServerScriptService)</h4>
+        <p>This script assigns players to teams and spawns them at team positions. Create folders with your team names in workspace containing numbered position parts.</p>
+      </div>
+
+      <div class="code-quiz">
+        <div class="line">game.<select class="blank-dropdown" data-answer="Players" id="q1"><option value="">Select...</option><option value="Players">Players</option><option value="Teams">Teams</option><option value="Workspace">Workspace</option></select>.<select class="blank-dropdown" data-answer="PlayerAdded" id="q2"><option value="">Select...</option><option value="PlayerAdded">PlayerAdded</option><option value="PlayerJoined">PlayerJoined</option><option value="ChildAdded">ChildAdded</option></select>:Connect(<span class="keyword">function</span>(player)</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;player.<select class="blank-dropdown" data-answer="CharacterAdded" id="q3"><option value="">Select...</option><option value="CharacterAdded">CharacterAdded</option><option value="CharacterLoaded">CharacterLoaded</option><option value="Spawned">Spawned</option></select>:Connect(<span class="keyword">function</span>(character)</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> #game.Teams.<span class="var-display" data-var="var-team2">Reds</span>:<select class="blank-dropdown" data-answer="GetPlayers" id="q4"><option value="">Select...</option><option value="GetPlayers">GetPlayers</option><option value="GetChildren">GetChildren</option><option value="FindPlayers">FindPlayers</option></select>() > #game.Teams.<span class="var-display" data-var="var-team1">Blues</span>:GetPlayers() <span class="keyword">then</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;player.<select class="blank-dropdown" data-answer="Team" id="q5"><option value="">Select...</option><option value="Team">Team</option><option value="TeamColor">TeamColor</option><option value="Group">Group</option></select> = game.Teams.<span class="var-display" data-var="var-team1">Blues</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;character.<select class="blank-dropdown" data-answer="HumanoidRootPart" id="q6"><option value="">Select...</option><option value="HumanoidRootPart">HumanoidRootPart</option><option value="Head">Head</option><option value="Torso">Torso</option></select>.CFrame = workspace.<span class="var-display" data-var="var-team1">Blues</span>:GetChildren()[math.random(1,<span class="var-display" data-var="var-positions">3</span>)].CFrame</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;player.Team = game.Teams.<span class="var-display" data-var="var-team2">Reds</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;character.HumanoidRootPart.<select class="blank-dropdown" data-answer="CFrame" id="q7"><option value="">Select...</option><option value="CFrame">CFrame</option><option value="Position">Position</option><option value="Location">Location</option></select> = workspace.<span class="var-display" data-var="var-team2">Reds</span>:GetChildren()[math.<select class="blank-dropdown" data-answer="random" id="q8"><option value="">Select...</option><option value="random">random</option><option value="rand">rand</option><option value="choose">choose</option></select>(1,<span class="var-display" data-var="var-positions">3</span>)].CFrame</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>)</div>
+        <div class="line"><span class="keyword">end</span>)</div>
+      </div>
+
+      <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
+      <div class="feedback" id="feedback"></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
+      <div class="modal-body">
+        <p style="margin-bottom: 15px;">Copy this code into a Script in ServerScriptService:</p>
+        <pre class="modal-code" id="fullCode"></pre>
+      </div>
+      <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
+    </div>
+  </div>
+
+  <footer class="footer"><p>Robocode &copy; 2026 - Young Game Developers</p></footer>
+
+  <script>
+    document.querySelectorAll('.variables-section input, .variables-section select').forEach(input => {
+      input.addEventListener('change', updateVarDisplays);
+      input.addEventListener('input', updateVarDisplays);
+    });
+
+    function updateVarDisplays() {
+      document.querySelectorAll('.var-display').forEach(span => {
+        const varId = span.dataset.var;
+        const input = document.getElementById(varId);
+        if (input) span.textContent = input.value;
+      });
+    }
+
+    function generateCode() {
+      const team1 = document.getElementById('var-team1').value;
+      const team2 = document.getElementById('var-team2').value;
+      const positions = document.getElementById('var-positions').value;
+      return `game.Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function(character)
+        if #game.Teams.${team2}:GetPlayers() > #game.Teams.${team1}:GetPlayers() then
+            player.Team = game.Teams.${team1}
+            character.HumanoidRootPart.CFrame = workspace.${team1}:GetChildren()[math.random(1,${positions})].CFrame
+        else
+            player.Team = game.Teams.${team2}
+            character.HumanoidRootPart.CFrame = workspace.${team2}:GetChildren()[math.random(1,${positions})].CFrame
+        end
+    end)
+end)`;
+    }
+
+    function checkAnswers() {
+      const dropdowns = document.querySelectorAll('.blank-dropdown');
+      let allCorrect = true;
+      dropdowns.forEach(dropdown => {
+        const correct = dropdown.value === dropdown.dataset.answer;
+        dropdown.classList.remove('correct', 'incorrect');
+        dropdown.classList.add(correct ? 'correct' : 'incorrect');
+        if (!correct) allCorrect = false;
+      });
+      const feedback = document.getElementById('feedback');
+      feedback.classList.add('show');
+      if (allCorrect) {
+        feedback.className = 'feedback show success';
+        feedback.textContent = 'All correct! Opening your code...';
+        document.getElementById('fullCode').textContent = generateCode();
+        setTimeout(() => { document.getElementById('modal').classList.add('show'); }, 500);
+      } else {
+        feedback.className = 'feedback show error';
+        feedback.textContent = 'Some answers are incorrect. Try again!';
+      }
+    }
+
+    function closeModal() { document.getElementById('modal').classList.remove('show'); }
+    function copyCode() {
+      const code = document.getElementById('fullCode').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('Code copied to clipboard!');
+        const btn = event.target;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy Code'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+    document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+    updateVarDisplays();
+  </script>
+</body>
+</html>

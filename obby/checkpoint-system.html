@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkpoint System Script | Robocode</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .variables-section { background: #fff; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+    .variables-section h4 { color: var(--secondary-color); margin-bottom: 15px; font-size: 1.1rem; }
+    .variables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
+    .var-group { display: flex; flex-direction: column; gap: 5px; }
+    .var-group label { font-weight: 600; font-size: 0.9rem; color: #555; }
+    .var-group input, .var-group select { padding: 10px 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 1rem; }
+    .var-group input:focus, .var-group select:focus { outline: none; border-color: var(--secondary-color); }
+    .var-group .hint { font-size: 0.75rem; color: #888; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../football/index.html">Football</a>
+      <a href="../racing/index.html">Racing</a>
+      <a href="index.html" class="active">Obby</a>
+      <a href="../boxing/index.html">Boxing</a>
+      <a href="../escape-room/index.html">Escape Room</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <a href="index.html" class="back-link">&larr; Back to Obby Scripts</a>
+    <div class="page-title">
+      <h2>Checkpoint System Script</h2>
+      <p>Customize your variables, then fill in the blanks!</p>
+    </div>
+
+    <div class="variables-section">
+      <h4>Your Custom Settings</h4>
+      <div class="variables-grid">
+        <div class="var-group">
+          <label>Checkpoints Folder Name</label>
+          <input type="text" id="var-folder" value="Checkpoints">
+        </div>
+        <div class="var-group">
+          <label>First Checkpoint Name</label>
+          <input type="text" id="var-first" value="1">
+          <span class="hint">Starting checkpoint (usually "1")</span>
+        </div>
+        <div class="var-group">
+          <label>Spawn Height Offset</label>
+          <select id="var-height">
+            <option value="3" selected>3 studs</option>
+            <option value="5">5 studs</option>
+            <option value="10">10 studs</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-section">
+      <div class="script-info">
+        <h4>LocalScript (StarterPlayerScripts)</h4>
+        <p>This script saves progress at checkpoints and respawns players at their last checkpoint. Create a "Checkpoints" folder in Workspace with numbered parts (1, 2, 3, etc.).</p>
+      </div>
+
+      <div class="code-quiz">
+        <div class="line"><span class="keyword">local</span> player = game.<select class="blank-dropdown" data-answer="Players" id="q1"><option value="">Select...</option><option value="Players">Players</option><option value="Users">Users</option><option value="People">People</option></select>.<select class="blank-dropdown" data-answer="LocalPlayer" id="q2"><option value="">Select...</option><option value="LocalPlayer">LocalPlayer</option><option value="Player">Player</option><option value="Me">Me</option></select></div>
+        <div class="line"><span class="keyword">local</span> checkpoints = workspace:<select class="blank-dropdown" data-answer="WaitForChild" id="q3"><option value="">Select...</option><option value="WaitForChild">WaitForChild</option><option value="FindFirstChild">FindFirstChild</option><option value="GetChild">GetChild</option></select>(<span class="string">"<span class="var-display" data-var="var-folder">Checkpoints</span>"</span>)</div>
+        <div class="line"><span class="keyword">local</span> lastCheckpointPart</div>
+        <div class="line">lastCheckpointPart = checkpoints:WaitForChild(<span class="string">"<span class="var-display" data-var="var-first">1</span>"</span>)</div>
+        <div class="line"></div>
+        <div class="line">player.<select class="blank-dropdown" data-answer="CharacterAdded" id="q4"><option value="">Select...</option><option value="CharacterAdded">CharacterAdded</option><option value="Spawned">Spawned</option><option value="Respawned">Respawned</option></select>:Connect(<span class="keyword">function</span>(character)</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> hrp = character:WaitForChild(<span class="string">"<select class="blank-dropdown" data-answer="HumanoidRootPart" id="q5"><option value="">Select...</option><option value="HumanoidRootPart">HumanoidRootPart</option><option value="Head">Head</option><option value="Torso">Torso</option></select>"</span>)</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;task.wait(<span class="number">0.1</span>)</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> lastCheckpointPart <span class="keyword">then</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hrp.<select class="blank-dropdown" data-answer="CFrame" id="q6"><option value="">Select...</option><option value="CFrame">CFrame</option><option value="Position">Position</option><option value="Location">Location</option></select> = lastCheckpointPart.CFrame + <select class="blank-dropdown" data-answer="Vector3" id="q7"><option value="">Select...</option><option value="Vector3">Vector3</option><option value="Vector2">Vector2</option><option value="Position">Position</option></select>.new(<span class="number">0</span>, <span class="number var-display" data-var="var-height">3</span>, <span class="number">0</span>)</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
+        <div class="line"><span class="keyword">end</span>)</div>
+        <div class="line"></div>
+        <div class="line"><span class="keyword">for</span> _, checkpoint <span class="keyword">in</span> pairs(checkpoints:GetChildren()) <span class="keyword">do</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> checkpoint:IsA(<span class="string">"BasePart"</span>) <span class="keyword">then</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;checkpoint.<select class="blank-dropdown" data-answer="Touched" id="q8"><option value="">Select...</option><option value="Touched">Touched</option><option value="Hit">Hit</option><option value="Contact">Contact</option></select>:Connect(<span class="keyword">function</span>(hit)</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> character = hit:FindFirstAncestorOfClass(<span class="string">"Model"</span>)</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> humanoid = character <span class="keyword">and</span> character:FindFirstChildOfClass(<span class="string">"Humanoid"</span>)</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> humanoid <span class="keyword">and</span> player.Character == character <span class="keyword">then</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> lastCheckpointPart ~= checkpoint <span class="keyword">then</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lastCheckpointPart = checkpoint</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>)</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
+        <div class="line"><span class="keyword">end</span></div>
+      </div>
+
+      <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
+      <div class="feedback" id="feedback"></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
+      <div class="modal-body">
+        <p style="margin-bottom: 15px;">Copy this code into a LocalScript in StarterPlayerScripts:</p>
+        <pre class="modal-code" id="fullCode"></pre>
+      </div>
+      <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
+    </div>
+  </div>
+
+  <footer class="footer"><p>Robocode &copy; 2026 - Young Game Developers</p></footer>
+
+  <script>
+    document.querySelectorAll('.variables-section input, .variables-section select').forEach(input => {
+      input.addEventListener('change', updateVarDisplays);
+      input.addEventListener('input', updateVarDisplays);
+    });
+
+    function updateVarDisplays() {
+      document.querySelectorAll('.var-display').forEach(span => {
+        const varId = span.dataset.var;
+        const input = document.getElementById(varId);
+        if (input) span.textContent = input.value;
+      });
+    }
+
+    function generateCode() {
+      const folder = document.getElementById('var-folder').value;
+      const first = document.getElementById('var-first').value;
+      const height = document.getElementById('var-height').value;
+      return `local player = game.Players.LocalPlayer
+local checkpoints = workspace:WaitForChild("${folder}")
+local lastCheckpointPart
+lastCheckpointPart = checkpoints:WaitForChild("${first}")
+
+player.CharacterAdded:Connect(function(character)
+    local hrp = character:WaitForChild("HumanoidRootPart")
+    task.wait(0.1)
+    if lastCheckpointPart then
+        hrp.CFrame = lastCheckpointPart.CFrame + Vector3.new(0, ${height}, 0)
+    end
+end)
+
+for _, checkpoint in pairs(checkpoints:GetChildren()) do
+    if checkpoint:IsA("BasePart") then
+        checkpoint.Touched:Connect(function(hit)
+            local character = hit:FindFirstAncestorOfClass("Model")
+            local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+            if humanoid and player.Character == character then
+                if lastCheckpointPart ~= checkpoint then
+                    lastCheckpointPart = checkpoint
+                end
+            end
+        end)
+    end
+end`;
+    }
+
+    function checkAnswers() {
+      const dropdowns = document.querySelectorAll('.blank-dropdown');
+      let allCorrect = true;
+      dropdowns.forEach(dropdown => {
+        const correct = dropdown.value === dropdown.dataset.answer;
+        dropdown.classList.remove('correct', 'incorrect');
+        dropdown.classList.add(correct ? 'correct' : 'incorrect');
+        if (!correct) allCorrect = false;
+      });
+      const feedback = document.getElementById('feedback');
+      feedback.classList.add('show');
+      if (allCorrect) {
+        feedback.className = 'feedback show success';
+        feedback.textContent = 'All correct! Opening your code...';
+        document.getElementById('fullCode').textContent = generateCode();
+        setTimeout(() => { document.getElementById('modal').classList.add('show'); }, 500);
+      } else {
+        feedback.className = 'feedback show error';
+        feedback.textContent = 'Some answers are incorrect. Try again!';
+      }
+    }
+
+    function closeModal() { document.getElementById('modal').classList.remove('show'); }
+    function copyCode() {
+      const code = document.getElementById('fullCode').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('Code copied to clipboard!');
+        const btn = event.target;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy Code'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+    document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+    updateVarDisplays();
+  </script>
+</body>
+</html>

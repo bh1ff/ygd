@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Key Spawn Script | Robocode</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .variables-section { background: #fff; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+    .variables-section h4 { color: var(--secondary-color); margin-bottom: 15px; font-size: 1.1rem; }
+    .variables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
+    .var-group { display: flex; flex-direction: column; gap: 5px; }
+    .var-group label { font-weight: 600; font-size: 0.9rem; color: #555; }
+    .var-group input, .var-group select { padding: 10px 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 1rem; }
+    .var-group input:focus, .var-group select:focus { outline: none; border-color: var(--secondary-color); }
+    .var-group .hint { font-size: 0.75rem; color: #888; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../football/index.html">Football</a>
+      <a href="../racing/index.html">Racing</a>
+      <a href="../obby/index.html">Obby</a>
+      <a href="../boxing/index.html">Boxing</a>
+      <a href="index.html" class="active">Escape Room</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <a href="index.html" class="back-link">&larr; Back to Escape Room Scripts</a>
+    <div class="page-title">
+      <h2>Random Key Spawn Script</h2>
+      <p>Customize your variables, then fill in the blanks!</p>
+    </div>
+
+    <div class="variables-section">
+      <h4>Your Custom Settings</h4>
+      <div class="variables-grid">
+        <div class="var-group">
+          <label>Key Tool Name</label>
+          <input type="text" id="var-keytool" value="keyTool">
+          <span class="hint">Tool name in Workspace</span>
+        </div>
+        <div class="var-group">
+          <label>Spawn Points Folder</label>
+          <input type="text" id="var-folder" value="spawnPoints">
+          <span class="hint">Folder with spawn location parts</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-section">
+      <div class="script-info">
+        <h4>Script (ServerScriptService)</h4>
+        <p>This script moves the key to a random spawn point when the game starts. Create a folder called "spawnPoints" in Workspace with small parts where you want the key to appear!</p>
+      </div>
+
+      <div class="code-quiz">
+        <div class="line"><span class="keyword">local</span> keyTool = workspace:<select class="blank-dropdown" data-answer="WaitForChild" id="q1"><option value="">Select...</option><option value="WaitForChild">WaitForChild</option><option value="FindFirstChild">FindFirstChild</option><option value="GetChild">GetChild</option></select>(<span class="string">"<span class="var-display" data-var="var-keytool">keyTool</span>"</span>)</div>
+        <div class="line"><span class="keyword">local</span> spawnPoints = workspace:WaitForChild(<span class="string">"<span class="var-display" data-var="var-folder">spawnPoints</span>"</span>)</div>
+        <div class="line"></div>
+        <div class="line"><span class="keyword">local</span> allSpawns = spawnPoints:<select class="blank-dropdown" data-answer="GetChildren" id="q2"><option value="">Select...</option><option value="GetChildren">GetChildren</option><option value="GetParts">GetParts</option><option value="FindAll">FindAll</option></select>()</div>
+        <div class="line"><span class="keyword">local</span> randomIndex = math.<select class="blank-dropdown" data-answer="random" id="q3"><option value="">Select...</option><option value="random">random</option><option value="rand">rand</option><option value="randomize">randomize</option></select>(<span class="number">1</span>, #allSpawns)</div>
+        <div class="line"><span class="keyword">local</span> chosenSpawn = allSpawns[randomIndex]</div>
+        <div class="line"></div>
+        <div class="line">keyTool:<select class="blank-dropdown" data-answer="PivotTo" id="q4"><option value="">Select...</option><option value="PivotTo">PivotTo</option><option value="MoveTo">MoveTo</option><option value="SetPosition">SetPosition</option></select>(chosenSpawn.<select class="blank-dropdown" data-answer="CFrame" id="q5"><option value="">Select...</option><option value="CFrame">CFrame</option><option value="Position">Position</option><option value="Location">Location</option></select>)</div>
+      </div>
+
+      <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
+      <div class="feedback" id="feedback"></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
+      <div class="modal-body">
+        <p style="margin-bottom: 15px;">Copy this code into a Script in ServerScriptService:</p>
+        <pre class="modal-code" id="fullCode"></pre>
+      </div>
+      <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
+    </div>
+  </div>
+
+  <footer class="footer"><p>Robocode &copy; 2026 - Young Game Developers</p></footer>
+
+  <script>
+    document.querySelectorAll('.variables-section input, .variables-section select').forEach(input => {
+      input.addEventListener('change', updateVarDisplays);
+      input.addEventListener('input', updateVarDisplays);
+    });
+
+    function updateVarDisplays() {
+      document.querySelectorAll('.var-display').forEach(span => {
+        const varId = span.dataset.var;
+        const input = document.getElementById(varId);
+        if (input) span.textContent = input.value;
+      });
+    }
+
+    function generateCode() {
+      const keyTool = document.getElementById('var-keytool').value;
+      const folder = document.getElementById('var-folder').value;
+      return `local keyTool = workspace:WaitForChild("${keyTool}")
+local spawnPoints = workspace:WaitForChild("${folder}")
+
+local allSpawns = spawnPoints:GetChildren()
+local randomIndex = math.random(1, #allSpawns)
+local chosenSpawn = allSpawns[randomIndex]
+
+keyTool:PivotTo(chosenSpawn.CFrame)`;
+    }
+
+    function checkAnswers() {
+      const dropdowns = document.querySelectorAll('.blank-dropdown');
+      let allCorrect = true;
+      dropdowns.forEach(dropdown => {
+        const correct = dropdown.value === dropdown.dataset.answer;
+        dropdown.classList.remove('correct', 'incorrect');
+        dropdown.classList.add(correct ? 'correct' : 'incorrect');
+        if (!correct) allCorrect = false;
+      });
+      const feedback = document.getElementById('feedback');
+      feedback.classList.add('show');
+      if (allCorrect) {
+        feedback.className = 'feedback show success';
+        feedback.textContent = 'All correct! Opening your code...';
+        document.getElementById('fullCode').textContent = generateCode();
+        setTimeout(() => { document.getElementById('modal').classList.add('show'); }, 500);
+      } else {
+        feedback.className = 'feedback show error';
+        feedback.textContent = 'Some answers are incorrect. Try again!';
+      }
+    }
+
+    function closeModal() { document.getElementById('modal').classList.remove('show'); }
+    function copyCode() {
+      const code = document.getElementById('fullCode').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('Code copied to clipboard!');
+        const btn = event.target;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy Code'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+    document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+    updateVarDisplays();
+  </script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moving Platform Script | Robocode</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .variables-section { background: #fff; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+    .variables-section h4 { color: var(--secondary-color); margin-bottom: 15px; font-size: 1.1rem; }
+    .variables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
+    .var-group { display: flex; flex-direction: column; gap: 5px; }
+    .var-group label { font-weight: 600; font-size: 0.9rem; color: #555; }
+    .var-group input, .var-group select { padding: 10px 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 1rem; }
+    .var-group input:focus, .var-group select:focus { outline: none; border-color: var(--secondary-color); }
+    .var-group .hint { font-size: 0.75rem; color: #888; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../football/index.html">Football</a>
+      <a href="../racing/index.html">Racing</a>
+      <a href="index.html" class="active">Obby</a>
+      <a href="../boxing/index.html">Boxing</a>
+      <a href="../escape-room/index.html">Escape Room</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <a href="index.html" class="back-link">&larr; Back to Obby Scripts</a>
+    <div class="page-title">
+      <h2>Moving Platform Script</h2>
+      <p>Customize your variables, then fill in the blanks!</p>
+    </div>
+
+    <div class="variables-section">
+      <h4>Your Custom Settings</h4>
+      <div class="variables-grid">
+        <div class="var-group">
+          <label>Move Distance</label>
+          <select id="var-distance">
+            <option value="10">10 studs</option>
+            <option value="20" selected>20 studs</option>
+            <option value="30">30 studs</option>
+            <option value="50">50 studs</option>
+          </select>
+        </div>
+        <div class="var-group">
+          <label>Move Direction</label>
+          <select id="var-direction">
+            <option value="z" selected>Forward/Back (Z)</option>
+            <option value="x">Left/Right (X)</option>
+            <option value="y">Up/Down (Y)</option>
+          </select>
+        </div>
+        <div class="var-group">
+          <label>Move Duration</label>
+          <select id="var-duration">
+            <option value="1">1 second (Fast)</option>
+            <option value="2" selected>2 seconds</option>
+            <option value="3">3 seconds</option>
+            <option value="5">5 seconds (Slow)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-section">
+      <div class="script-info">
+        <h4>Script (inside the moving platform)</h4>
+        <p>This script makes a platform move back and forth using TweenService. Make sure the part is Anchored!</p>
+      </div>
+
+      <div class="code-quiz">
+        <div class="line"><span class="keyword">local</span> TweenService = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"TweenService"</span>)</div>
+        <div class="line"><span class="keyword">local</span> platform = script.<select class="blank-dropdown" data-answer="Parent" id="q2"><option value="">Select...</option><option value="Parent">Parent</option><option value="Part">Part</option><option value="Platform">Platform</option></select></div>
+        <div class="line"></div>
+        <div class="line"><span class="keyword">local</span> startPos = platform.<select class="blank-dropdown" data-answer="Position" id="q3"><option value="">Select...</option><option value="Position">Position</option><option value="CFrame">CFrame</option><option value="Location">Location</option></select></div>
+        <div class="line"><span class="keyword">local</span> endPos = startPos + <select class="blank-dropdown" data-answer="Vector3" id="q4"><option value="">Select...</option><option value="Vector3">Vector3</option><option value="Vector2">Vector2</option><option value="Position">Position</option></select>.new(<span class="number">0</span>, <span class="number">0</span>, <span class="number var-display" data-var="var-distance">20</span>)</div>
+        <div class="line"></div>
+        <div class="line"><span class="keyword">local</span> tweenInfo = <select class="blank-dropdown" data-answer="TweenInfo" id="q5"><option value="">Select...</option><option value="TweenInfo">TweenInfo</option><option value="TweenData">TweenData</option><option value="AnimInfo">AnimInfo</option></select>.new(</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="number var-display" data-var="var-duration">2</span>,</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;Enum.EasingStyle.<select class="blank-dropdown" data-answer="Linear" id="q6"><option value="">Select...</option><option value="Linear">Linear</option><option value="Smooth">Smooth</option><option value="Easy">Easy</option></select>,</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;Enum.EasingDirection.InOut,</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="number">-1</span>,</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">true</span></div>
+        <div class="line">)</div>
+        <div class="line"></div>
+        <div class="line"><span class="keyword">local</span> tween = TweenService:<select class="blank-dropdown" data-answer="Create" id="q7"><option value="">Select...</option><option value="Create">Create</option><option value="Make">Make</option><option value="New">New</option></select>(platform, tweenInfo, {Position = endPos})</div>
+        <div class="line">tween:<select class="blank-dropdown" data-answer="Play" id="q8"><option value="">Select...</option><option value="Play">Play</option><option value="Start">Start</option><option value="Run">Run</option></select>()</div>
+      </div>
+
+      <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
+      <div class="feedback" id="feedback"></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
+      <div class="modal-body">
+        <p style="margin-bottom: 15px;">Copy this code into a Script inside your moving platform:</p>
+        <pre class="modal-code" id="fullCode"></pre>
+      </div>
+      <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
+    </div>
+  </div>
+
+  <footer class="footer"><p>Robocode &copy; 2026 - Young Game Developers</p></footer>
+
+  <script>
+    document.querySelectorAll('.variables-section input, .variables-section select').forEach(input => {
+      input.addEventListener('change', updateVarDisplays);
+      input.addEventListener('input', updateVarDisplays);
+    });
+
+    function updateVarDisplays() {
+      document.querySelectorAll('.var-display').forEach(span => {
+        const varId = span.dataset.var;
+        const input = document.getElementById(varId);
+        if (input) span.textContent = input.value;
+      });
+    }
+
+    function generateCode() {
+      const distance = document.getElementById('var-distance').value;
+      const direction = document.getElementById('var-direction').value;
+      const duration = document.getElementById('var-duration').value;
+      let x = 0, y = 0, z = 0;
+      if (direction === 'x') x = distance;
+      else if (direction === 'y') y = distance;
+      else z = distance;
+      return `local TweenService = game:GetService("TweenService")
+local platform = script.Parent
+
+local startPos = platform.Position
+local endPos = startPos + Vector3.new(${x}, ${y}, ${z})
+
+local tweenInfo = TweenInfo.new(
+    ${duration},
+    Enum.EasingStyle.Linear,
+    Enum.EasingDirection.InOut,
+    -1,
+    true
+)
+
+local tween = TweenService:Create(platform, tweenInfo, {Position = endPos})
+tween:Play()`;
+    }
+
+    function checkAnswers() {
+      const dropdowns = document.querySelectorAll('.blank-dropdown');
+      let allCorrect = true;
+      dropdowns.forEach(dropdown => {
+        const correct = dropdown.value === dropdown.dataset.answer;
+        dropdown.classList.remove('correct', 'incorrect');
+        dropdown.classList.add(correct ? 'correct' : 'incorrect');
+        if (!correct) allCorrect = false;
+      });
+      const feedback = document.getElementById('feedback');
+      feedback.classList.add('show');
+      if (allCorrect) {
+        feedback.className = 'feedback show success';
+        feedback.textContent = 'All correct! Opening your code...';
+        document.getElementById('fullCode').textContent = generateCode();
+        setTimeout(() => { document.getElementById('modal').classList.add('show'); }, 500);
+      } else {
+        feedback.className = 'feedback show error';
+        feedback.textContent = 'Some answers are incorrect. Try again!';
+      }
+    }
+
+    function closeModal() { document.getElementById('modal').classList.remove('show'); }
+    function copyCode() {
+      const code = document.getElementById('fullCode').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('Code copied to clipboard!');
+        const btn = event.target;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy Code'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+    document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+    updateVarDisplays();
+  </script>
+</body>
+</html>
