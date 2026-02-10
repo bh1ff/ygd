@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
     <nav class="nav-links">
       <a href="../index.html">Home</a>
       <a href="../football/index.html">Football</a>
@@ -65,22 +65,22 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line"><span class="keyword">local</span> TweenService = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"TweenService"</span>)</div>
-        <div class="line"><span class="keyword">local</span> platform = script.<select class="blank-dropdown" data-answer="Parent" id="q2"><option value="">Select...</option><option value="Parent">Parent</option><option value="Part">Part</option><option value="Platform">Platform</option></select></div>
+        <div class="line" data-explain="Get TweenService for smooth animations"><span class="keyword">local</span> TweenService = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"TweenService"</span>)</div>
+        <div class="line" data-explain="Get the platform this script is inside"><span class="keyword">local</span> platform = script.<select class="blank-dropdown" data-answer="Parent" id="q2"><option value="">Select...</option><option value="Parent">Parent</option><option value="Part">Part</option><option value="Platform">Platform</option></select></div>
         <div class="line"></div>
-        <div class="line"><span class="keyword">local</span> startPos = platform.<select class="blank-dropdown" data-answer="Position" id="q3"><option value="">Select...</option><option value="Position">Position</option><option value="CFrame">CFrame</option><option value="Location">Location</option></select></div>
-        <div class="line"><span class="keyword">local</span> endPos = startPos + <select class="blank-dropdown" data-answer="Vector3" id="q4"><option value="">Select...</option><option value="Vector3">Vector3</option><option value="Vector2">Vector2</option><option value="Position">Position</option></select>.new(<span class="number">0</span>, <span class="number">0</span>, <span class="number var-display" data-var="var-distance">20</span>)</div>
+        <div class="line" data-explain="Save the starting position"><span class="keyword">local</span> startPos = platform.<select class="blank-dropdown" data-answer="Position" id="q3"><option value="">Select...</option><option value="Position">Position</option><option value="CFrame">CFrame</option><option value="Location">Location</option></select></div>
+        <div class="line" data-explain="Calculate the end position (start + distance)"><span class="keyword">local</span> endPos = startPos + <select class="blank-dropdown" data-answer="Vector3" id="q4"><option value="">Select...</option><option value="Vector3">Vector3</option><option value="Vector2">Vector2</option><option value="Position">Position</option></select>.new(<span class="number">0</span>, <span class="number">0</span>, <span class="number var-display" data-var="var-distance">20</span>)</div>
         <div class="line"></div>
-        <div class="line"><span class="keyword">local</span> tweenInfo = <select class="blank-dropdown" data-answer="TweenInfo" id="q5"><option value="">Select...</option><option value="TweenInfo">TweenInfo</option><option value="TweenData">TweenData</option><option value="AnimInfo">AnimInfo</option></select>.new(</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="number var-display" data-var="var-duration">2</span>,</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;Enum.EasingStyle.<select class="blank-dropdown" data-answer="Linear" id="q6"><option value="">Select...</option><option value="Linear">Linear</option><option value="Smooth">Smooth</option><option value="Easy">Easy</option></select>,</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;Enum.EasingDirection.InOut,</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="number">-1</span>,</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">true</span></div>
-        <div class="line">)</div>
+        <div class="line" data-explain="Create settings for the tween animation"><span class="keyword">local</span> tweenInfo = <select class="blank-dropdown" data-answer="TweenInfo" id="q5"><option value="">Select...</option><option value="TweenInfo">TweenInfo</option><option value="TweenData">TweenData</option><option value="AnimInfo">AnimInfo</option></select>.new(</div>
+        <div class="line" data-explain="How long each movement takes (seconds)">&nbsp;&nbsp;&nbsp;&nbsp;<span class="number var-display" data-var="var-duration">2</span>,</div>
+        <div class="line" data-explain="Move at constant speed (no easing)">&nbsp;&nbsp;&nbsp;&nbsp;Enum.EasingStyle.<select class="blank-dropdown" data-answer="Linear" id="q6"><option value="">Select...</option><option value="Linear">Linear</option><option value="Smooth">Smooth</option><option value="Easy">Easy</option></select>,</div>
+        <div class="line" data-explain="Smooth at both start and end">&nbsp;&nbsp;&nbsp;&nbsp;Enum.EasingDirection.InOut,</div>
+        <div class="line" data-explain="-1 means repeat forever">&nbsp;&nbsp;&nbsp;&nbsp;<span class="number">-1</span>,</div>
+        <div class="line" data-explain="true = reverse back to start">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">true</span></div>
+        <div class="line" data-explain="End TweenInfo settings">)</div>
         <div class="line"></div>
-        <div class="line"><span class="keyword">local</span> tween = TweenService:<select class="blank-dropdown" data-answer="Create" id="q7"><option value="">Select...</option><option value="Create">Create</option><option value="Make">Make</option><option value="New">New</option></select>(platform, tweenInfo, {Position = endPos})</div>
-        <div class="line">tween:<select class="blank-dropdown" data-answer="Play" id="q8"><option value="">Select...</option><option value="Play">Play</option><option value="Start">Start</option><option value="Run">Run</option></select>()</div>
+        <div class="line" data-explain="Create the tween animation"><span class="keyword">local</span> tween = TweenService:<select class="blank-dropdown" data-answer="Create" id="q7"><option value="">Select...</option><option value="Create">Create</option><option value="Make">Make</option><option value="New">New</option></select>(platform, tweenInfo, {Position = endPos})</div>
+        <div class="line" data-explain="Start the animation">tween:<select class="blank-dropdown" data-answer="Play" id="q8"><option value="">Select...</option><option value="Play">Play</option><option value="Start">Start</option><option value="Run">Run</option></select>()</div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>

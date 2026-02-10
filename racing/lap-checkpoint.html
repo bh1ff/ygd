@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
     <nav class="nav-links">
       <a href="../index.html">Home</a>
       <a href="../football/index.html">Football</a>
@@ -52,16 +52,16 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line"><span class="keyword">local</span> repStore = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"ReplicatedStorage"</span>)</div>
-        <div class="line"><span class="keyword">local</span> lapEvent = repStore:<select class="blank-dropdown" data-answer="WaitForChild" id="q2"><option value="">Select...</option><option value="WaitForChild">WaitForChild</option><option value="FindFirstChild">FindFirstChild</option><option value="GetChild">GetChild</option></select>(<span class="string">"<span class="var-display" data-var="var-event">LapEvent</span>"</span>)</div>
+        <div class="line" data-explain="Get ReplicatedStorage where shared objects are stored"><span class="keyword">local</span> repStore = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"ReplicatedStorage"</span>)</div>
+        <div class="line" data-explain="Get the RemoteEvent that tells the server about laps"><span class="keyword">local</span> lapEvent = repStore:<select class="blank-dropdown" data-answer="WaitForChild" id="q2"><option value="">Select...</option><option value="WaitForChild">WaitForChild</option><option value="FindFirstChild">FindFirstChild</option><option value="GetChild">GetChild</option></select>(<span class="string">"<span class="var-display" data-var="var-event">LapEvent</span>"</span>)</div>
         <div class="line"></div>
-        <div class="line"><span class="keyword">local</span> lapCheckpoint = game.<select class="blank-dropdown" data-answer="Workspace" id="q3"><option value="">Select...</option><option value="Workspace">Workspace</option><option value="World">World</option><option value="Game">Game</option></select>:WaitForChild(<span class="string">"<span class="var-display" data-var="var-checkpoint">LapCheckpoint</span>"</span>)</div>
+        <div class="line" data-explain="Get the checkpoint part from the game world"><span class="keyword">local</span> lapCheckpoint = game.<select class="blank-dropdown" data-answer="Workspace" id="q3"><option value="">Select...</option><option value="Workspace">Workspace</option><option value="World">World</option><option value="Game">Game</option></select>:WaitForChild(<span class="string">"<span class="var-display" data-var="var-checkpoint">LapCheckpoint</span>"</span>)</div>
         <div class="line"></div>
-        <div class="line">lapCheckpoint.<select class="blank-dropdown" data-answer="Touched" id="q4"><option value="">Select...</option><option value="Touched">Touched</option><option value="Hit">Hit</option><option value="Collision">Collision</option></select>:Connect(<span class="keyword">function</span>(hit)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> hit.<select class="blank-dropdown" data-answer="Parent" id="q5"><option value="">Select...</option><option value="Parent">Parent</option><option value="Model">Model</option><option value="Owner">Owner</option></select> == game.Workspace.<span class="var-display" data-var="var-car">myCar</span> <span class="keyword">then</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lapEvent:<select class="blank-dropdown" data-answer="FireServer" id="q6"><option value="">Select...</option><option value="FireServer">FireServer</option><option value="Trigger">Trigger</option><option value="Send">Send</option></select>()</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
-        <div class="line"><span class="keyword">end</span>)</div>
+        <div class="line" data-explain="When something touches the checkpoint">lapCheckpoint.<select class="blank-dropdown" data-answer="Touched" id="q4"><option value="">Select...</option><option value="Touched">Touched</option><option value="Hit">Hit</option><option value="Collision">Collision</option></select>:Connect(<span class="keyword">function</span>(hit)</div>
+        <div class="line" data-explain="Check if it was our car that touched it">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> hit.<select class="blank-dropdown" data-answer="Parent" id="q5"><option value="">Select...</option><option value="Parent">Parent</option><option value="Model">Model</option><option value="Owner">Owner</option></select> == game.Workspace.<span class="var-display" data-var="var-car">myCar</span> <span class="keyword">then</span></div>
+        <div class="line" data-explain="Tell the server we completed a lap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lapEvent:<select class="blank-dropdown" data-answer="FireServer" id="q6"><option value="">Select...</option><option value="FireServer">FireServer</option><option value="Trigger">Trigger</option><option value="Send">Send</option></select>()</div>
+        <div class="line" data-explain="End the if block">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
+        <div class="line" data-explain="End the function"><span class="keyword">end</span>)</div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>

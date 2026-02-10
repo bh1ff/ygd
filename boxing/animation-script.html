@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
     <nav class="nav-links">
       <a href="../index.html">Home</a>
       <a href="../football/index.html">Football</a>
@@ -67,24 +67,24 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line"><span class="keyword">local</span> UIS = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"UserInputService"</span>)</div>
-        <div class="line"><span class="keyword">local</span> character = script.<select class="blank-dropdown" data-answer="Parent" id="q2"><option value="">Select...</option><option value="Parent">Parent</option><option value="Character">Character</option><option value="Model">Model</option></select></div>
-        <div class="line"><span class="keyword">local</span> humanoid = character:<select class="blank-dropdown" data-answer="WaitForChild" id="q3"><option value="">Select...</option><option value="WaitForChild">WaitForChild</option><option value="FindFirstChild">FindFirstChild</option><option value="GetChild">GetChild</option></select>(<span class="string">"Humanoid"</span>)</div>
+        <div class="line" data-explain="Get UserInputService to detect keyboard presses"><span class="keyword">local</span> UIS = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"UserInputService"</span>)</div>
+        <div class="line" data-explain="Get the character this script is inside"><span class="keyword">local</span> character = script.<select class="blank-dropdown" data-answer="Parent" id="q2"><option value="">Select...</option><option value="Parent">Parent</option><option value="Character">Character</option><option value="Model">Model</option></select></div>
+        <div class="line" data-explain="Get the Humanoid to play animations"><span class="keyword">local</span> humanoid = character:<select class="blank-dropdown" data-answer="WaitForChild" id="q3"><option value="">Select...</option><option value="WaitForChild">WaitForChild</option><option value="FindFirstChild">FindFirstChild</option><option value="GetChild">GetChild</option></select>(<span class="string">"Humanoid"</span>)</div>
         <div class="line"></div>
-        <div class="line"><span class="keyword">local</span> punchAnim = Instance.new(<span class="string">"<select class="blank-dropdown" data-answer="Animation" id="q4"><option value="">Select...</option><option value="Animation">Animation</option><option value="Animator">Animator</option><option value="AnimTrack">AnimTrack</option></select>"</span>)</div>
-        <div class="line">punchAnim.<select class="blank-dropdown" data-answer="AnimationId" id="q5"><option value="">Select...</option><option value="AnimationId">AnimationId</option><option value="Id">Id</option><option value="AssetId">AssetId</option></select> = <span class="string">"<span class="var-display" data-var="var-punchid">rbxassetid://YOUR_PUNCH_ID</span>"</span></div>
+        <div class="line" data-explain="Create a new Animation object for punching"><span class="keyword">local</span> punchAnim = Instance.new(<span class="string">"<select class="blank-dropdown" data-answer="Animation" id="q4"><option value="">Select...</option><option value="Animation">Animation</option><option value="Animator">Animator</option><option value="AnimTrack">AnimTrack</option></select>"</span>)</div>
+        <div class="line" data-explain="Set the punch animation ID from Roblox">punchAnim.<select class="blank-dropdown" data-answer="AnimationId" id="q5"><option value="">Select...</option><option value="AnimationId">AnimationId</option><option value="Id">Id</option><option value="AssetId">AssetId</option></select> = <span class="string">"<span class="var-display" data-var="var-punchid">rbxassetid://YOUR_PUNCH_ID</span>"</span></div>
         <div class="line"></div>
-        <div class="line"><span class="keyword">local</span> kickAnim = Instance.new(<span class="string">"Animation"</span>)</div>
-        <div class="line">kickAnim.AnimationId = <span class="string">"<span class="var-display" data-var="var-kickid">rbxassetid://YOUR_KICK_ID</span>"</span></div>
+        <div class="line" data-explain="Create a new Animation object for kicking"><span class="keyword">local</span> kickAnim = Instance.new(<span class="string">"Animation"</span>)</div>
+        <div class="line" data-explain="Set the kick animation ID from Roblox">kickAnim.AnimationId = <span class="string">"<span class="var-display" data-var="var-kickid">rbxassetid://YOUR_KICK_ID</span>"</span></div>
         <div class="line"></div>
-        <div class="line">UIS.<select class="blank-dropdown" data-answer="InputBegan" id="q6"><option value="">Select...</option><option value="InputBegan">InputBegan</option><option value="KeyPressed">KeyPressed</option><option value="OnInput">OnInput</option></select>:Connect(<span class="keyword">function</span>(input, gameProcessed)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> gameProcessed <span class="keyword">then return end</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> input.KeyCode == Enum.KeyCode.<span class="var-display" data-var="var-punchkey">P</span> <span class="keyword">then</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;humanoid:<select class="blank-dropdown" data-answer="LoadAnimation" id="q7"><option value="">Select...</option><option value="LoadAnimation">LoadAnimation</option><option value="PlayAnimation">PlayAnimation</option><option value="RunAnimation">RunAnimation</option></select>(punchAnim):<select class="blank-dropdown" data-answer="Play" id="q8"><option value="">Select...</option><option value="Play">Play</option><option value="Start">Start</option><option value="Run">Run</option></select>()</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">elseif</span> input.KeyCode == Enum.KeyCode.<span class="var-display" data-var="var-kickkey">K</span> <span class="keyword">then</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;humanoid:LoadAnimation(kickAnim):Play()</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
-        <div class="line"><span class="keyword">end</span>)</div>
+        <div class="line" data-explain="When a key is pressed, run this code">UIS.<select class="blank-dropdown" data-answer="InputBegan" id="q6"><option value="">Select...</option><option value="InputBegan">InputBegan</option><option value="KeyPressed">KeyPressed</option><option value="OnInput">OnInput</option></select>:Connect(<span class="keyword">function</span>(input, gameProcessed)</div>
+        <div class="line" data-explain="Ignore if typing in chat/textbox">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> gameProcessed <span class="keyword">then return end</span></div>
+        <div class="line" data-explain="If the punch key was pressed">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> input.KeyCode == Enum.KeyCode.<span class="var-display" data-var="var-punchkey">P</span> <span class="keyword">then</span></div>
+        <div class="line" data-explain="Load and play the punch animation">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;humanoid:<select class="blank-dropdown" data-answer="LoadAnimation" id="q7"><option value="">Select...</option><option value="LoadAnimation">LoadAnimation</option><option value="PlayAnimation">PlayAnimation</option><option value="RunAnimation">RunAnimation</option></select>(punchAnim):<select class="blank-dropdown" data-answer="Play" id="q8"><option value="">Select...</option><option value="Play">Play</option><option value="Start">Start</option><option value="Run">Run</option></select>()</div>
+        <div class="line" data-explain="If the kick key was pressed instead">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">elseif</span> input.KeyCode == Enum.KeyCode.<span class="var-display" data-var="var-kickkey">K</span> <span class="keyword">then</span></div>
+        <div class="line" data-explain="Load and play the kick animation">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;humanoid:LoadAnimation(kickAnim):Play()</div>
+        <div class="line" data-explain="End the if block">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
+        <div class="line" data-explain="End the function"><span class="keyword">end</span>)</div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>

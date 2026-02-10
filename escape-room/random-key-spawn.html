@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
     <nav class="nav-links">
       <a href="../index.html">Home</a>
       <a href="../football/index.html">Football</a>
@@ -49,14 +49,14 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line"><span class="keyword">local</span> keyTool = workspace:<select class="blank-dropdown" data-answer="WaitForChild" id="q1"><option value="">Select...</option><option value="WaitForChild">WaitForChild</option><option value="FindFirstChild">FindFirstChild</option><option value="GetChild">GetChild</option></select>(<span class="string">"<span class="var-display" data-var="var-keytool">keyTool</span>"</span>)</div>
-        <div class="line"><span class="keyword">local</span> spawnPoints = workspace:WaitForChild(<span class="string">"<span class="var-display" data-var="var-folder">spawnPoints</span>"</span>)</div>
+        <div class="line" data-explain="Get the key tool from workspace"><span class="keyword">local</span> keyTool = workspace:<select class="blank-dropdown" data-answer="WaitForChild" id="q1"><option value="">Select...</option><option value="WaitForChild">WaitForChild</option><option value="FindFirstChild">FindFirstChild</option><option value="GetChild">GetChild</option></select>(<span class="string">"<span class="var-display" data-var="var-keytool">keyTool</span>"</span>)</div>
+        <div class="line" data-explain="Get the folder containing spawn locations"><span class="keyword">local</span> spawnPoints = workspace:WaitForChild(<span class="string">"<span class="var-display" data-var="var-folder">spawnPoints</span>"</span>)</div>
         <div class="line"></div>
-        <div class="line"><span class="keyword">local</span> allSpawns = spawnPoints:<select class="blank-dropdown" data-answer="GetChildren" id="q2"><option value="">Select...</option><option value="GetChildren">GetChildren</option><option value="GetParts">GetParts</option><option value="FindAll">FindAll</option></select>()</div>
-        <div class="line"><span class="keyword">local</span> randomIndex = math.<select class="blank-dropdown" data-answer="random" id="q3"><option value="">Select...</option><option value="random">random</option><option value="rand">rand</option><option value="randomize">randomize</option></select>(<span class="number">1</span>, #allSpawns)</div>
-        <div class="line"><span class="keyword">local</span> chosenSpawn = allSpawns[randomIndex]</div>
+        <div class="line" data-explain="Get all spawn point parts as a list"><span class="keyword">local</span> allSpawns = spawnPoints:<select class="blank-dropdown" data-answer="GetChildren" id="q2"><option value="">Select...</option><option value="GetChildren">GetChildren</option><option value="GetParts">GetParts</option><option value="FindAll">FindAll</option></select>()</div>
+        <div class="line" data-explain="Pick a random number between 1 and total spawns"><span class="keyword">local</span> randomIndex = math.<select class="blank-dropdown" data-answer="random" id="q3"><option value="">Select...</option><option value="random">random</option><option value="rand">rand</option><option value="randomize">randomize</option></select>(<span class="number">1</span>, #allSpawns)</div>
+        <div class="line" data-explain="Get the spawn at the random position"><span class="keyword">local</span> chosenSpawn = allSpawns[randomIndex]</div>
         <div class="line"></div>
-        <div class="line">keyTool:<select class="blank-dropdown" data-answer="PivotTo" id="q4"><option value="">Select...</option><option value="PivotTo">PivotTo</option><option value="MoveTo">MoveTo</option><option value="SetPosition">SetPosition</option></select>(chosenSpawn.<select class="blank-dropdown" data-answer="CFrame" id="q5"><option value="">Select...</option><option value="CFrame">CFrame</option><option value="Position">Position</option><option value="Location">Location</option></select>)</div>
+        <div class="line" data-explain="Move the key to the chosen spawn location">keyTool:<select class="blank-dropdown" data-answer="PivotTo" id="q4"><option value="">Select...</option><option value="PivotTo">PivotTo</option><option value="MoveTo">MoveTo</option><option value="SetPosition">SetPosition</option></select>(chosenSpawn.<select class="blank-dropdown" data-answer="CFrame" id="q5"><option value="">Select...</option><option value="CFrame">CFrame</option><option value="Position">Position</option><option value="Location">Location</option></select>)</div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>

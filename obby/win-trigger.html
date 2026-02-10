@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
     <nav class="nav-links">
       <a href="../index.html">Home</a>
       <a href="../football/index.html">Football</a>
@@ -49,19 +49,19 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line"><span class="keyword">local</span> plr = game.<select class="blank-dropdown" data-answer="Players" id="q1"><option value="">Select...</option><option value="Players">Players</option><option value="Users">Users</option><option value="Characters">Characters</option></select>.LocalPlayer</div>
-        <div class="line"><span class="keyword">local</span> winScreen = plr:WaitForChild(<span class="string">"<select class="blank-dropdown" data-answer="PlayerGui" id="q2"><option value="">Select...</option><option value="PlayerGui">PlayerGui</option><option value="ScreenGui">ScreenGui</option><option value="GUI">GUI</option></select>"</span>):WaitForChild(<span class="string">"<span class="var-display" data-var="var-gui">winGui</span>"</span>)</div>
-        <div class="line"><span class="keyword">local</span> winPlatform = <select class="blank-dropdown" data-answer="workspace" id="q3"><option value="">Select...</option><option value="workspace">workspace</option><option value="game">game</option><option value="world">world</option></select>:WaitForChild(<span class="string">"<span class="var-display" data-var="var-platform">winPlatform</span>"</span>)</div>
+        <div class="line" data-explain="Get the local player (you)"><span class="keyword">local</span> plr = game.<select class="blank-dropdown" data-answer="Players" id="q1"><option value="">Select...</option><option value="Players">Players</option><option value="Users">Users</option><option value="Characters">Characters</option></select>.LocalPlayer</div>
+        <div class="line" data-explain="Get the win screen GUI"><span class="keyword">local</span> winScreen = plr:WaitForChild(<span class="string">"<select class="blank-dropdown" data-answer="PlayerGui" id="q2"><option value="">Select...</option><option value="PlayerGui">PlayerGui</option><option value="ScreenGui">ScreenGui</option><option value="GUI">GUI</option></select>"</span>):WaitForChild(<span class="string">"<span class="var-display" data-var="var-gui">winGui</span>"</span>)</div>
+        <div class="line" data-explain="Get the win platform from workspace"><span class="keyword">local</span> winPlatform = <select class="blank-dropdown" data-answer="workspace" id="q3"><option value="">Select...</option><option value="workspace">workspace</option><option value="game">game</option><option value="world">world</option></select>:WaitForChild(<span class="string">"<span class="var-display" data-var="var-platform">winPlatform</span>"</span>)</div>
         <div class="line"></div>
-        <div class="line"><span class="keyword">local function</span> onTouch(part)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> character = plr.<select class="blank-dropdown" data-answer="Character" id="q4"><option value="">Select...</option><option value="Character">Character</option><option value="Player">Player</option><option value="Model">Model</option></select></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if not</span> character <span class="keyword">then return end</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> part:<select class="blank-dropdown" data-answer="IsDescendantOf" id="q5"><option value="">Select...</option><option value="IsDescendantOf">IsDescendantOf</option><option value="IsPartOf">IsPartOf</option><option value="BelongsTo">BelongsTo</option></select>(character) <span class="keyword">then</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;winScreen.<select class="blank-dropdown" data-answer="Enabled" id="q6"><option value="">Select...</option><option value="Enabled">Enabled</option><option value="Visible">Visible</option><option value="Active">Active</option></select> = <span class="keyword">true</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
-        <div class="line"><span class="keyword">end</span></div>
+        <div class="line" data-explain="Function that runs when something touches"><span class="keyword">local function</span> onTouch(part)</div>
+        <div class="line" data-explain="Get the player's character">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> character = plr.<select class="blank-dropdown" data-answer="Character" id="q4"><option value="">Select...</option><option value="Character">Character</option><option value="Player">Player</option><option value="Model">Model</option></select></div>
+        <div class="line" data-explain="If no character exists, exit early">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if not</span> character <span class="keyword">then return end</span></div>
+        <div class="line" data-explain="Check if the touching part belongs to our character">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> part:<select class="blank-dropdown" data-answer="IsDescendantOf" id="q5"><option value="">Select...</option><option value="IsDescendantOf">IsDescendantOf</option><option value="IsPartOf">IsPartOf</option><option value="BelongsTo">BelongsTo</option></select>(character) <span class="keyword">then</span></div>
+        <div class="line" data-explain="Show the win screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;winScreen.<select class="blank-dropdown" data-answer="Enabled" id="q6"><option value="">Select...</option><option value="Enabled">Enabled</option><option value="Visible">Visible</option><option value="Active">Active</option></select> = <span class="keyword">true</span></div>
+        <div class="line" data-explain="End the if block">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
+        <div class="line" data-explain="End the function"><span class="keyword">end</span></div>
         <div class="line"></div>
-        <div class="line">winPlatform.<select class="blank-dropdown" data-answer="Touched" id="q7"><option value="">Select...</option><option value="Touched">Touched</option><option value="Hit">Hit</option><option value="Contact">Contact</option></select>:Connect(onTouch)</div>
+        <div class="line" data-explain="When the platform is touched, run onTouch">winPlatform.<select class="blank-dropdown" data-answer="Touched" id="q7"><option value="">Select...</option><option value="Touched">Touched</option><option value="Hit">Hit</option><option value="Contact">Contact</option></select>:Connect(onTouch)</div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>

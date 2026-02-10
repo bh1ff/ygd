@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
     <nav class="nav-links">
       <a href="../index.html">Home</a>
       <a href="../football/index.html">Football</a>
@@ -49,16 +49,16 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line"><span class="keyword">local</span> TeleportService = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"TeleportService"</span>)</div>
-        <div class="line"><span class="keyword">local</span> Players = game:GetService(<span class="string">"<select class="blank-dropdown" data-answer="Players" id="q2"><option value="">Select...</option><option value="Players">Players</option><option value="Users">Users</option><option value="Characters">Characters</option></select>"</span>)</div>
+        <div class="line" data-explain="Get TeleportService for teleporting players"><span class="keyword">local</span> TeleportService = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"TeleportService"</span>)</div>
+        <div class="line" data-explain="Get Players service"><span class="keyword">local</span> Players = game:GetService(<span class="string">"<select class="blank-dropdown" data-answer="Players" id="q2"><option value="">Select...</option><option value="Players">Players</option><option value="Users">Users</option><option value="Characters">Characters</option></select>"</span>)</div>
         <div class="line"></div>
-        <div class="line"><span class="keyword">local</span> player = Players.<select class="blank-dropdown" data-answer="LocalPlayer" id="q3"><option value="">Select...</option><option value="LocalPlayer">LocalPlayer</option><option value="Player">Player</option><option value="Me">Me</option></select></div>
-        <div class="line"><span class="keyword">local</span> button = script.<select class="blank-dropdown" data-answer="Parent" id="q4"><option value="">Select...</option><option value="Parent">Parent</option><option value="Button">Button</option><option value="TextButton">TextButton</option></select></div>
+        <div class="line" data-explain="Get the current player"><span class="keyword">local</span> player = Players.<select class="blank-dropdown" data-answer="LocalPlayer" id="q3"><option value="">Select...</option><option value="LocalPlayer">LocalPlayer</option><option value="Player">Player</option><option value="Me">Me</option></select></div>
+        <div class="line" data-explain="Get the button this script is inside"><span class="keyword">local</span> button = script.<select class="blank-dropdown" data-answer="Parent" id="q4"><option value="">Select...</option><option value="Parent">Parent</option><option value="Button">Button</option><option value="TextButton">TextButton</option></select></div>
         <div class="line"></div>
-        <div class="line">button.<select class="blank-dropdown" data-answer="MouseButton1Click" id="q5"><option value="">Select...</option><option value="MouseButton1Click">MouseButton1Click</option><option value="Clicked">Clicked</option><option value="OnClick">OnClick</option></select>:Connect(<span class="keyword">function</span>()</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> placeId = game.<select class="blank-dropdown" data-answer="PlaceId" id="q6"><option value="">Select...</option><option value="PlaceId">PlaceId</option><option value="GameId">GameId</option><option value="Id">Id</option></select></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;TeleportService:<select class="blank-dropdown" data-answer="Teleport" id="q7"><option value="">Select...</option><option value="Teleport">Teleport</option><option value="TeleportTo">TeleportTo</option><option value="SendTo">SendTo</option></select>(placeId, player)</div>
-        <div class="line"><span class="keyword">end</span>)</div>
+        <div class="line" data-explain="When the button is clicked">button.<select class="blank-dropdown" data-answer="MouseButton1Click" id="q5"><option value="">Select...</option><option value="MouseButton1Click">MouseButton1Click</option><option value="Clicked">Clicked</option><option value="OnClick">OnClick</option></select>:Connect(<span class="keyword">function</span>()</div>
+        <div class="line" data-explain="Get the current game's Place ID">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> placeId = game.<select class="blank-dropdown" data-answer="PlaceId" id="q6"><option value="">Select...</option><option value="PlaceId">PlaceId</option><option value="GameId">GameId</option><option value="Id">Id</option></select></div>
+        <div class="line" data-explain="Teleport the player back to this game">&nbsp;&nbsp;&nbsp;&nbsp;TeleportService:<select class="blank-dropdown" data-answer="Teleport" id="q7"><option value="">Select...</option><option value="Teleport">Teleport</option><option value="TeleportTo">TeleportTo</option><option value="SendTo">SendTo</option></select>(placeId, player)</div>
+        <div class="line" data-explain="End the function"><span class="keyword">end</span>)</div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>

@@ -46,6 +46,19 @@ body {
   gap: 15px;
 }
 
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s;
+}
+
+.logo a:hover {
+  transform: scale(1.05);
+}
+
 .logo img {
   height: 55px;
   animation: float 3s ease-in-out infinite;
@@ -129,7 +142,7 @@ body {
   transform: translateX(-5px);
 }
 
-/* Course Cards (Index Page) */
+/* Course Cards (Index Page) - Old style kept for compatibility */
 .course-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -195,6 +208,90 @@ body {
 
 .course-card-body li:last-child {
   border-bottom: none;
+}
+
+/* NEW: Project Circle Cards (Homepage) */
+.project-circle-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.project-circle-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: grayscale(100%);
+  opacity: 0.7;
+}
+
+.project-circle-card:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.project-circle-card .project-emoji {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  box-shadow: 0 10px 40px rgba(155, 89, 182, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-bottom: 15px;
+}
+
+.project-circle-card:hover .project-emoji {
+  box-shadow: 0 15px 50px rgba(155, 89, 182, 0.5);
+  transform: rotate(10deg);
+}
+
+.project-circle-card h3 {
+  color: var(--secondary-color);
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  text-align: center;
+  transition: color 0.3s;
+}
+
+.project-circle-card:hover h3 {
+  color: var(--gradient-end);
+}
+
+.project-circle-card span {
+  color: #888;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.project-circle-card:hover span {
+  color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .project-circle-grid {
+    gap: 25px;
+  }
+
+  .project-circle-card .project-emoji {
+    width: 100px;
+    height: 100px;
+    font-size: 2.8rem;
+  }
+
+  .project-circle-card h3 {
+    font-size: 1.1rem;
+  }
 }
 
 /* Script List */
@@ -314,6 +411,65 @@ body {
   white-space: nowrap;
   min-height: 40px;
   padding: 3px 0;
+  position: relative;
+}
+
+/* Line explainer tooltip */
+.code-quiz .line[data-explain] {
+  padding-left: 30px;
+}
+
+.code-quiz .line[data-explain]::before {
+  content: "?";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  background: var(--secondary-color);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: help;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.3s;
+}
+
+.code-quiz .line[data-explain]:hover::before {
+  background: var(--primary-color);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.code-quiz .line[data-explain]::after {
+  content: attr(data-explain);
+  position: absolute;
+  left: 30px;
+  top: -8px;
+  background: var(--dark-color);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  white-space: normal;
+  max-width: 350px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 200;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  line-height: 1.4;
+}
+
+.code-quiz .line[data-explain]:hover::after {
+  opacity: 1;
+  visibility: visible;
+  top: -45px;
 }
 
 /* Syntax highlighting - BRIGHTER colors for kids */

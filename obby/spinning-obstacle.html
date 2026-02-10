@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
     <nav class="nav-links">
       <a href="../index.html">Home</a>
       <a href="../football/index.html">Football</a>
@@ -57,12 +57,12 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line"><span class="keyword">local</span> RunService = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"RunService"</span>)</div>
-        <div class="line"><span class="keyword">local</span> part = script.<select class="blank-dropdown" data-answer="Parent" id="q2"><option value="">Select...</option><option value="Parent">Parent</option><option value="Part">Part</option><option value="Object">Object</option></select></div>
+        <div class="line" data-explain="Get RunService to run code every frame"><span class="keyword">local</span> RunService = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"RunService"</span>)</div>
+        <div class="line" data-explain="Get the part this script is inside"><span class="keyword">local</span> part = script.<select class="blank-dropdown" data-answer="Parent" id="q2"><option value="">Select...</option><option value="Parent">Parent</option><option value="Part">Part</option><option value="Object">Object</option></select></div>
         <div class="line"></div>
-        <div class="line">RunService.<select class="blank-dropdown" data-answer="Stepped" id="q3"><option value="">Select...</option><option value="Stepped">Stepped</option><option value="Update">Update</option><option value="Tick">Tick</option></select>:Connect(<span class="keyword">function</span>()</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;part.<select class="blank-dropdown" data-answer="CFrame" id="q4"><option value="">Select...</option><option value="CFrame">CFrame</option><option value="Position">Position</option><option value="Rotation">Rotation</option></select> = part.CFrame * CFrame.<select class="blank-dropdown" data-answer="Angles" id="q5"><option value="">Select...</option><option value="Angles">Angles</option><option value="Rotate">Rotate</option><option value="Spin">Spin</option></select>(math.<select class="blank-dropdown" data-answer="rad" id="q6"><option value="">Select...</option><option value="rad">rad</option><option value="deg">deg</option><option value="angle">angle</option></select>(<span class="number">0</span>, <span class="number var-display" data-var="var-speed">2</span>, <span class="number">0</span>))</div>
-        <div class="line"><span class="keyword">end</span>)</div>
+        <div class="line" data-explain="Every frame (60 times per second), run this">RunService.<select class="blank-dropdown" data-answer="Stepped" id="q3"><option value="">Select...</option><option value="Stepped">Stepped</option><option value="Update">Update</option><option value="Tick">Tick</option></select>:Connect(<span class="keyword">function</span>()</div>
+        <div class="line" data-explain="Rotate the part by adding rotation each frame">&nbsp;&nbsp;&nbsp;&nbsp;part.<select class="blank-dropdown" data-answer="CFrame" id="q4"><option value="">Select...</option><option value="CFrame">CFrame</option><option value="Position">Position</option><option value="Rotation">Rotation</option></select> = part.CFrame * CFrame.<select class="blank-dropdown" data-answer="Angles" id="q5"><option value="">Select...</option><option value="Angles">Angles</option><option value="Rotate">Rotate</option><option value="Spin">Spin</option></select>(math.<select class="blank-dropdown" data-answer="rad" id="q6"><option value="">Select...</option><option value="rad">rad</option><option value="deg">deg</option><option value="angle">angle</option></select>(<span class="number">0</span>, <span class="number var-display" data-var="var-speed">2</span>, <span class="number">0</span>))</div>
+        <div class="line" data-explain="End the function"><span class="keyword">end</span>)</div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>

@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
     <nav class="nav-links">
       <a href="../index.html">Home</a>
       <a href="../football/index.html">Football</a>
@@ -52,14 +52,14 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line">game.Players.<select class="blank-dropdown" data-answer="PlayerAdded" id="q1"><option value="">Select...</option><option value="PlayerAdded">PlayerAdded</option><option value="PlayerJoined">PlayerJoined</option><option value="NewPlayer">NewPlayer</option></select>:Connect(<span class="keyword">function</span>(player)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;player.CharacterAppearanceLoaded:Connect(<span class="keyword">function</span>(character)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> leaderstats = <select class="blank-dropdown" data-answer="Instance" id="q2"><option value="">Select...</option><option value="Instance">Instance</option><option value="Object">Object</option><option value="Create">Create</option></select>.new(<span class="string">"Folder"</span>, player)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leaderstats.<select class="blank-dropdown" data-answer="Name" id="q3"><option value="">Select...</option><option value="Name">Name</option><option value="Title">Title</option><option value="Label">Label</option></select> = <span class="string">"<select class="blank-dropdown" data-answer="leaderstats" id="q4"><option value="">Select...</option><option value="leaderstats">leaderstats</option><option value="Stats">Stats</option><option value="Scores">Scores</option></select>"</span></div>
+        <div class="line" data-explain="When a new player joins the game, run this code">game.Players.<select class="blank-dropdown" data-answer="PlayerAdded" id="q1"><option value="">Select...</option><option value="PlayerAdded">PlayerAdded</option><option value="PlayerJoined">PlayerJoined</option><option value="NewPlayer">NewPlayer</option></select>:Connect(<span class="keyword">function</span>(player)</div>
+        <div class="line" data-explain="Wait until the player's character fully loads">&nbsp;&nbsp;&nbsp;&nbsp;player.CharacterAppearanceLoaded:Connect(<span class="keyword">function</span>(character)</div>
+        <div class="line" data-explain="Create a new folder to hold the player's stats">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> leaderstats = <select class="blank-dropdown" data-answer="Instance" id="q2"><option value="">Select...</option><option value="Instance">Instance</option><option value="Object">Object</option><option value="Create">Create</option></select>.new(<span class="string">"Folder"</span>, player)</div>
+        <div class="line" data-explain="Name it 'leaderstats' so Roblox shows it on the leaderboard">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leaderstats.<select class="blank-dropdown" data-answer="Name" id="q3"><option value="">Select...</option><option value="Name">Name</option><option value="Title">Title</option><option value="Label">Label</option></select> = <span class="string">"<select class="blank-dropdown" data-answer="leaderstats" id="q4"><option value="">Select...</option><option value="leaderstats">leaderstats</option><option value="Stats">Stats</option><option value="Scores">Scores</option></select>"</span></div>
         <div class="line"></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plrLaps = Instance.new(<span class="string">"<select class="blank-dropdown" data-answer="NumberValue" id="q5"><option value="">Select...</option><option value="NumberValue">NumberValue</option><option value="IntValue">IntValue</option><option value="Value">Value</option></select>"</span>, leaderstats)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plrLaps.Name = <span class="string">"<span class="var-display" data-var="var-statname">Laps</span>"</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plrLaps.<select class="blank-dropdown" data-answer="Value" id="q6"><option value="">Select...</option><option value="Value">Value</option><option value="Number">Number</option><option value="Count">Count</option></select> = <span class="number var-display" data-var="var-startval">0</span></div>
+        <div class="line" data-explain="Create a number to store the player's lap count">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plrLaps = Instance.new(<span class="string">"<select class="blank-dropdown" data-answer="NumberValue" id="q5"><option value="">Select...</option><option value="NumberValue">NumberValue</option><option value="IntValue">IntValue</option><option value="Value">Value</option></select>"</span>, leaderstats)</div>
+        <div class="line" data-explain="Name the stat so it shows on the leaderboard">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plrLaps.Name = <span class="string">"<span class="var-display" data-var="var-statname">Laps</span>"</span></div>
+        <div class="line" data-explain="Set the starting lap count">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plrLaps.<select class="blank-dropdown" data-answer="Value" id="q6"><option value="">Select...</option><option value="Value">Value</option><option value="Number">Number</option><option value="Count">Count</option></select> = <span class="number var-display" data-var="var-startval">0</span></div>
         <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>)</div>
         <div class="line"><span class="keyword">end</span>)</div>
       </div>

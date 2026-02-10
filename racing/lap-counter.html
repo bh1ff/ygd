@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
     <nav class="nav-links">
       <a href="../index.html">Home</a>
       <a href="../football/index.html">Football</a>
@@ -49,17 +49,17 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line"><span class="keyword">local</span> repStore = game:GetService(<span class="string">"ReplicatedStorage"</span>)</div>
-        <div class="line"><span class="keyword">local</span> lapEvent = repStore:WaitForChild(<span class="string">"<span class="var-display" data-var="var-event">LapEvent</span>"</span>)</div>
+        <div class="line" data-explain="Get ReplicatedStorage service"><span class="keyword">local</span> repStore = game:GetService(<span class="string">"ReplicatedStorage"</span>)</div>
+        <div class="line" data-explain="Get the lap event that clients fire"><span class="keyword">local</span> lapEvent = repStore:WaitForChild(<span class="string">"<span class="var-display" data-var="var-event">LapEvent</span>"</span>)</div>
         <div class="line"></div>
-        <div class="line"><span class="keyword">function</span> <select class="blank-dropdown" data-answer="incrementLapCount" id="q1"><option value="">Select...</option><option value="incrementLapCount">incrementLapCount</option><option value="addLap">addLap</option><option value="countLap">countLap</option></select>(localPlayer)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plr = game.<select class="blank-dropdown" data-answer="Players" id="q2"><option value="">Select...</option><option value="Players">Players</option><option value="Teams">Teams</option><option value="Users">Users</option></select>:FindFirstChild(localPlayer.<select class="blank-dropdown" data-answer="Name" id="q3"><option value="">Select...</option><option value="Name">Name</option><option value="Id">Id</option><option value="Username">Username</option></select>)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plrStats = plr:WaitForChild(<span class="string">"<select class="blank-dropdown" data-answer="leaderstats" id="q4"><option value="">Select...</option><option value="leaderstats">leaderstats</option><option value="stats">stats</option><option value="scores">scores</option></select>"</span>)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plrLap = plrStats.<span class="var-display" data-var="var-statname">Laps</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;plrLap.<select class="blank-dropdown" data-answer="Value" id="q5"><option value="">Select...</option><option value="Value">Value</option><option value="Number">Number</option><option value="Count">Count</option></select> <select class="blank-dropdown" data-answer="+=" id="q6"><option value="">Select...</option><option value="+=">+=</option><option value="=">=</option><option value="+">+</option></select> <span class="number">1</span></div>
-        <div class="line"><span class="keyword">end</span></div>
+        <div class="line" data-explain="Create a function to add a lap to a player's count"><span class="keyword">function</span> <select class="blank-dropdown" data-answer="incrementLapCount" id="q1"><option value="">Select...</option><option value="incrementLapCount">incrementLapCount</option><option value="addLap">addLap</option><option value="countLap">countLap</option></select>(localPlayer)</div>
+        <div class="line" data-explain="Find the player object by their name">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plr = game.<select class="blank-dropdown" data-answer="Players" id="q2"><option value="">Select...</option><option value="Players">Players</option><option value="Teams">Teams</option><option value="Users">Users</option></select>:FindFirstChild(localPlayer.<select class="blank-dropdown" data-answer="Name" id="q3"><option value="">Select...</option><option value="Name">Name</option><option value="Id">Id</option><option value="Username">Username</option></select>)</div>
+        <div class="line" data-explain="Get the player's leaderboard stats folder">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plrStats = plr:WaitForChild(<span class="string">"<select class="blank-dropdown" data-answer="leaderstats" id="q4"><option value="">Select...</option><option value="leaderstats">leaderstats</option><option value="stats">stats</option><option value="scores">scores</option></select>"</span>)</div>
+        <div class="line" data-explain="Get the lap counter stat">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plrLap = plrStats.<span class="var-display" data-var="var-statname">Laps</span></div>
+        <div class="line" data-explain="Add 1 to their lap count">&nbsp;&nbsp;&nbsp;&nbsp;plrLap.<select class="blank-dropdown" data-answer="Value" id="q5"><option value="">Select...</option><option value="Value">Value</option><option value="Number">Number</option><option value="Count">Count</option></select> <select class="blank-dropdown" data-answer="+=" id="q6"><option value="">Select...</option><option value="+=">+=</option><option value="=">=</option><option value="+">+</option></select> <span class="number">1</span></div>
+        <div class="line" data-explain="End the function"><span class="keyword">end</span></div>
         <div class="line"></div>
-        <div class="line">lapEvent.<select class="blank-dropdown" data-answer="OnServerEvent" id="q7"><option value="">Select...</option><option value="OnServerEvent">OnServerEvent</option><option value="OnEvent">OnEvent</option><option value="Connect">Connect</option></select>:Connect(incrementLapCount)</div>
+        <div class="line" data-explain="When the server receives a lap event, run the function">lapEvent.<select class="blank-dropdown" data-answer="OnServerEvent" id="q7"><option value="">Select...</option><option value="OnServerEvent">OnServerEvent</option><option value="OnEvent">OnEvent</option><option value="Connect">Connect</option></select>:Connect(incrementLapCount)</div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>

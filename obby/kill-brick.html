@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
     <nav class="nav-links">
       <a href="../index.html">Home</a>
       <a href="../football/index.html">Football</a>
@@ -48,10 +48,10 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line">script.<select class="blank-dropdown" data-answer="Parent" id="q1"><option value="">Select...</option><option value="Parent">Parent</option><option value="Part">Part</option><option value="Brick">Brick</option></select>.<select class="blank-dropdown" data-answer="Touched" id="q2"><option value="">Select...</option><option value="Touched">Touched</option><option value="Hit">Hit</option><option value="Contact">Contact</option></select>:Connect(<span class="keyword">function</span>(hit)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> humanoid = hit.<select class="blank-dropdown" data-answer="Parent" id="q3"><option value="">Select...</option><option value="Parent">Parent</option><option value="Model">Model</option><option value="Character">Character</option></select>:FindFirstChild(<span class="string">"<select class="blank-dropdown" data-answer="Humanoid" id="q4"><option value="">Select...</option><option value="Humanoid">Humanoid</option><option value="Player">Player</option><option value="Character">Character</option></select>"</span>)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> humanoid <span class="keyword">then</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;humanoid.<select class="blank-dropdown" data-answer="Health" id="q5"><option value="">Select...</option><option value="Health">Health</option><option value="HP">HP</option><option value="Life">Life</option></select> = <span class="number var-display" data-var="var-damage">0</span></div>
+        <div class="line" data-explain="When something touches this brick, run this code">script.<select class="blank-dropdown" data-answer="Parent" id="q1"><option value="">Select...</option><option value="Parent">Parent</option><option value="Part">Part</option><option value="Brick">Brick</option></select>.<select class="blank-dropdown" data-answer="Touched" id="q2"><option value="">Select...</option><option value="Touched">Touched</option><option value="Hit">Hit</option><option value="Contact">Contact</option></select>:Connect(<span class="keyword">function</span>(hit)</div>
+        <div class="line" data-explain="Try to find the Humanoid in what touched us">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> humanoid = hit.<select class="blank-dropdown" data-answer="Parent" id="q3"><option value="">Select...</option><option value="Parent">Parent</option><option value="Model">Model</option><option value="Character">Character</option></select>:FindFirstChild(<span class="string">"<select class="blank-dropdown" data-answer="Humanoid" id="q4"><option value="">Select...</option><option value="Humanoid">Humanoid</option><option value="Player">Player</option><option value="Character">Character</option></select>"</span>)</div>
+        <div class="line" data-explain="If we found a player (has Humanoid)...">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> humanoid <span class="keyword">then</span></div>
+        <div class="line" data-explain="Set their health to 0 (kills them!)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;humanoid.<select class="blank-dropdown" data-answer="Health" id="q5"><option value="">Select...</option><option value="Health">Health</option><option value="HP">HP</option><option value="Life">Life</option></select> = <span class="number var-display" data-var="var-damage">0</span></div>
         <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
         <div class="line"><span class="keyword">end</span>)</div>
       </div>

@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
     <nav class="nav-links">
       <a href="../index.html">Home</a>
       <a href="../football/index.html">Football</a>
@@ -57,21 +57,21 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line"><span class="keyword">local</span> leftWheel = script.<select class="blank-dropdown" data-answer="Parent" id="q1"><option value="">Select...</option><option value="Parent">Parent</option><option value="Car">Car</option><option value="Wheel">Wheel</option></select>.Parent.LeftWheel</div>
-        <div class="line"><span class="keyword">local</span> leftWheel2 = script.Parent.Parent.LeftWheel2</div>
-        <div class="line"><span class="keyword">local</span> rightWheel = script.Parent.Parent.RightWheel</div>
-        <div class="line"><span class="keyword">local</span> rightWheel2 = script.Parent.Parent.RightWheel2</div>
-        <div class="line"><span class="keyword">local</span> steer = script.Parent.Parent.Steer</div>
-        <div class="line"><span class="keyword">local</span> speed = <span class="number var-display" data-var="var-speed">25</span></div>
+        <div class="line" data-explain="Get the left front wheel from the car model"><span class="keyword">local</span> leftWheel = script.<select class="blank-dropdown" data-answer="Parent" id="q1"><option value="">Select...</option><option value="Parent">Parent</option><option value="Car">Car</option><option value="Wheel">Wheel</option></select>.Parent.LeftWheel</div>
+        <div class="line" data-explain="Get the left back wheel"><span class="keyword">local</span> leftWheel2 = script.Parent.Parent.LeftWheel2</div>
+        <div class="line" data-explain="Get the right front wheel"><span class="keyword">local</span> rightWheel = script.Parent.Parent.RightWheel</div>
+        <div class="line" data-explain="Get the right back wheel"><span class="keyword">local</span> rightWheel2 = script.Parent.Parent.RightWheel2</div>
+        <div class="line" data-explain="Get the steering hinge constraint"><span class="keyword">local</span> steer = script.Parent.Parent.Steer</div>
+        <div class="line" data-explain="Set how fast the wheels spin"><span class="keyword">local</span> speed = <span class="number var-display" data-var="var-speed">25</span></div>
         <div class="line"></div>
-        <div class="line">script.Parent.<select class="blank-dropdown" data-answer="Changed" id="q2"><option value="">Select...</option><option value="Changed">Changed</option><option value="Updated">Updated</option><option value="Modified">Modified</option></select>:Connect(<span class="keyword">function</span>(property)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;leftWheel.<select class="blank-dropdown" data-answer="AngularVelocity" id="q3"><option value="">Select...</option><option value="AngularVelocity">AngularVelocity</option><option value="Speed">Speed</option><option value="Velocity">Velocity</option></select> = speed * script.Parent.<select class="blank-dropdown" data-answer="Throttle" id="q4"><option value="">Select...</option><option value="Throttle">Throttle</option><option value="Speed">Speed</option><option value="Power">Power</option></select></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;leftWheel2.AngularVelocity = speed * script.Parent.Throttle</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;rightWheel.AngularVelocity = speed * -script.Parent.Throttle</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;rightWheel2.AngularVelocity = speed * -script.Parent.Throttle</div>
+        <div class="line" data-explain="When the VehicleSeat changes (player presses W/A/S/D)">script.Parent.<select class="blank-dropdown" data-answer="Changed" id="q2"><option value="">Select...</option><option value="Changed">Changed</option><option value="Updated">Updated</option><option value="Modified">Modified</option></select>:Connect(<span class="keyword">function</span>(property)</div>
+        <div class="line" data-explain="Spin left front wheel based on throttle (W/S keys)">&nbsp;&nbsp;&nbsp;&nbsp;leftWheel.<select class="blank-dropdown" data-answer="AngularVelocity" id="q3"><option value="">Select...</option><option value="AngularVelocity">AngularVelocity</option><option value="Speed">Speed</option><option value="Velocity">Velocity</option></select> = speed * script.Parent.<select class="blank-dropdown" data-answer="Throttle" id="q4"><option value="">Select...</option><option value="Throttle">Throttle</option><option value="Speed">Speed</option><option value="Power">Power</option></select></div>
+        <div class="line" data-explain="Spin left back wheel the same way">&nbsp;&nbsp;&nbsp;&nbsp;leftWheel2.AngularVelocity = speed * script.Parent.Throttle</div>
+        <div class="line" data-explain="Spin right wheels opposite direction (negative)">&nbsp;&nbsp;&nbsp;&nbsp;rightWheel.AngularVelocity = speed * -script.Parent.Throttle</div>
+        <div class="line" data-explain="Spin right back wheel opposite too">&nbsp;&nbsp;&nbsp;&nbsp;rightWheel2.AngularVelocity = speed * -script.Parent.Throttle</div>
         <div class="line"></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;steer.<select class="blank-dropdown" data-answer="TargetAngle" id="q5"><option value="">Select...</option><option value="TargetAngle">TargetAngle</option><option value="Angle">Angle</option><option value="Rotation">Rotation</option></select> = <span class="number var-display" data-var="var-steer">30</span> * script.Parent.<select class="blank-dropdown" data-answer="Steer" id="q6"><option value="">Select...</option><option value="Steer">Steer</option><option value="Turn">Turn</option><option value="Direction">Direction</option></select></div>
-        <div class="line"><span class="keyword">end</span>)</div>
+        <div class="line" data-explain="Turn the steering based on A/D keys">&nbsp;&nbsp;&nbsp;&nbsp;steer.<select class="blank-dropdown" data-answer="TargetAngle" id="q5"><option value="">Select...</option><option value="TargetAngle">TargetAngle</option><option value="Angle">Angle</option><option value="Rotation">Rotation</option></select> = <span class="number var-display" data-var="var-steer">30</span> * script.Parent.<select class="blank-dropdown" data-answer="Steer" id="q6"><option value="">Select...</option><option value="Steer">Steer</option><option value="Turn">Turn</option><option value="Direction">Direction</option></select></div>
+        <div class="line" data-explain="End the function"><span class="keyword">end</span>)</div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>

@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
     <nav class="nav-links">
       <a href="../index.html">Home</a>
       <a href="../football/index.html">Football</a>
@@ -59,33 +59,33 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line"><span class="keyword">local</span> Players = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"Players"</span>)</div>
-        <div class="line"><span class="keyword">local</span> damageEvent = game.<select class="blank-dropdown" data-answer="ReplicatedStorage" id="q2"><option value="">Select...</option><option value="ReplicatedStorage">ReplicatedStorage</option><option value="ServerStorage">ServerStorage</option><option value="Workspace">Workspace</option></select>:<select class="blank-dropdown" data-answer="WaitForChild" id="q3"><option value="">Select...</option><option value="WaitForChild">WaitForChild</option><option value="FindFirstChild">FindFirstChild</option><option value="GetChild">GetChild</option></select>(<span class="string">"<span class="var-display" data-var="var-eventname">DamageEvent</span>"</span>)</div>
+        <div class="line" data-explain="Get the Players service"><span class="keyword">local</span> Players = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"Players"</span>)</div>
+        <div class="line" data-explain="Get the damage event from ReplicatedStorage"><span class="keyword">local</span> damageEvent = game.<select class="blank-dropdown" data-answer="ReplicatedStorage" id="q2"><option value="">Select...</option><option value="ReplicatedStorage">ReplicatedStorage</option><option value="ServerStorage">ServerStorage</option><option value="Workspace">Workspace</option></select>:<select class="blank-dropdown" data-answer="WaitForChild" id="q3"><option value="">Select...</option><option value="WaitForChild">WaitForChild</option><option value="FindFirstChild">FindFirstChild</option><option value="GetChild">GetChild</option></select>(<span class="string">"<span class="var-display" data-var="var-eventname">DamageEvent</span>"</span>)</div>
         <div class="line"></div>
-        <div class="line">Players.<select class="blank-dropdown" data-answer="PlayerAdded" id="q4"><option value="">Select...</option><option value="PlayerAdded">PlayerAdded</option><option value="PlayerJoined">PlayerJoined</option><option value="OnPlayerAdded">OnPlayerAdded</option></select>:Connect(<span class="keyword">function</span>(player)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;player.<select class="blank-dropdown" data-answer="CharacterAdded" id="q5"><option value="">Select...</option><option value="CharacterAdded">CharacterAdded</option><option value="Spawned">Spawned</option><option value="CharacterSpawned">CharacterSpawned</option></select>:Connect(<span class="keyword">function</span>(character)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> hrp = character:WaitForChild(<span class="string">"HumanoidRootPart"</span>)</div>
+        <div class="line" data-explain="When a player joins the game">Players.<select class="blank-dropdown" data-answer="PlayerAdded" id="q4"><option value="">Select...</option><option value="PlayerAdded">PlayerAdded</option><option value="PlayerJoined">PlayerJoined</option><option value="OnPlayerAdded">OnPlayerAdded</option></select>:Connect(<span class="keyword">function</span>(player)</div>
+        <div class="line" data-explain="When their character spawns">&nbsp;&nbsp;&nbsp;&nbsp;player.<select class="blank-dropdown" data-answer="CharacterAdded" id="q5"><option value="">Select...</option><option value="CharacterAdded">CharacterAdded</option><option value="Spawned">Spawned</option><option value="CharacterSpawned">CharacterSpawned</option></select>:Connect(<span class="keyword">function</span>(character)</div>
+        <div class="line" data-explain="Get the center of the character's body">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> hrp = character:WaitForChild(<span class="string">"HumanoidRootPart"</span>)</div>
         <div class="line"></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> detectZone = <select class="blank-dropdown" data-answer="Instance" id="q6"><option value="">Select...</option><option value="Instance">Instance</option><option value="Object">Object</option><option value="Part">Part</option></select>.new(<span class="string">"Part"</span>)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detectZone.Name = <span class="string">"<span class="var-display" data-var="var-zonename">detectZone</span>"</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detectZone.Size = Vector3.new(<span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detectZone.<select class="blank-dropdown" data-answer="Transparency" id="q7"><option value="">Select...</option><option value="Transparency">Transparency</option><option value="Visible">Visible</option><option value="Alpha">Alpha</option></select> = <span class="number">1</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detectZone.CanCollide = <span class="keyword">false</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detectZone.Parent = character</div>
+        <div class="line" data-explain="Create an invisible hitbox part">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> detectZone = <select class="blank-dropdown" data-answer="Instance" id="q6"><option value="">Select...</option><option value="Instance">Instance</option><option value="Object">Object</option><option value="Part">Part</option></select>.new(<span class="string">"Part"</span>)</div>
+        <div class="line" data-explain="Name the hitbox">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detectZone.Name = <span class="string">"<span class="var-display" data-var="var-zonename">detectZone</span>"</span></div>
+        <div class="line" data-explain="Set the hitbox size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detectZone.Size = Vector3.new(<span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>)</div>
+        <div class="line" data-explain="Make it invisible (1 = fully transparent)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detectZone.<select class="blank-dropdown" data-answer="Transparency" id="q7"><option value="">Select...</option><option value="Transparency">Transparency</option><option value="Visible">Visible</option><option value="Alpha">Alpha</option></select> = <span class="number">1</span></div>
+        <div class="line" data-explain="Don't block player movement">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detectZone.CanCollide = <span class="keyword">false</span></div>
+        <div class="line" data-explain="Put it inside the character">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detectZone.Parent = character</div>
         <div class="line"></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> weld = Instance.new(<span class="string">"<select class="blank-dropdown" data-answer="Weld" id="q8"><option value="">Select...</option><option value="Weld">Weld</option><option value="WeldConstraint">WeldConstraint</option><option value="Motor6D">Motor6D</option></select>"</span>)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weld.Part0 = hrp</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weld.Part1 = detectZone</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weld.Parent = detectZone</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>)</div>
-        <div class="line"><span class="keyword">end</span>)</div>
+        <div class="line" data-explain="Create a weld to attach hitbox to character">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> weld = Instance.new(<span class="string">"<select class="blank-dropdown" data-answer="Weld" id="q8"><option value="">Select...</option><option value="Weld">Weld</option><option value="WeldConstraint">WeldConstraint</option><option value="Motor6D">Motor6D</option></select>"</span>)</div>
+        <div class="line" data-explain="Connect weld to the character">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weld.Part0 = hrp</div>
+        <div class="line" data-explain="Connect weld to the hitbox">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weld.Part1 = detectZone</div>
+        <div class="line" data-explain="Put the weld inside the hitbox">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weld.Parent = detectZone</div>
+        <div class="line" data-explain="End the CharacterAdded function">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>)</div>
+        <div class="line" data-explain="End the PlayerAdded function"><span class="keyword">end</span>)</div>
         <div class="line"></div>
-        <div class="line">damageEvent.<select class="blank-dropdown" data-answer="OnServerEvent" id="q9"><option value="">Select...</option><option value="OnServerEvent">OnServerEvent</option><option value="OnClientEvent">OnClientEvent</option><option value="FireServer">FireServer</option></select>:Connect(<span class="keyword">function</span>(attacker, victim)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> humanoid = victim:FindFirstChild(<span class="string">"Humanoid"</span>)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> humanoid <span class="keyword">then</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;humanoid:<select class="blank-dropdown" data-answer="TakeDamage" id="q10"><option value="">Select...</option><option value="TakeDamage">TakeDamage</option><option value="Damage">Damage</option><option value="Hurt">Hurt</option></select>(<span class="number var-display" data-var="var-damage">5</span>)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
-        <div class="line"><span class="keyword">end</span>)</div>
+        <div class="line" data-explain="When a damage event is received from client">damageEvent.<select class="blank-dropdown" data-answer="OnServerEvent" id="q9"><option value="">Select...</option><option value="OnServerEvent">OnServerEvent</option><option value="OnClientEvent">OnClientEvent</option><option value="FireServer">FireServer</option></select>:Connect(<span class="keyword">function</span>(attacker, victim)</div>
+        <div class="line" data-explain="Find the victim's Humanoid">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> humanoid = victim:FindFirstChild(<span class="string">"Humanoid"</span>)</div>
+        <div class="line" data-explain="If they have a Humanoid">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> humanoid <span class="keyword">then</span></div>
+        <div class="line" data-explain="Deal damage to them">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;humanoid:<select class="blank-dropdown" data-answer="TakeDamage" id="q10"><option value="">Select...</option><option value="TakeDamage">TakeDamage</option><option value="Damage">Damage</option><option value="Hurt">Hurt</option></select>(<span class="number var-display" data-var="var-damage">5</span>)</div>
+        <div class="line" data-explain="End the if block">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
+        <div class="line" data-explain="End the function"><span class="keyword">end</span>)</div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>

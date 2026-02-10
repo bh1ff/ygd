@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
     <nav class="nav-links">
       <a href="../index.html">Home</a>
       <a href="../football/index.html">Football</a>
@@ -63,24 +63,24 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line"><span class="keyword" data-tooltip="'local' creates a variable that only works in this script">local</span> Players = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"Players"</span>)</div>
+        <div class="line" data-explain="Get the Players service"><span class="keyword" data-tooltip="'local' creates a variable that only works in this script">local</span> Players = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"Players"</span>)</div>
         <div class="line"></div>
-        <div class="line"><span class="keyword" data-tooltip="'repeat' keeps running the code until something is true">repeat</span> task.<select class="blank-dropdown" data-answer="wait" id="q2"><option value="">Select...</option><option value="wait">wait</option><option value="delay">delay</option><option value="pause">pause</option></select>() <span class="keyword" data-tooltip="'until' stops the repeat when the condition is true">until</span> #Players:GetPlayers() >= <span class="number var-display" data-var="var-players">2</span></div>
+        <div class="line" data-explain="Wait until enough players have joined"><span class="keyword" data-tooltip="'repeat' keeps running the code until something is true">repeat</span> task.<select class="blank-dropdown" data-answer="wait" id="q2"><option value="">Select...</option><option value="wait">wait</option><option value="delay">delay</option><option value="pause">pause</option></select>() <span class="keyword" data-tooltip="'until' stops the repeat when the condition is true">until</span> #Players:GetPlayers() >= <span class="number var-display" data-var="var-players">2</span></div>
         <div class="line"></div>
-        <div class="line"><span class="keyword" data-tooltip="'for' loops through a list of things">for</span> _, player <span class="keyword" data-tooltip="'in' is used with for loops">in</span> pairs(Players:GetPlayers()) <span class="keyword" data-tooltip="'do' starts the code block">do</span></div>
-        <div class="line">    <span class="keyword">local</span> character = player.Character <span class="keyword" data-tooltip="'or' means 'if not, then use this instead'">or</span> player.<select class="blank-dropdown" data-answer="CharacterAdded" id="q3"><option value="">Select...</option><option value="CharacterAdded">CharacterAdded</option><option value="Spawned">Spawned</option><option value="CharacterSpawned">CharacterSpawned</option></select>:Wait()</div>
-        <div class="line">    <span class="keyword">local</span> humanoid = character:WaitForChild(<span class="string">"<select class="blank-dropdown" data-answer="Humanoid" id="q4"><option value="">Select...</option><option value="Humanoid">Humanoid</option><option value="Character">Character</option><option value="Player">Player</option></select>"</span>)</div>
+        <div class="line" data-explain="Loop through all players in the game"><span class="keyword" data-tooltip="'for' loops through a list of things">for</span> _, player <span class="keyword" data-tooltip="'in' is used with for loops">in</span> pairs(Players:GetPlayers()) <span class="keyword" data-tooltip="'do' starts the code block">do</span></div>
+        <div class="line" data-explain="Get the player's character, wait if needed">    <span class="keyword">local</span> character = player.Character <span class="keyword" data-tooltip="'or' means 'if not, then use this instead'">or</span> player.<select class="blank-dropdown" data-answer="CharacterAdded" id="q3"><option value="">Select...</option><option value="CharacterAdded">CharacterAdded</option><option value="Spawned">Spawned</option><option value="CharacterSpawned">CharacterSpawned</option></select>:Wait()</div>
+        <div class="line" data-explain="Get the Humanoid to detect when they die">    <span class="keyword">local</span> humanoid = character:WaitForChild(<span class="string">"<select class="blank-dropdown" data-answer="Humanoid" id="q4"><option value="">Select...</option><option value="Humanoid">Humanoid</option><option value="Character">Character</option><option value="Player">Player</option></select>"</span>)</div>
         <div class="line"></div>
-        <div class="line">    humanoid.<select class="blank-dropdown" data-answer="Died" id="q5"><option value="">Select...</option><option value="Died">Died</option><option value="Death">Death</option><option value="OnDeath">OnDeath</option></select>:Connect(<span class="keyword" data-tooltip="'function' creates a block of code that runs when triggered">function</span>()</div>
-        <div class="line">        player.<select class="blank-dropdown" data-answer="PlayerGui" id="q6"><option value="">Select...</option><option value="PlayerGui">PlayerGui</option><option value="ScreenGui">ScreenGui</option><option value="GUI">GUI</option></select>.<span class="var-display" data-var="var-losegui">loseGui</span>.<select class="blank-dropdown" data-answer="Enabled" id="q7"><option value="">Select...</option><option value="Enabled">Enabled</option><option value="Visible">Visible</option><option value="Active">Active</option></select> = <span class="keyword" data-tooltip="'true' means yes/on">true</span></div>
+        <div class="line" data-explain="When this player dies, run this code">    humanoid.<select class="blank-dropdown" data-answer="Died" id="q5"><option value="">Select...</option><option value="Died">Died</option><option value="Death">Death</option><option value="OnDeath">OnDeath</option></select>:Connect(<span class="keyword" data-tooltip="'function' creates a block of code that runs when triggered">function</span>()</div>
+        <div class="line" data-explain="Show the lose screen to the player who died">        player.<select class="blank-dropdown" data-answer="PlayerGui" id="q6"><option value="">Select...</option><option value="PlayerGui">PlayerGui</option><option value="ScreenGui">ScreenGui</option><option value="GUI">GUI</option></select>.<span class="var-display" data-var="var-losegui">loseGui</span>.<select class="blank-dropdown" data-answer="Enabled" id="q7"><option value="">Select...</option><option value="Enabled">Enabled</option><option value="Visible">Visible</option><option value="Active">Active</option></select> = <span class="keyword" data-tooltip="'true' means yes/on">true</span></div>
         <div class="line"></div>
-        <div class="line">        <span class="keyword">for</span> _, otherPlayer <span class="keyword">in</span> pairs(Players:GetPlayers()) <span class="keyword">do</span></div>
-        <div class="line">            <span class="keyword" data-tooltip="'if' checks if something is true">if</span> otherPlayer ~= player <span class="keyword" data-tooltip="'then' comes after an if condition">then</span></div>
-        <div class="line">                otherPlayer.PlayerGui.<span class="var-display" data-var="var-wingui">winGui</span>.Enabled = <span class="keyword">true</span></div>
-        <div class="line">            <span class="keyword" data-tooltip="'end' closes an if block">end</span></div>
-        <div class="line">        <span class="keyword">end</span></div>
-        <div class="line">    <span class="keyword">end</span>)</div>
-        <div class="line"><span class="keyword">end</span></div>
+        <div class="line" data-explain="Loop through all players to find winners">        <span class="keyword">for</span> _, otherPlayer <span class="keyword">in</span> pairs(Players:GetPlayers()) <span class="keyword">do</span></div>
+        <div class="line" data-explain="If this player is not the one who died">            <span class="keyword" data-tooltip="'if' checks if something is true">if</span> otherPlayer ~= player <span class="keyword" data-tooltip="'then' comes after an if condition">then</span></div>
+        <div class="line" data-explain="Show the win screen to the winner">                otherPlayer.PlayerGui.<span class="var-display" data-var="var-wingui">winGui</span>.Enabled = <span class="keyword">true</span></div>
+        <div class="line" data-explain="End the if block">            <span class="keyword" data-tooltip="'end' closes an if block">end</span></div>
+        <div class="line" data-explain="End the inner for loop">        <span class="keyword">end</span></div>
+        <div class="line" data-explain="End the Died function">    <span class="keyword">end</span>)</div>
+        <div class="line" data-explain="End the outer for loop"><span class="keyword">end</span></div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">🎯 Check My Answers</button>

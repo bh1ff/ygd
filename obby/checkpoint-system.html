@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
     <nav class="nav-links">
       <a href="../index.html">Home</a>
       <a href="../football/index.html">Football</a>
@@ -56,32 +56,32 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line"><span class="keyword">local</span> player = game.<select class="blank-dropdown" data-answer="Players" id="q1"><option value="">Select...</option><option value="Players">Players</option><option value="Users">Users</option><option value="People">People</option></select>.<select class="blank-dropdown" data-answer="LocalPlayer" id="q2"><option value="">Select...</option><option value="LocalPlayer">LocalPlayer</option><option value="Player">Player</option><option value="Me">Me</option></select></div>
-        <div class="line"><span class="keyword">local</span> checkpoints = workspace:<select class="blank-dropdown" data-answer="WaitForChild" id="q3"><option value="">Select...</option><option value="WaitForChild">WaitForChild</option><option value="FindFirstChild">FindFirstChild</option><option value="GetChild">GetChild</option></select>(<span class="string">"<span class="var-display" data-var="var-folder">Checkpoints</span>"</span>)</div>
-        <div class="line"><span class="keyword">local</span> lastCheckpointPart</div>
-        <div class="line">lastCheckpointPart = checkpoints:WaitForChild(<span class="string">"<span class="var-display" data-var="var-first">1</span>"</span>)</div>
+        <div class="line" data-explain="Get the local player (you)"><span class="keyword">local</span> player = game.<select class="blank-dropdown" data-answer="Players" id="q1"><option value="">Select...</option><option value="Players">Players</option><option value="Users">Users</option><option value="People">People</option></select>.<select class="blank-dropdown" data-answer="LocalPlayer" id="q2"><option value="">Select...</option><option value="LocalPlayer">LocalPlayer</option><option value="Player">Player</option><option value="Me">Me</option></select></div>
+        <div class="line" data-explain="Get the Checkpoints folder from workspace"><span class="keyword">local</span> checkpoints = workspace:<select class="blank-dropdown" data-answer="WaitForChild" id="q3"><option value="">Select...</option><option value="WaitForChild">WaitForChild</option><option value="FindFirstChild">FindFirstChild</option><option value="GetChild">GetChild</option></select>(<span class="string">"<span class="var-display" data-var="var-folder">Checkpoints</span>"</span>)</div>
+        <div class="line" data-explain="Variable to store the last checkpoint reached"><span class="keyword">local</span> lastCheckpointPart</div>
+        <div class="line" data-explain="Start at checkpoint 1">lastCheckpointPart = checkpoints:WaitForChild(<span class="string">"<span class="var-display" data-var="var-first">1</span>"</span>)</div>
         <div class="line"></div>
-        <div class="line">player.<select class="blank-dropdown" data-answer="CharacterAdded" id="q4"><option value="">Select...</option><option value="CharacterAdded">CharacterAdded</option><option value="Spawned">Spawned</option><option value="Respawned">Respawned</option></select>:Connect(<span class="keyword">function</span>(character)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> hrp = character:WaitForChild(<span class="string">"<select class="blank-dropdown" data-answer="HumanoidRootPart" id="q5"><option value="">Select...</option><option value="HumanoidRootPart">HumanoidRootPart</option><option value="Head">Head</option><option value="Torso">Torso</option></select>"</span>)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;task.wait(<span class="number">0.1</span>)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> lastCheckpointPart <span class="keyword">then</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hrp.<select class="blank-dropdown" data-answer="CFrame" id="q6"><option value="">Select...</option><option value="CFrame">CFrame</option><option value="Position">Position</option><option value="Location">Location</option></select> = lastCheckpointPart.CFrame + <select class="blank-dropdown" data-answer="Vector3" id="q7"><option value="">Select...</option><option value="Vector3">Vector3</option><option value="Vector2">Vector2</option><option value="Position">Position</option></select>.new(<span class="number">0</span>, <span class="number var-display" data-var="var-height">3</span>, <span class="number">0</span>)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
-        <div class="line"><span class="keyword">end</span>)</div>
+        <div class="line" data-explain="When player respawns, run this code">player.<select class="blank-dropdown" data-answer="CharacterAdded" id="q4"><option value="">Select...</option><option value="CharacterAdded">CharacterAdded</option><option value="Spawned">Spawned</option><option value="Respawned">Respawned</option></select>:Connect(<span class="keyword">function</span>(character)</div>
+        <div class="line" data-explain="Get the player's root part (center of body)">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> hrp = character:WaitForChild(<span class="string">"<select class="blank-dropdown" data-answer="HumanoidRootPart" id="q5"><option value="">Select...</option><option value="HumanoidRootPart">HumanoidRootPart</option><option value="Head">Head</option><option value="Torso">Torso</option></select>"</span>)</div>
+        <div class="line" data-explain="Wait a tiny bit for character to load">&nbsp;&nbsp;&nbsp;&nbsp;task.wait(<span class="number">0.1</span>)</div>
+        <div class="line" data-explain="If we have a saved checkpoint">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> lastCheckpointPart <span class="keyword">then</span></div>
+        <div class="line" data-explain="Teleport player to checkpoint (plus height offset)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hrp.<select class="blank-dropdown" data-answer="CFrame" id="q6"><option value="">Select...</option><option value="CFrame">CFrame</option><option value="Position">Position</option><option value="Location">Location</option></select> = lastCheckpointPart.CFrame + <select class="blank-dropdown" data-answer="Vector3" id="q7"><option value="">Select...</option><option value="Vector3">Vector3</option><option value="Vector2">Vector2</option><option value="Position">Position</option></select>.new(<span class="number">0</span>, <span class="number var-display" data-var="var-height">3</span>, <span class="number">0</span>)</div>
+        <div class="line" data-explain="End the if block">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
+        <div class="line" data-explain="End the function"><span class="keyword">end</span>)</div>
         <div class="line"></div>
-        <div class="line"><span class="keyword">for</span> _, checkpoint <span class="keyword">in</span> pairs(checkpoints:GetChildren()) <span class="keyword">do</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> checkpoint:IsA(<span class="string">"BasePart"</span>) <span class="keyword">then</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;checkpoint.<select class="blank-dropdown" data-answer="Touched" id="q8"><option value="">Select...</option><option value="Touched">Touched</option><option value="Hit">Hit</option><option value="Contact">Contact</option></select>:Connect(<span class="keyword">function</span>(hit)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> character = hit:FindFirstAncestorOfClass(<span class="string">"Model"</span>)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> humanoid = character <span class="keyword">and</span> character:FindFirstChildOfClass(<span class="string">"Humanoid"</span>)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> humanoid <span class="keyword">and</span> player.Character == character <span class="keyword">then</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> lastCheckpointPart ~= checkpoint <span class="keyword">then</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lastCheckpointPart = checkpoint</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
-        <div class="line"><span class="keyword">end</span></div>
+        <div class="line" data-explain="Loop through all checkpoints in the folder"><span class="keyword">for</span> _, checkpoint <span class="keyword">in</span> pairs(checkpoints:GetChildren()) <span class="keyword">do</span></div>
+        <div class="line" data-explain="Make sure it's a part (not a script)">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> checkpoint:IsA(<span class="string">"BasePart"</span>) <span class="keyword">then</span></div>
+        <div class="line" data-explain="When something touches this checkpoint">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;checkpoint.<select class="blank-dropdown" data-answer="Touched" id="q8"><option value="">Select...</option><option value="Touched">Touched</option><option value="Hit">Hit</option><option value="Contact">Contact</option></select>:Connect(<span class="keyword">function</span>(hit)</div>
+        <div class="line" data-explain="Find the character model that touched">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> character = hit:FindFirstAncestorOfClass(<span class="string">"Model"</span>)</div>
+        <div class="line" data-explain="Check if it has a Humanoid (is a player)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> humanoid = character <span class="keyword">and</span> character:FindFirstChildOfClass(<span class="string">"Humanoid"</span>)</div>
+        <div class="line" data-explain="If it's a player and it's us">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> humanoid <span class="keyword">and</span> player.Character == character <span class="keyword">then</span></div>
+        <div class="line" data-explain="If this is a new checkpoint">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> lastCheckpointPart ~= checkpoint <span class="keyword">then</span></div>
+        <div class="line" data-explain="Save this as our new respawn point">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lastCheckpointPart = checkpoint</div>
+        <div class="line" data-explain="End the if block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
+        <div class="line" data-explain="End the if block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
+        <div class="line" data-explain="End the Touched function">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>)</div>
+        <div class="line" data-explain="End the IsA check">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
+        <div class="line" data-explain="End the for loop"><span class="keyword">end</span></div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>

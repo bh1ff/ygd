@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></div>
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
     <nav class="nav-links">
       <a href="../index.html">Home</a>
       <a href="../football/index.html">Football</a>
@@ -65,27 +65,27 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line"><span class="keyword">local</span> player = game.<select class="blank-dropdown" data-answer="Players" id="q1"><option value="">Select...</option><option value="Players">Players</option><option value="Users">Users</option><option value="Characters">Characters</option></select>.LocalPlayer</div>
-        <div class="line"><span class="keyword">local</span> gui = player:WaitForChild(<span class="string">"<select class="blank-dropdown" data-answer="PlayerGui" id="q2"><option value="">Select...</option><option value="PlayerGui">PlayerGui</option><option value="ScreenGui">ScreenGui</option><option value="GUI">GUI</option></select>"</span>).<span class="var-display" data-var="var-timergui">timerGui</span></div>
-        <div class="line"><span class="keyword">local</span> timerLabel = gui.<span class="var-display" data-var="var-timerlabel">timerLabel</span></div>
-        <div class="line"><span class="keyword">local</span> loseLabel = gui.<span class="var-display" data-var="var-loselabel">loseLabel</span></div>
+        <div class="line" data-explain="Get the local player (you)"><span class="keyword">local</span> player = game.<select class="blank-dropdown" data-answer="Players" id="q1"><option value="">Select...</option><option value="Players">Players</option><option value="Users">Users</option><option value="Characters">Characters</option></select>.LocalPlayer</div>
+        <div class="line" data-explain="Get the timer GUI from the player's screen"><span class="keyword">local</span> gui = player:WaitForChild(<span class="string">"<select class="blank-dropdown" data-answer="PlayerGui" id="q2"><option value="">Select...</option><option value="PlayerGui">PlayerGui</option><option value="ScreenGui">ScreenGui</option><option value="GUI">GUI</option></select>"</span>).<span class="var-display" data-var="var-timergui">timerGui</span></div>
+        <div class="line" data-explain="Get the timer text label"><span class="keyword">local</span> timerLabel = gui.<span class="var-display" data-var="var-timerlabel">timerLabel</span></div>
+        <div class="line" data-explain="Get the lose message label"><span class="keyword">local</span> loseLabel = gui.<span class="var-display" data-var="var-loselabel">loseLabel</span></div>
         <div class="line"></div>
-        <div class="line"><span class="keyword">local</span> timeLeft = <span class="number var-display" data-var="var-time">150</span></div>
+        <div class="line" data-explain="Set the starting time in seconds"><span class="keyword">local</span> timeLeft = <span class="number var-display" data-var="var-time">150</span></div>
         <div class="line"></div>
-        <div class="line"><span class="keyword">local function</span> formatTime(seconds)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> mins = math.<select class="blank-dropdown" data-answer="floor" id="q3"><option value="">Select...</option><option value="floor">floor</option><option value="round">round</option><option value="ceil">ceil</option></select>(seconds / <span class="number">60</span>)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> secs = seconds % <span class="number">60</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> string.<select class="blank-dropdown" data-answer="format" id="q4"><option value="">Select...</option><option value="format">format</option><option value="concat">concat</option><option value="make">make</option></select>(<span class="string">"%02d:%02d"</span>, mins, secs)</div>
-        <div class="line"><span class="keyword">end</span></div>
+        <div class="line" data-explain="Function to convert seconds to MM:SS format"><span class="keyword">local function</span> formatTime(seconds)</div>
+        <div class="line" data-explain="Calculate minutes by dividing by 60">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> mins = math.<select class="blank-dropdown" data-answer="floor" id="q3"><option value="">Select...</option><option value="floor">floor</option><option value="round">round</option><option value="ceil">ceil</option></select>(seconds / <span class="number">60</span>)</div>
+        <div class="line" data-explain="Calculate remaining seconds using modulo">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> secs = seconds % <span class="number">60</span></div>
+        <div class="line" data-explain="Return time as a formatted string like 02:30">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> string.<select class="blank-dropdown" data-answer="format" id="q4"><option value="">Select...</option><option value="format">format</option><option value="concat">concat</option><option value="make">make</option></select>(<span class="string">"%02d:%02d"</span>, mins, secs)</div>
+        <div class="line" data-explain="End the function"><span class="keyword">end</span></div>
         <div class="line"></div>
-        <div class="line"><span class="keyword">while</span> timeLeft > <span class="number">0</span> <span class="keyword">do</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;timerLabel.<select class="blank-dropdown" data-answer="Text" id="q5"><option value="">Select...</option><option value="Text">Text</option><option value="Value">Value</option><option value="Content">Content</option></select> = formatTime(timeLeft)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;task.<select class="blank-dropdown" data-answer="wait" id="q6"><option value="">Select...</option><option value="wait">wait</option><option value="delay">delay</option><option value="pause">pause</option></select>(<span class="number">1</span>)</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;timeLeft = timeLeft - <span class="number">1</span></div>
-        <div class="line"><span class="keyword">end</span></div>
+        <div class="line" data-explain="Keep looping while time remains"><span class="keyword">while</span> timeLeft > <span class="number">0</span> <span class="keyword">do</span></div>
+        <div class="line" data-explain="Update the timer display">&nbsp;&nbsp;&nbsp;&nbsp;timerLabel.<select class="blank-dropdown" data-answer="Text" id="q5"><option value="">Select...</option><option value="Text">Text</option><option value="Value">Value</option><option value="Content">Content</option></select> = formatTime(timeLeft)</div>
+        <div class="line" data-explain="Wait 1 second">&nbsp;&nbsp;&nbsp;&nbsp;task.<select class="blank-dropdown" data-answer="wait" id="q6"><option value="">Select...</option><option value="wait">wait</option><option value="delay">delay</option><option value="pause">pause</option></select>(<span class="number">1</span>)</div>
+        <div class="line" data-explain="Subtract 1 from the time">&nbsp;&nbsp;&nbsp;&nbsp;timeLeft = timeLeft - <span class="number">1</span></div>
+        <div class="line" data-explain="End the while loop"><span class="keyword">end</span></div>
         <div class="line"></div>
-        <div class="line">timerLabel.Text = <span class="string">"00:00"</span></div>
-        <div class="line">loseLabel.<select class="blank-dropdown" data-answer="Visible" id="q7"><option value="">Select...</option><option value="Visible">Visible</option><option value="Enabled">Enabled</option><option value="Active">Active</option></select> = <span class="keyword">true</span></div>
+        <div class="line" data-explain="Show 00:00 when time runs out">timerLabel.Text = <span class="string">"00:00"</span></div>
+        <div class="line" data-explain="Show the lose message">loseLabel.<select class="blank-dropdown" data-answer="Visible" id="q7"><option value="">Select...</option><option value="Visible">Visible</option><option value="Enabled">Enabled</option><option value="Active">Active</option></select> = <span class="keyword">true</span></div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
