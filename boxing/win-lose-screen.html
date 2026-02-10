@@ -5,16 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Win/Lose Screen Script | Robocode</title>
   <link rel="stylesheet" href="../styles.css">
-  <style>
-    .variables-section { background: #fff; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
-    .variables-section h4 { color: var(--secondary-color); margin-bottom: 15px; font-size: 1.1rem; }
-    .variables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
-    .var-group { display: flex; flex-direction: column; gap: 5px; }
-    .var-group label { font-weight: 600; font-size: 0.9rem; color: #555; }
-    .var-group input, .var-group select { padding: 10px 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 1rem; }
-    .var-group input:focus, .var-group select:focus { outline: none; border-color: var(--secondary-color); }
-    .var-group .hint { font-size: 0.75rem; color: #888; }
-  </style>
 </head>
 <body>
   <header class="header">
@@ -36,8 +26,13 @@
       <p>Customize your variables, then fill in the blanks!</p>
     </div>
 
+    <div class="score-display">
+      <span class="stars" id="stars">⭐⭐⭐</span>
+      <span class="score-text">Get all answers right to earn your stars!</span>
+    </div>
+
     <div class="variables-section">
-      <h4>Your Custom Settings</h4>
+      <h4>🎮 Your Custom Settings</h4>
       <div class="variables-grid">
         <div class="var-group">
           <label>Required Players</label>
@@ -46,7 +41,7 @@
             <option value="3">3 players</option>
             <option value="4">4 players</option>
           </select>
-          <span class="hint">Players needed to start</span>
+          <span class="hint">Players needed to start the game</span>
         </div>
         <div class="var-group">
           <label>Win GUI Name</label>
@@ -63,32 +58,32 @@
 
     <div class="quiz-section">
       <div class="script-info">
-        <h4>Script (ServerScriptService)</h4>
-        <p>This script waits for players to join, then shows win/lose screens when someone is knocked out. Create two ScreenGuis (winGui and loseGui) in StarterGui with Enabled = false!</p>
+        <h4>📝 Script (ServerScriptService)</h4>
+        <p>This script waits for players to join, then shows win/lose screens when someone is knocked out. Create two ScreenGuis (winGui and loseGui) in StarterGui with <strong>Enabled = false</strong>!</p>
       </div>
 
       <div class="code-quiz">
-        <div class="line"><span class="keyword">local</span> Players = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"Players"</span>)</div>
+        <div class="line"><span class="keyword" data-tooltip="'local' creates a variable that only works in this script">local</span> Players = game:<select class="blank-dropdown" data-answer="GetService" id="q1"><option value="">Select...</option><option value="GetService">GetService</option><option value="FindService">FindService</option><option value="UseService">UseService</option></select>(<span class="string">"Players"</span>)</div>
         <div class="line"></div>
-        <div class="line"><span class="keyword">repeat</span> task.<select class="blank-dropdown" data-answer="wait" id="q2"><option value="">Select...</option><option value="wait">wait</option><option value="delay">delay</option><option value="pause">pause</option></select>() <span class="keyword">until</span> #Players:GetPlayers() >= <span class="number var-display" data-var="var-players">2</span></div>
+        <div class="line"><span class="keyword" data-tooltip="'repeat' keeps running the code until something is true">repeat</span> task.<select class="blank-dropdown" data-answer="wait" id="q2"><option value="">Select...</option><option value="wait">wait</option><option value="delay">delay</option><option value="pause">pause</option></select>() <span class="keyword" data-tooltip="'until' stops the repeat when the condition is true">until</span> #Players:GetPlayers() >= <span class="number var-display" data-var="var-players">2</span></div>
         <div class="line"></div>
-        <div class="line"><span class="keyword">for</span> _, player <span class="keyword">in</span> pairs(Players:GetPlayers()) <span class="keyword">do</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> character = player.Character <span class="keyword">or</span> player.<select class="blank-dropdown" data-answer="CharacterAdded" id="q3"><option value="">Select...</option><option value="CharacterAdded">CharacterAdded</option><option value="Spawned">Spawned</option><option value="CharacterSpawned">CharacterSpawned</option></select>:Wait()</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> humanoid = character:WaitForChild(<span class="string">"<select class="blank-dropdown" data-answer="Humanoid" id="q4"><option value="">Select...</option><option value="Humanoid">Humanoid</option><option value="Character">Character</option><option value="Player">Player</option></select>"</span>)</div>
+        <div class="line"><span class="keyword" data-tooltip="'for' loops through a list of things">for</span> _, player <span class="keyword" data-tooltip="'in' is used with for loops">in</span> pairs(Players:GetPlayers()) <span class="keyword" data-tooltip="'do' starts the code block">do</span></div>
+        <div class="line">    <span class="keyword">local</span> character = player.Character <span class="keyword" data-tooltip="'or' means 'if not, then use this instead'">or</span> player.<select class="blank-dropdown" data-answer="CharacterAdded" id="q3"><option value="">Select...</option><option value="CharacterAdded">CharacterAdded</option><option value="Spawned">Spawned</option><option value="CharacterSpawned">CharacterSpawned</option></select>:Wait()</div>
+        <div class="line">    <span class="keyword">local</span> humanoid = character:WaitForChild(<span class="string">"<select class="blank-dropdown" data-answer="Humanoid" id="q4"><option value="">Select...</option><option value="Humanoid">Humanoid</option><option value="Character">Character</option><option value="Player">Player</option></select>"</span>)</div>
         <div class="line"></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;humanoid.<select class="blank-dropdown" data-answer="Died" id="q5"><option value="">Select...</option><option value="Died">Died</option><option value="Death">Death</option><option value="OnDeath">OnDeath</option></select>:Connect(<span class="keyword">function</span>()</div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;player.<select class="blank-dropdown" data-answer="PlayerGui" id="q6"><option value="">Select...</option><option value="PlayerGui">PlayerGui</option><option value="ScreenGui">ScreenGui</option><option value="GUI">GUI</option></select>.<span class="var-display" data-var="var-losegui">loseGui</span>.<select class="blank-dropdown" data-answer="Enabled" id="q7"><option value="">Select...</option><option value="Enabled">Enabled</option><option value="Visible">Visible</option><option value="Active">Active</option></select> = <span class="keyword">true</span></div>
+        <div class="line">    humanoid.<select class="blank-dropdown" data-answer="Died" id="q5"><option value="">Select...</option><option value="Died">Died</option><option value="Death">Death</option><option value="OnDeath">OnDeath</option></select>:Connect(<span class="keyword" data-tooltip="'function' creates a block of code that runs when triggered">function</span>()</div>
+        <div class="line">        player.<select class="blank-dropdown" data-answer="PlayerGui" id="q6"><option value="">Select...</option><option value="PlayerGui">PlayerGui</option><option value="ScreenGui">ScreenGui</option><option value="GUI">GUI</option></select>.<span class="var-display" data-var="var-losegui">loseGui</span>.<select class="blank-dropdown" data-answer="Enabled" id="q7"><option value="">Select...</option><option value="Enabled">Enabled</option><option value="Visible">Visible</option><option value="Active">Active</option></select> = <span class="keyword" data-tooltip="'true' means yes/on">true</span></div>
         <div class="line"></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> _, otherPlayer <span class="keyword">in</span> pairs(Players:GetPlayers()) <span class="keyword">do</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> otherPlayer ~= player <span class="keyword">then</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherPlayer.PlayerGui.<span class="var-display" data-var="var-wingui">winGui</span>.Enabled = <span class="keyword">true</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
-        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>)</div>
+        <div class="line">        <span class="keyword">for</span> _, otherPlayer <span class="keyword">in</span> pairs(Players:GetPlayers()) <span class="keyword">do</span></div>
+        <div class="line">            <span class="keyword" data-tooltip="'if' checks if something is true">if</span> otherPlayer ~= player <span class="keyword" data-tooltip="'then' comes after an if condition">then</span></div>
+        <div class="line">                otherPlayer.PlayerGui.<span class="var-display" data-var="var-wingui">winGui</span>.Enabled = <span class="keyword">true</span></div>
+        <div class="line">            <span class="keyword" data-tooltip="'end' closes an if block">end</span></div>
+        <div class="line">        <span class="keyword">end</span></div>
+        <div class="line">    <span class="keyword">end</span>)</div>
         <div class="line"><span class="keyword">end</span></div>
       </div>
 
-      <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
+      <button class="check-btn" onclick="checkAnswers()">🎯 Check My Answers</button>
       <div class="feedback" id="feedback"></div>
     </div>
   </main>
@@ -100,7 +95,7 @@
         <p style="margin-bottom: 15px;">Copy this code into a Script in ServerScriptService:</p>
         <pre class="modal-code" id="fullCode"></pre>
       </div>
-      <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
+      <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">📋 Copy Code</button></div>
     </div>
   </div>
 
@@ -144,39 +139,69 @@ for _, player in pairs(Players:GetPlayers()) do
 end`;
     }
 
+    function createConfetti() {
+      const colors = ['#00CED1', '#9B59B6', '#E91E8C', '#FFD700', '#27ae60', '#3498db'];
+      for (let i = 0; i < 50; i++) {
+        setTimeout(() => {
+          const confetti = document.createElement('div');
+          confetti.className = 'confetti';
+          confetti.style.left = Math.random() * 100 + 'vw';
+          confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+          confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+          document.body.appendChild(confetti);
+          setTimeout(() => confetti.remove(), 4000);
+        }, i * 30);
+      }
+    }
+
     function checkAnswers() {
       const dropdowns = document.querySelectorAll('.blank-dropdown');
-      let allCorrect = true;
+      let correctCount = 0;
+      let totalCount = dropdowns.length;
+
       dropdowns.forEach(dropdown => {
         const correct = dropdown.value === dropdown.dataset.answer;
         dropdown.classList.remove('correct', 'incorrect');
         dropdown.classList.add(correct ? 'correct' : 'incorrect');
-        if (!correct) allCorrect = false;
+        if (correct) correctCount++;
       });
+
       const feedback = document.getElementById('feedback');
+      const stars = document.getElementById('stars');
       feedback.classList.add('show');
-      if (allCorrect) {
+
+      if (correctCount === totalCount) {
         feedback.className = 'feedback show success';
-        feedback.textContent = 'All correct! Opening your code...';
+        feedback.innerHTML = '🎉 Amazing! All correct! You earned 3 stars! 🎉';
+        stars.textContent = '⭐⭐⭐';
+        createConfetti();
         document.getElementById('fullCode').textContent = generateCode();
-        setTimeout(() => { document.getElementById('modal').classList.add('show'); }, 500);
+        setTimeout(() => { document.getElementById('modal').classList.add('show'); }, 1000);
+      } else if (correctCount >= totalCount / 2) {
+        feedback.className = 'feedback show error';
+        feedback.innerHTML = `😊 Good try! You got ${correctCount}/${totalCount} correct. Keep going!`;
+        stars.textContent = '⭐⭐☆';
       } else {
         feedback.className = 'feedback show error';
-        feedback.textContent = 'Some answers are incorrect. Try again!';
+        feedback.innerHTML = `💪 ${correctCount}/${totalCount} correct. You can do it! Try again!`;
+        stars.textContent = '⭐☆☆';
       }
     }
 
     function closeModal() { document.getElementById('modal').classList.remove('show'); }
+
     function copyCode() {
       const code = document.getElementById('fullCode').textContent;
       navigator.clipboard.writeText(code).then(() => {
-        alert('Code copied to clipboard!');
+        alert('🎉 Code copied to clipboard!');
         const btn = event.target;
-        btn.textContent = 'Copied!';
+        btn.textContent = '✅ Copied!';
         btn.classList.add('copied');
-        setTimeout(() => { btn.textContent = 'Copy Code'; btn.classList.remove('copied'); }, 2000);
+        setTimeout(() => { btn.textContent = '📋 Copy Code'; btn.classList.remove('copied'); }, 2000);
       });
     }
+
     document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
     updateVarDisplays();
   </script>
