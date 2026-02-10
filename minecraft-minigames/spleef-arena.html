@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spleef Arena Script | Robocode</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn">Roblox</button>
+        <div class="nav-dropdown-content">
+          <a href="../football/index.html">Football</a>
+          <a href="../racing/index.html">Racing</a>
+          <a href="../obby/index.html">Obby</a>
+          <a href="../boxing/index.html">Boxing</a>
+          <a href="../escape-room/index.html">Escape Room</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn active">Minecraft</button>
+        <div class="nav-dropdown-content">
+          <a href="../minecraft-treasure/index.html">Treasure Hunt</a>
+          <a href="index.html" class="active">Mini Games</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <a href="index.html" class="back-link">&larr; Back to Mini Games Scripts</a>
+    <div class="page-title">
+      <h2>Spleef Arena Script</h2>
+      <p>Customize your variables, then fill in the blanks!</p>
+    </div>
+
+    <div class="variables-section">
+      <h4>Your Custom Settings</h4>
+      <div class="variables-grid">
+        <div class="var-group">
+          <label>Arena Size</label>
+          <select id="var-size">
+            <option value="10">10x10</option>
+            <option value="15" selected>15x15</option>
+            <option value="20">20x20</option>
+          </select>
+          <span class="hint">Platform dimensions</span>
+        </div>
+        <div class="var-group">
+          <label>Platform Block</label>
+          <select id="var-platform">
+            <option value="SNOW" selected>SNOW</option>
+            <option value="DIRT">DIRT</option>
+            <option value="SAND">SAND</option>
+          </select>
+          <span class="hint">Breakable floor block</span>
+        </div>
+        <div class="var-group">
+          <label>Wall Block</label>
+          <select id="var-wall">
+            <option value="GLASS" selected>GLASS</option>
+            <option value="STONE">STONE</option>
+            <option value="BRICK_BLOCK">BRICK_BLOCK</option>
+          </select>
+          <span class="hint">Arena wall block</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-section">
+      <div class="script-info">
+        <h4>Python Script (Code Builder)</h4>
+        <p>This script builds a Spleef arena with a platform, lava pit, and walls. Press C in Minecraft Education to open the Code Builder!</p>
+      </div>
+
+      <div class="code-quiz">
+        <div class="line" data-explain="Set the arena size">size = <span class="number var-display" data-var="var-size">15</span></div>
+        <div class="line" data-explain="Set the Y level for the platform">y_level = -60</div>
+        <div class="line"></div>
+        <div class="line" data-explain="Define a function to build the arena"><span class="keyword">def</span> <select class="blank-dropdown" data-answer="build_arena" id="q1"><option value="">Select...</option><option value="build_arena">build_arena</option><option value="make_arena">make_arena</option><option value="create_spleef">create_spleef</option></select>():</div>
+        <div class="line" data-explain="Build the lava pit underneath">&nbsp;&nbsp;&nbsp;&nbsp;blocks.<select class="blank-dropdown" data-answer="fill" id="q2"><option value="">Select...</option><option value="fill">fill</option><option value="place">place</option><option value="set">set</option></select>(LAVA, world(0, y_level - 3, 0), world(size, y_level - 3, size))</div>
+        <div class="line" data-explain="Build the breakable platform">&nbsp;&nbsp;&nbsp;&nbsp;blocks.fill(<span class="var-display" data-var="var-platform">SNOW</span>, world(0, y_level, 0), <select class="blank-dropdown" data-answer="world" id="q3"><option value="">Select...</option><option value="world">world</option><option value="pos">pos</option><option value="position">position</option></select>(size, y_level, size))</div>
+        <div class="line" data-explain="Build walls around the arena">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> i <span class="keyword">in</span> <select class="blank-dropdown" data-answer="range" id="q4"><option value="">Select...</option><option value="range">range</option><option value="loop">loop</option><option value="count">count</option></select>(size + 1):</div>
+        <div class="line" data-explain="Place wall blocks on each side">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> h <span class="keyword">in</span> range(4):</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blocks.place(<span class="var-display" data-var="var-wall">GLASS</span>, world(i, y_level + h, 0))</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blocks.place(<span class="var-display" data-var="var-wall">GLASS</span>, world(i, y_level + h, size))</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blocks.place(<span class="var-display" data-var="var-wall">GLASS</span>, world(0, y_level + h, i))</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blocks.place(<span class="var-display" data-var="var-wall">GLASS</span>, world(size, y_level + h, i))</div>
+        <div class="line"></div>
+        <div class="line" data-explain="Run the function when you type 'spleef' in chat">player.<select class="blank-dropdown" data-answer="on_chat" id="q5"><option value="">Select...</option><option value="on_chat">on_chat</option><option value="on_message">on_message</option><option value="when_say">when_say</option></select>(<span class="string">"spleef"</span>, build_arena)</div>
+      </div>
+
+      <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
+      <div class="feedback" id="feedback"></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
+      <div class="modal-body">
+        <p style="margin-bottom: 15px;">Copy this code into Code Builder (press C in Minecraft):</p>
+        <pre class="modal-code" id="fullCode"></pre>
+      </div>
+      <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
+    </div>
+  </div>
+
+  <footer class="footer"><p>Robocode &copy; 2026 - Young Game Developers</p></footer>
+
+  <script>
+    document.querySelectorAll('.variables-section input, .variables-section select').forEach(input => {
+      input.addEventListener('change', updateVarDisplays);
+      input.addEventListener('input', updateVarDisplays);
+    });
+
+    function updateVarDisplays() {
+      document.querySelectorAll('.var-display').forEach(span => {
+        const varId = span.dataset.var;
+        const input = document.getElementById(varId);
+        if (input) span.textContent = input.value;
+      });
+    }
+
+    function generateCode() {
+      const size = document.getElementById('var-size').value;
+      const platform = document.getElementById('var-platform').value;
+      const wall = document.getElementById('var-wall').value;
+      return `size = ${size}
+y_level = -60
+
+def build_arena():
+    blocks.fill(LAVA, world(0, y_level - 3, 0), world(size, y_level - 3, size))
+    blocks.fill(${platform}, world(0, y_level, 0), world(size, y_level, size))
+    for i in range(size + 1):
+        for h in range(4):
+            blocks.place(${wall}, world(i, y_level + h, 0))
+            blocks.place(${wall}, world(i, y_level + h, size))
+            blocks.place(${wall}, world(0, y_level + h, i))
+            blocks.place(${wall}, world(size, y_level + h, i))
+
+player.on_chat("spleef", build_arena)`;
+    }
+
+    function checkAnswers() {
+      const dropdowns = document.querySelectorAll('.blank-dropdown');
+      let allCorrect = true;
+      dropdowns.forEach(dropdown => {
+        const correct = dropdown.value === dropdown.dataset.answer;
+        dropdown.classList.remove('correct', 'incorrect');
+        dropdown.classList.add(correct ? 'correct' : 'incorrect');
+        if (!correct) allCorrect = false;
+      });
+      const feedback = document.getElementById('feedback');
+      feedback.classList.add('show');
+      if (allCorrect) {
+        feedback.className = 'feedback show success';
+        feedback.textContent = 'All correct! Opening your code...';
+        document.getElementById('fullCode').textContent = generateCode();
+        setTimeout(() => { document.getElementById('modal').classList.add('show'); }, 500);
+      } else {
+        feedback.className = 'feedback show error';
+        feedback.textContent = 'Some answers are incorrect. Try again!';
+      }
+    }
+
+    function closeModal() { document.getElementById('modal').classList.remove('show'); }
+    function copyCode() {
+      const code = document.getElementById('fullCode').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('Code copied to clipboard!');
+        const btn = event.target;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy Code'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+    document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+    updateVarDisplays();
+  </script>
+  <script src="../tooltips.js"></script>
+</body>
+</html>

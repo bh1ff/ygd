@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Robocode - Roblox Code Generator</title>
+  <title>Robocode - Script Helper</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,49 +16,43 @@
     </div>
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
-      <a href="football/index.html">Football</a>
-      <a href="racing/index.html">Racing</a>
-      <a href="obby/index.html">Obby</a>
-      <a href="boxing/index.html">Boxing</a>
-      <a href="escape-room/index.html">Escape Room</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn">Roblox</button>
+        <div class="nav-dropdown-content">
+          <a href="football/index.html">Football</a>
+          <a href="racing/index.html">Racing</a>
+          <a href="obby/index.html">Obby</a>
+          <a href="boxing/index.html">Boxing</a>
+          <a href="escape-room/index.html">Escape Room</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn">Minecraft</button>
+        <div class="nav-dropdown-content">
+          <a href="minecraft-treasure/index.html">Treasure Hunt</a>
+          <a href="minecraft-minigames/index.html">Mini Games</a>
+        </div>
+      </div>
     </nav>
   </header>
 
   <main class="container">
     <div class="page-title">
-      <h2>Roblox Code Generator</h2>
-      <p>Fill in the blanks to complete the code, then copy it into Roblox Studio!</p>
+      <h2>Choose Your Game</h2>
+      <p>Select a platform to start learning code!</p>
     </div>
 
-    <div class="project-circle-grid">
-      <a href="football/index.html" class="project-circle-card">
-        <div class="project-emoji">&#9917;</div>
-        <h3>Football</h3>
-        <span>5 Scripts</span>
+    <div class="project-circle-grid game-choice">
+      <a href="roblox/index.html" class="project-circle-card">
+        <div class="project-emoji game-logo">&#127918;</div>
+        <h3>Roblox</h3>
+        <span>Lua Scripting</span>
       </a>
 
-      <a href="racing/index.html" class="project-circle-card">
-        <div class="project-emoji">&#127950;</div>
-        <h3>Racing</h3>
-        <span>5 Scripts</span>
-      </a>
-
-      <a href="obby/index.html" class="project-circle-card">
-        <div class="project-emoji">&#127939;</div>
-        <h3>Obby</h3>
-        <span>5 Scripts</span>
-      </a>
-
-      <a href="boxing/index.html" class="project-circle-card">
-        <div class="project-emoji">&#129354;</div>
-        <h3>Boxing</h3>
-        <span>4 Scripts</span>
-      </a>
-
-      <a href="escape-room/index.html" class="project-circle-card">
-        <div class="project-emoji">&#128273;</div>
-        <h3>Escape Room</h3>
-        <span>3 Scripts</span>
+      <a href="minecraft/index.html" class="project-circle-card">
+        <div class="project-emoji game-logo">&#9935;</div>
+        <h3>Minecraft</h3>
+        <span>Python Coding</span>
       </a>
     </div>
   </main>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Spawning Script | Robocode</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn">Roblox</button>
+        <div class="nav-dropdown-content">
+          <a href="../football/index.html">Football</a>
+          <a href="../racing/index.html">Racing</a>
+          <a href="../obby/index.html">Obby</a>
+          <a href="../boxing/index.html">Boxing</a>
+          <a href="../escape-room/index.html">Escape Room</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn active">Minecraft</button>
+        <div class="nav-dropdown-content">
+          <a href="../minecraft-treasure/index.html">Treasure Hunt</a>
+          <a href="index.html" class="active">Mini Games</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <a href="index.html" class="back-link">&larr; Back to Mini Games Scripts</a>
+    <div class="page-title">
+      <h2>Random Spawning Script</h2>
+      <p>Customize your variables, then fill in the blanks!</p>
+    </div>
+
+    <div class="variables-section">
+      <h4>Your Custom Settings</h4>
+      <div class="variables-grid">
+        <div class="var-group">
+          <label>Spawn Count</label>
+          <select id="var-count">
+            <option value="5">5 mobs</option>
+            <option value="10" selected>10 mobs</option>
+            <option value="15">15 mobs</option>
+          </select>
+          <span class="hint">Number of mobs to spawn</span>
+        </div>
+        <div class="var-group">
+          <label>Spawn Range</label>
+          <input type="number" id="var-range" value="15">
+          <span class="hint">Max distance from player</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-section">
+      <div class="script-info">
+        <h4>Python Script (Code Builder)</h4>
+        <p>This script spawns random types of mobs at random positions. Press C in Minecraft Education to open the Code Builder!</p>
+      </div>
+
+      <div class="code-quiz">
+        <div class="line" data-explain="Create a list of mob types to spawn from">mob_types = [ZOMBIE, SKELETON, SPIDER, CREEPER]</div>
+        <div class="line" data-explain="Set how many mobs to spawn">spawn_count = <span class="number var-display" data-var="var-count">10</span></div>
+        <div class="line" data-explain="Set the spawn range">spawn_range = <span class="number var-display" data-var="var-range">15</span></div>
+        <div class="line"></div>
+        <div class="line" data-explain="Define a function to spawn random mobs"><span class="keyword">def</span> <select class="blank-dropdown" data-answer="random_spawn" id="q1"><option value="">Select...</option><option value="random_spawn">random_spawn</option><option value="spawn_random">spawn_random</option><option value="make_mobs">make_mobs</option></select>():</div>
+        <div class="line" data-explain="Loop for each mob to spawn">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> i <span class="keyword">in</span> <select class="blank-dropdown" data-answer="range" id="q2"><option value="">Select...</option><option value="range">range</option><option value="loop">loop</option><option value="count">count</option></select>(spawn_count):</div>
+        <div class="line" data-explain="Pick a random mob from the list">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mob_index = <select class="blank-dropdown" data-answer="randint" id="q3"><option value="">Select...</option><option value="randint">randint</option><option value="random">random</option><option value="rand">rand</option></select>(0, len(mob_types) - 1)</div>
+        <div class="line" data-explain="Get the mob type from the list">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mob = mob_types[mob_index]</div>
+        <div class="line" data-explain="Get random X offset">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rand_x = randint(-spawn_range, spawn_range)</div>
+        <div class="line" data-explain="Get random Z offset">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rand_z = randint(-spawn_range, spawn_range)</div>
+        <div class="line" data-explain="Get the player's current position">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos = player.<select class="blank-dropdown" data-answer="position" id="q4"><option value="">Select...</option><option value="position">position</option><option value="location">location</option><option value="coords">coords</option></select>()</div>
+        <div class="line" data-explain="Spawn the random mob at random position">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mobs.spawn(mob, world(pos.x + rand_x, pos.y, pos.z + rand_z))</div>
+        <div class="line"></div>
+        <div class="line" data-explain="Run the function when you type 'chaos' in chat">player.<select class="blank-dropdown" data-answer="on_chat" id="q5"><option value="">Select...</option><option value="on_chat">on_chat</option><option value="on_message">on_message</option><option value="when_say">when_say</option></select>(<span class="string">"chaos"</span>, random_spawn)</div>
+      </div>
+
+      <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
+      <div class="feedback" id="feedback"></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
+      <div class="modal-body">
+        <p style="margin-bottom: 15px;">Copy this code into Code Builder (press C in Minecraft):</p>
+        <pre class="modal-code" id="fullCode"></pre>
+      </div>
+      <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
+    </div>
+  </div>
+
+  <footer class="footer"><p>Robocode &copy; 2026 - Young Game Developers</p></footer>
+
+  <script>
+    document.querySelectorAll('.variables-section input, .variables-section select').forEach(input => {
+      input.addEventListener('change', updateVarDisplays);
+      input.addEventListener('input', updateVarDisplays);
+    });
+
+    function updateVarDisplays() {
+      document.querySelectorAll('.var-display').forEach(span => {
+        const varId = span.dataset.var;
+        const input = document.getElementById(varId);
+        if (input) span.textContent = input.value;
+      });
+    }
+
+    function generateCode() {
+      const count = document.getElementById('var-count').value;
+      const range = document.getElementById('var-range').value;
+      return `mob_types = [ZOMBIE, SKELETON, SPIDER, CREEPER]
+spawn_count = ${count}
+spawn_range = ${range}
+
+def random_spawn():
+    for i in range(spawn_count):
+        mob_index = randint(0, len(mob_types) - 1)
+        mob = mob_types[mob_index]
+        rand_x = randint(-spawn_range, spawn_range)
+        rand_z = randint(-spawn_range, spawn_range)
+        pos = player.position()
+        mobs.spawn(mob, world(pos.x + rand_x, pos.y, pos.z + rand_z))
+
+player.on_chat("chaos", random_spawn)`;
+    }
+
+    function checkAnswers() {
+      const dropdowns = document.querySelectorAll('.blank-dropdown');
+      let allCorrect = true;
+      dropdowns.forEach(dropdown => {
+        const correct = dropdown.value === dropdown.dataset.answer;
+        dropdown.classList.remove('correct', 'incorrect');
+        dropdown.classList.add(correct ? 'correct' : 'incorrect');
+        if (!correct) allCorrect = false;
+      });
+      const feedback = document.getElementById('feedback');
+      feedback.classList.add('show');
+      if (allCorrect) {
+        feedback.className = 'feedback show success';
+        feedback.textContent = 'All correct! Opening your code...';
+        document.getElementById('fullCode').textContent = generateCode();
+        setTimeout(() => { document.getElementById('modal').classList.add('show'); }, 500);
+      } else {
+        feedback.className = 'feedback show error';
+        feedback.textContent = 'Some answers are incorrect. Try again!';
+      }
+    }
+
+    function closeModal() { document.getElementById('modal').classList.remove('show'); }
+    function copyCode() {
+      const code = document.getElementById('fullCode').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('Code copied to clipboard!');
+        const btn = event.target;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy Code'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+    document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+    updateVarDisplays();
+  </script>
+  <script src="../tooltips.js"></script>
+</body>
+</html>

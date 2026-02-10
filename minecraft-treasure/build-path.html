@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build a Path Script | Robocode</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><a href="../index.html"><img src="../logo.png" alt="Robocode"><h1>Robocode<br>Younger Script Helper</h1></a></div>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn">Roblox</button>
+        <div class="nav-dropdown-content">
+          <a href="../football/index.html">Football</a>
+          <a href="../racing/index.html">Racing</a>
+          <a href="../obby/index.html">Obby</a>
+          <a href="../boxing/index.html">Boxing</a>
+          <a href="../escape-room/index.html">Escape Room</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn active">Minecraft</button>
+        <div class="nav-dropdown-content">
+          <a href="index.html" class="active">Treasure Hunt</a>
+          <a href="../minecraft-minigames/index.html">Mini Games</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <a href="index.html" class="back-link">&larr; Back to Treasure Hunt Scripts</a>
+    <div class="page-title">
+      <h2>Build a Path Script</h2>
+      <p>Customize your variables, then fill in the blanks!</p>
+    </div>
+
+    <div class="variables-section">
+      <h4>Your Custom Settings</h4>
+      <div class="variables-grid">
+        <div class="var-group">
+          <label>Path Length</label>
+          <select id="var-length">
+            <option value="10">10 blocks</option>
+            <option value="20" selected>20 blocks</option>
+            <option value="30">30 blocks</option>
+          </select>
+          <span class="hint">How long is your path</span>
+        </div>
+        <div class="var-group">
+          <label>Block Type</label>
+          <select id="var-block">
+            <option value="STONE" selected>STONE</option>
+            <option value="COBBLESTONE">COBBLESTONE</option>
+            <option value="BRICK_BLOCK">BRICK_BLOCK</option>
+            <option value="PLANKS_OAK">PLANKS_OAK</option>
+          </select>
+          <span class="hint">Block to build with</span>
+        </div>
+        <div class="var-group">
+          <label>Start X</label>
+          <input type="number" id="var-startx" value="0">
+          <span class="hint">X coordinate</span>
+        </div>
+        <div class="var-group">
+          <label>Start Z</label>
+          <input type="number" id="var-startz" value="0">
+          <span class="hint">Z coordinate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-section">
+      <div class="script-info">
+        <h4>Python Script (Code Builder)</h4>
+        <p>This script builds a path of blocks using a for loop. Press C in Minecraft Education to open the Code Builder, then paste your code!</p>
+      </div>
+
+      <div class="code-quiz">
+        <div class="line" data-explain="Set how many blocks long the path is">length = <span class="number var-display" data-var="var-length">20</span></div>
+        <div class="line" data-explain="Set the starting X position">start_x = <span class="number var-display" data-var="var-startx">0</span></div>
+        <div class="line" data-explain="Set the starting Z position">start_z = <span class="number var-display" data-var="var-startz">0</span></div>
+        <div class="line" data-explain="Set the Y level (ground height)">y_level = -60</div>
+        <div class="line"></div>
+        <div class="line" data-explain="Define a function to build the path"><span class="keyword">def</span> <select class="blank-dropdown" data-answer="build_path" id="q1"><option value="">Select...</option><option value="build_path">build_path</option><option value="make_path">make_path</option><option value="create">create</option></select>():</div>
+        <div class="line" data-explain="Loop from 0 to length">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> x <span class="keyword">in</span> <select class="blank-dropdown" data-answer="range" id="q2"><option value="">Select...</option><option value="range">range</option><option value="loop">loop</option><option value="count">count</option></select>(length):</div>
+        <div class="line" data-explain="Place a block at each position">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blocks.<select class="blank-dropdown" data-answer="place" id="q3"><option value="">Select...</option><option value="place">place</option><option value="put">put</option><option value="set">set</option></select>(<span class="var-display" data-var="var-block">STONE</span>, <select class="blank-dropdown" data-answer="world" id="q4"><option value="">Select...</option><option value="world">world</option><option value="pos">pos</option><option value="location">location</option></select>(start_x + x, y_level, start_z))</div>
+        <div class="line"></div>
+        <div class="line" data-explain="Run the function when you type 'path' in chat">player.<select class="blank-dropdown" data-answer="on_chat" id="q5"><option value="">Select...</option><option value="on_chat">on_chat</option><option value="on_message">on_message</option><option value="when_say">when_say</option></select>(<span class="string">"path"</span>, build_path)</div>
+      </div>
+
+      <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
+      <div class="feedback" id="feedback"></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
+      <div class="modal-body">
+        <p style="margin-bottom: 15px;">Copy this code into Code Builder (press C in Minecraft):</p>
+        <pre class="modal-code" id="fullCode"></pre>
+      </div>
+      <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
+    </div>
+  </div>
+
+  <footer class="footer"><p>Robocode &copy; 2026 - Young Game Developers</p></footer>
+
+  <script>
+    document.querySelectorAll('.variables-section input, .variables-section select').forEach(input => {
+      input.addEventListener('change', updateVarDisplays);
+      input.addEventListener('input', updateVarDisplays);
+    });
+
+    function updateVarDisplays() {
+      document.querySelectorAll('.var-display').forEach(span => {
+        const varId = span.dataset.var;
+        const input = document.getElementById(varId);
+        if (input) span.textContent = input.value;
+      });
+    }
+
+    function generateCode() {
+      const length = document.getElementById('var-length').value;
+      const block = document.getElementById('var-block').value;
+      const startX = document.getElementById('var-startx').value;
+      const startZ = document.getElementById('var-startz').value;
+      return `length = ${length}
+start_x = ${startX}
+start_z = ${startZ}
+y_level = -60
+
+def build_path():
+    for x in range(length):
+        blocks.place(${block}, world(start_x + x, y_level, start_z))
+
+player.on_chat("path", build_path)`;
+    }
+
+    function checkAnswers() {
+      const dropdowns = document.querySelectorAll('.blank-dropdown');
+      let allCorrect = true;
+      dropdowns.forEach(dropdown => {
+        const correct = dropdown.value === dropdown.dataset.answer;
+        dropdown.classList.remove('correct', 'incorrect');
+        dropdown.classList.add(correct ? 'correct' : 'incorrect');
+        if (!correct) allCorrect = false;
+      });
+      const feedback = document.getElementById('feedback');
+      feedback.classList.add('show');
+      if (allCorrect) {
+        feedback.className = 'feedback show success';
+        feedback.textContent = 'All correct! Opening your code...';
+        document.getElementById('fullCode').textContent = generateCode();
+        setTimeout(() => { document.getElementById('modal').classList.add('show'); }, 500);
+      } else {
+        feedback.className = 'feedback show error';
+        feedback.textContent = 'Some answers are incorrect. Try again!';
+      }
+    }
+
+    function closeModal() { document.getElementById('modal').classList.remove('show'); }
+    function copyCode() {
+      const code = document.getElementById('fullCode').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('Code copied to clipboard!');
+        const btn = event.target;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy Code'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+    document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+    updateVarDisplays();
+  </script>
+  <script src="../tooltips.js"></script>
+</body>
+</html>
