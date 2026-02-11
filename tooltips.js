@@ -46,7 +46,45 @@ const pythonKeywordTooltips = {
   'randint': "'randint' picks a random number between two values"
 };
 
+// Shuffle array helper
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// Option colors for randomization
+const optionColors = ['#00ced1', '#ff6b9d', '#a855f7', '#4ade80', '#f59e0b'];
+
 document.addEventListener('DOMContentLoaded', function() {
+  // Randomize dropdown options order (keep "Select..." first)
+  document.querySelectorAll('.code-quiz .blank-dropdown').forEach(select => {
+    const options = Array.from(select.options);
+    const firstOption = options[0]; // "Select..."
+    const otherOptions = options.slice(1);
+
+    // Shuffle the other options
+    shuffleArray(otherOptions);
+
+    // Clear and rebuild
+    select.innerHTML = '';
+    select.appendChild(firstOption);
+    otherOptions.forEach(opt => select.appendChild(opt));
+
+    // Apply random colors to options
+    const shuffledColors = shuffleArray([...optionColors]);
+    Array.from(select.options).forEach((opt, i) => {
+      if (i === 0) {
+        opt.style.color = '#aaa'; // "Select..." stays gray
+      } else {
+        opt.style.color = shuffledColors[(i - 1) % shuffledColors.length];
+      }
+      opt.style.background = '#1a1a2e';
+    });
+  });
+
   // Keyword tooltips (Lua and Python) - using JS for proper fixed positioning
   document.querySelectorAll('.code-quiz .keyword').forEach(el => {
     const text = el.textContent.trim();
