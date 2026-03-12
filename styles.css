@@ -306,8 +306,8 @@ body {
   text-decoration: none;
   color: inherit;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  filter: grayscale(100%);
-  opacity: 0.7;
+  filter: grayscale(20%);
+  opacity: 0.9;
 }
 
 .project-circle-card:hover {
@@ -937,6 +937,47 @@ body {
   font-size: 0.95rem;
   color: #888;
   font-style: italic;
+}
+
+/* Lesson Tabs */
+.lesson-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.lesson-tab {
+  padding: 12px 24px;
+  border: 3px solid #ddd;
+  border-radius: 50px;
+  background: white;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.lesson-tab:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 206, 209, 0.3);
+}
+
+.lesson-tab.active {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 20px rgba(155, 89, 182, 0.4);
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
 }
 
 /* Footer */
