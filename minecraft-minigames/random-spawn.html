@@ -71,15 +71,15 @@
         <div class="line" data-explain="Set the spawn range">spawn_range = <span class="number var-display" data-var="var-range">15</span></div>
         <div class="line"></div>
         <div class="line" data-explain="Define a function to spawn random mobs"><span class="keyword">def</span> <select class="blank-dropdown" data-answer="random_spawn" id="q1"><option value="">Select...</option><option value="random_spawn">random_spawn</option><option value="spawn_random">spawn_random</option><option value="make_mobs">make_mobs</option></select>():</div>
-        <div class="line" data-explain="Loop for each mob to spawn">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> i <span class="keyword">in</span> <select class="blank-dropdown" data-answer="range" id="q2"><option value="">Select...</option><option value="range">range</option><option value="loop">loop</option><option value="count">count</option></select>(spawn_count):</div>
-        <div class="line" data-explain="Pick a random mob from the list">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mob_index = <select class="blank-dropdown" data-answer="randint" id="q3"><option value="">Select...</option><option value="randint">randint</option><option value="random">random</option><option value="rand">rand</option></select>(0, len(mob_types) - 1)</div>
+        <div class="line" data-explain="Loop for each mob to spawn">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> i <span class="keyword">in</span> range(spawn_count):</div>
+        <div class="line" data-explain="Pick a random mob from the list">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mob_index = <select class="blank-dropdown" data-answer="randint" id="q2"><option value="">Select...</option><option value="randint">randint</option><option value="random">random</option><option value="rand">rand</option></select>(0, len(mob_types) - 1)</div>
         <div class="line" data-explain="Get the mob type from the list">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mob = mob_types[mob_index]</div>
         <div class="line" data-explain="Get random X offset">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rand_x = randint(-spawn_range, spawn_range)</div>
         <div class="line" data-explain="Get random Z offset">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rand_z = randint(-spawn_range, spawn_range)</div>
-        <div class="line" data-explain="Get the player's current position">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos = player.<select class="blank-dropdown" data-answer="position" id="q4"><option value="">Select...</option><option value="position">position</option><option value="location">location</option><option value="coords">coords</option></select>()</div>
+        <div class="line" data-explain="Get the player's current position">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos = player.<select class="blank-dropdown" data-answer="position" id="q3"><option value="">Select...</option><option value="position">position</option><option value="location">location</option><option value="coords">coords</option></select>()</div>
         <div class="line" data-explain="Spawn the random mob at random position">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mobs.spawn(mob, world(pos.x + rand_x, pos.y, pos.z + rand_z))</div>
         <div class="line"></div>
-        <div class="line" data-explain="Run the function when you type 'chaos' in chat">player.<select class="blank-dropdown" data-answer="on_chat" id="q5"><option value="">Select...</option><option value="on_chat">on_chat</option><option value="on_message">on_message</option><option value="when_say">when_say</option></select>(<span class="string">"chaos"</span>, random_spawn)</div>
+        <div class="line" data-explain="Run the function when you type 'chaos' in chat">player.<select class="blank-dropdown" data-answer="on_chat" id="q4"><option value="">Select...</option><option value="on_chat">on_chat</option><option value="on_message">on_message</option><option value="when_say">when_say</option></select>(<span class="string">"chaos"</span>, random_spawn)</div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
@@ -91,8 +91,9 @@
     <div class="modal">
       <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
       <div class="modal-body">
-        <p style="margin-bottom: 15px;">Copy this code into Code Builder (press C in Minecraft):</p>
-        <pre class="modal-code" id="fullCode"></pre>
+        <p class="modal-explanation">This script spawns mobs at random spots near you for a fun surprise!</p>
+        <p style="margin-bottom: 10px; color: #888; font-size: 0.95rem;">Type the command in Minecraft chat to run it</p>
+        <pre class="modal-code" id="fullCode" style="display:none"></pre>
       </div>
       <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
     </div>

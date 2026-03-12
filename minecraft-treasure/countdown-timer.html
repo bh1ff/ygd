@@ -70,12 +70,12 @@
         <div class="line" data-explain="Set how many seconds to count down">time_left = <span class="number var-display" data-var="var-time">30</span></div>
         <div class="line"></div>
         <div class="line" data-explain="Define a function for the countdown"><span class="keyword">def</span> <select class="blank-dropdown" data-answer="countdown" id="q1"><option value="">Select...</option><option value="countdown">countdown</option><option value="timer">timer</option><option value="count">count</option></select>():</div>
-        <div class="line" data-explain="Loop from time_left down to 1">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> i <span class="keyword">in</span> range(time_left, <select class="blank-dropdown" data-answer="0" id="q2"><option value="">Select...</option><option value="0">0</option><option value="1">1</option><option value="-1">-1</option></select>, -1):</div>
-        <div class="line" data-explain="Display the current time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;player.<select class="blank-dropdown" data-answer="say" id="q3"><option value="">Select...</option><option value="say">say</option><option value="print">print</option><option value="show">show</option></select>(i)</div>
-        <div class="line" data-explain="Wait 1 second before next number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loops.<select class="blank-dropdown" data-answer="pause" id="q4"><option value="">Select...</option><option value="pause">pause</option><option value="wait">wait</option><option value="sleep">sleep</option></select>(1000)</div>
+        <div class="line" data-explain="Loop from time_left down to 1">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> i <span class="keyword">in</span> range(time_left, 0, -1):</div>
+        <div class="line" data-explain="Display the current time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;player.<select class="blank-dropdown" data-answer="say" id="q2"><option value="">Select...</option><option value="say">say</option><option value="print">print</option><option value="show">show</option></select>(i)</div>
+        <div class="line" data-explain="Wait 1 second before next number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loops.<select class="blank-dropdown" data-answer="pause" id="q3"><option value="">Select...</option><option value="pause">pause</option><option value="wait">wait</option><option value="sleep">sleep</option></select>(1000)</div>
         <div class="line" data-explain="Show end message when done">&nbsp;&nbsp;&nbsp;&nbsp;player.say(<span class="string">"<span class="var-display" data-var="var-message">Time is up!</span>"</span>)</div>
         <div class="line"></div>
-        <div class="line" data-explain="Run the function when you type 'start' in chat">player.<select class="blank-dropdown" data-answer="on_chat" id="q5"><option value="">Select...</option><option value="on_chat">on_chat</option><option value="on_message">on_message</option><option value="when_say">when_say</option></select>(<span class="string">"start"</span>, countdown)</div>
+        <div class="line" data-explain="Run the function when you type 'start' in chat">player.<select class="blank-dropdown" data-answer="on_chat" id="q4"><option value="">Select...</option><option value="on_chat">on_chat</option><option value="on_message">on_message</option><option value="when_say">when_say</option></select>(<span class="string">"start"</span>, countdown)</div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
@@ -87,8 +87,9 @@
     <div class="modal">
       <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
       <div class="modal-body">
-        <p style="margin-bottom: 15px;">Copy this code into Code Builder (press C in Minecraft):</p>
-        <pre class="modal-code" id="fullCode"></pre>
+        <p class="modal-explanation">This script counts down from a number and tells everyone in chat when time is up!</p>
+        <p style="margin-bottom: 10px; color: #888; font-size: 0.95rem;">Type the command in Minecraft chat to run it</p>
+        <pre class="modal-code" id="fullCode" style="display:none"></pre>
       </div>
       <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
     </div>

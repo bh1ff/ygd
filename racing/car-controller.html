@@ -78,7 +78,7 @@
         <div class="line" data-explain="Set how fast the wheels spin"><span class="keyword">local</span> speed = <span class="number var-display" data-var="var-speed">25</span></div>
         <div class="line"></div>
         <div class="line" data-explain="When the VehicleSeat changes (player presses W/A/S/D)">script.Parent.<select class="blank-dropdown" data-answer="Changed" id="q2"><option value="">Select...</option><option value="Changed">Changed</option><option value="Updated">Updated</option><option value="Modified">Modified</option></select>:Connect(<span class="keyword">function</span>(property)</div>
-        <div class="line" data-explain="Spin left front wheel based on throttle (W/S keys)">&nbsp;&nbsp;&nbsp;&nbsp;leftWheel.<select class="blank-dropdown" data-answer="AngularVelocity" id="q3"><option value="">Select...</option><option value="AngularVelocity">AngularVelocity</option><option value="Speed">Speed</option><option value="Velocity">Velocity</option></select> = speed * script.Parent.<select class="blank-dropdown" data-answer="Throttle" id="q4"><option value="">Select...</option><option value="Throttle">Throttle</option><option value="Speed">Speed</option><option value="Power">Power</option></select></div>
+        <div class="line" data-explain="Spin left front wheel based on throttle (W/S keys)">&nbsp;&nbsp;&nbsp;&nbsp;leftWheel.<select class="blank-dropdown" data-answer="AngularVelocity" id="q3"><option value="">Select...</option><option value="AngularVelocity">AngularVelocity</option><option value="Speed">Speed</option><option value="Velocity">Velocity</option></select> = speed * script.Parent.Throttle</div>
         <div class="line" data-explain="Spin left back wheel the same way">&nbsp;&nbsp;&nbsp;&nbsp;leftWheel2.AngularVelocity = speed * script.Parent.Throttle</div>
         <div class="line" data-explain="Spin right wheels opposite direction (negative)">&nbsp;&nbsp;&nbsp;&nbsp;rightWheel.AngularVelocity = speed * -script.Parent.Throttle</div>
         <div class="line" data-explain="Spin right back wheel opposite too">&nbsp;&nbsp;&nbsp;&nbsp;rightWheel2.AngularVelocity = speed * -script.Parent.Throttle</div>
@@ -96,8 +96,9 @@
     <div class="modal">
       <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
       <div class="modal-body">
-        <p style="margin-bottom: 15px;">Copy this code into a Script inside the VehicleSeat:</p>
-        <pre class="modal-code" id="fullCode"></pre>
+        <p class="modal-explanation">This script makes your car drive forward, backward, and steer left and right when you sit in the VehicleSeat!</p>
+        <p style="margin-bottom: 10px; color: #888; font-size: 0.95rem;">Put this Script inside the VehicleSeat</p>
+        <pre class="modal-code" id="fullCode" style="display:none"></pre>
       </div>
       <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
     </div>

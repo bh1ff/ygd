@@ -84,14 +84,14 @@
         <div class="line" data-explain="Set the effect duration in seconds">duration = <span class="number var-display" data-var="var-duration">30</span></div>
         <div class="line"></div>
         <div class="line" data-explain="Define a function for the command"><span class="keyword">def</span> <select class="blank-dropdown" data-answer="run_command" id="q1"><option value="">Select...</option><option value="run_command">run_command</option><option value="do_command">do_command</option><option value="execute">execute</option></select>():</div>
-        <div class="line" data-explain="Display the message to the player">&nbsp;&nbsp;&nbsp;&nbsp;player.<select class="blank-dropdown" data-answer="say" id="q2"><option value="">Select...</option><option value="say">say</option><option value="print">print</option><option value="show">show</option></select>(<span class="string">"<span class="var-display" data-var="var-message">You triggered the command!</span>"</span>)</div>
-        <div class="line" data-explain="Give the player a potion effect">&nbsp;&nbsp;&nbsp;&nbsp;mobs.<select class="blank-dropdown" data-answer="apply_effect" id="q3"><option value="">Select...</option><option value="apply_effect">apply_effect</option><option value="give_effect">give_effect</option><option value="add_effect">add_effect</option></select>(<span class="var-display" data-var="var-effect">SPEED</span>, player.position(), duration)</div>
+        <div class="line" data-explain="Display the message to the player">&nbsp;&nbsp;&nbsp;&nbsp;player.say(<span class="string">"<span class="var-display" data-var="var-message">You triggered the command!</span>"</span>)</div>
+        <div class="line" data-explain="Give the player a potion effect">&nbsp;&nbsp;&nbsp;&nbsp;mobs.<select class="blank-dropdown" data-answer="apply_effect" id="q2"><option value="">Select...</option><option value="apply_effect">apply_effect</option><option value="give_effect">give_effect</option><option value="add_effect">add_effect</option></select>(<span class="var-display" data-var="var-effect">SPEED</span>, player.position(), duration)</div>
         <div class="line"></div>
         <div class="line" data-explain="Define another function for a second command"><span class="keyword">def</span> clear_effects():</div>
-        <div class="line" data-explain="Clear all effects from the player">&nbsp;&nbsp;&nbsp;&nbsp;mobs.<select class="blank-dropdown" data-answer="clear_effect" id="q4"><option value="">Select...</option><option value="clear_effect">clear_effect</option><option value="remove_effect">remove_effect</option><option value="delete_effect">delete_effect</option></select>(player.position())</div>
+        <div class="line" data-explain="Clear all effects from the player">&nbsp;&nbsp;&nbsp;&nbsp;mobs.<select class="blank-dropdown" data-answer="clear_effect" id="q3"><option value="">Select...</option><option value="clear_effect">clear_effect</option><option value="remove_effect">remove_effect</option><option value="delete_effect">delete_effect</option></select>(player.position())</div>
         <div class="line" data-explain="Tell the player effects are cleared">&nbsp;&nbsp;&nbsp;&nbsp;player.say(<span class="string">"Effects cleared!"</span>)</div>
         <div class="line"></div>
-        <div class="line" data-explain="Trigger run_command when you type the command">player.<select class="blank-dropdown" data-answer="on_chat" id="q5"><option value="">Select...</option><option value="on_chat">on_chat</option><option value="on_message">on_message</option><option value="when_say">when_say</option></select>(<span class="string">"<span class="var-display" data-var="var-command">jump</span>"</span>, run_command)</div>
+        <div class="line" data-explain="Trigger run_command when you type the command">player.<select class="blank-dropdown" data-answer="on_chat" id="q4"><option value="">Select...</option><option value="on_chat">on_chat</option><option value="on_message">on_message</option><option value="when_say">when_say</option></select>(<span class="string">"<span class="var-display" data-var="var-command">jump</span>"</span>, run_command)</div>
         <div class="line" data-explain="Trigger clear_effects when you type 'clear'">player.on_chat(<span class="string">"clear"</span>, clear_effects)</div>
       </div>
 
@@ -104,8 +104,9 @@
     <div class="modal">
       <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
       <div class="modal-body">
-        <p style="margin-bottom: 15px;">Copy this code into Code Builder (press C in Minecraft):</p>
-        <pre class="modal-code" id="fullCode"></pre>
+        <p class="modal-explanation">This script gives you special powers like speed or jump boost when you type a chat command!</p>
+        <p style="margin-bottom: 10px; color: #888; font-size: 0.95rem;">Type the command in Minecraft chat to run it</p>
+        <pre class="modal-code" id="fullCode" style="display:none"></pre>
       </div>
       <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
     </div>

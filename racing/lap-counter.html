@@ -77,37 +77,37 @@
         <div class="line"></div>
 
         <div class="line" data-explain="Get the lap start part from Workspace"><span class="keyword">local</span> lapReset = game.<select class="blank-dropdown" data-answer="Workspace" id="q1"><option value="">Select...</option><option value="Workspace">Workspace</option><option value="Players">Players</option><option value="Lighting">Lighting</option></select>:WaitForChild(<span class="string">"<span class="var-display" data-var="var-start">LapStart</span>"</span>)</div>
-        <div class="line" data-explain="Get the lap end part from Workspace"><span class="keyword">local</span> lapEnd = game.<select class="blank-dropdown" data-answer="Workspace" id="q2"><option value="">Select...</option><option value="Workspace">Workspace</option><option value="Players">Players</option><option value="Lighting">Lighting</option></select>:WaitForChild(<span class="string">"<span class="var-display" data-var="var-end">LapEnd</span>"</span>)</div>
+        <div class="line" data-explain="Get the lap end part from Workspace"><span class="keyword">local</span> lapEnd = game.Workspace:WaitForChild(<span class="string">"<span class="var-display" data-var="var-end">LapEnd</span>"</span>)</div>
         <div class="line"></div>
 
-        <div class="line" data-explain="Create a debounce variable"><span class="keyword">local</span> debounce = <select class="blank-dropdown" data-answer="false" id="q3"><option value="">Select...</option><option value="false">false</option><option value="true">true</option><option value="nil">nil</option></select></div>
-        <div class="line" data-explain="Create a cooldown variable"><span class="keyword">local</span> lapCooldown = <select class="blank-dropdown" data-answer="false" id="q4"><option value="">Select...</option><option value="false">false</option><option value="true">true</option><option value="nil">nil</option></select></div>
+        <div class="line" data-explain="Create a debounce variable"><span class="keyword">local</span> debounce = <select class="blank-dropdown" data-answer="false" id="q2"><option value="">Select...</option><option value="false">false</option><option value="true">true</option><option value="nil">nil</option></select></div>
+        <div class="line" data-explain="Create a cooldown variable"><span class="keyword">local</span> lapCooldown = <span class="keyword">false</span></div>
         <div class="line"></div>
 
-        <div class="line" data-explain="When the player touches the lap start part, turn debounce on">lapReset.<select class="blank-dropdown" data-answer="Touched" id="q5"><option value="">Select...</option><option value="Touched">Touched</option><option value="Clicked">Clicked</option><option value="Changed">Changed</option></select>:Connect(function()</div>
-        <div class="line" data-explain="Allow laps to be counted">&nbsp;&nbsp;&nbsp;&nbsp;debounce = <select class="blank-dropdown" data-answer="true" id="q6"><option value="">Select...</option><option value="true">true</option><option value="false">false</option><option value="nil">nil</option></select></div>
+        <div class="line" data-explain="When the player touches the lap start part, turn debounce on">lapReset.<select class="blank-dropdown" data-answer="Touched" id="q3"><option value="">Select...</option><option value="Touched">Touched</option><option value="Clicked">Clicked</option><option value="Changed">Changed</option></select>:Connect(<span class="keyword">function</span>()</div>
+        <div class="line" data-explain="Allow laps to be counted">&nbsp;&nbsp;&nbsp;&nbsp;debounce = <span class="keyword">true</span></div>
         <div class="line" data-explain="End the start touch function"><span class="keyword">end</span>)</div>
         <div class="line"></div>
 
-        <div class="line" data-explain="When the player touches the lap end part, turn debounce off">lapEnd.<select class="blank-dropdown" data-answer="Touched" id="q7"><option value="">Select...</option><option value="Touched">Touched</option><option value="Clicked">Clicked</option><option value="Changed">Changed</option></select>:Connect(function()</div>
-        <div class="line" data-explain="Stop laps from being counted">&nbsp;&nbsp;&nbsp;&nbsp;debounce = <select class="blank-dropdown" data-answer="false" id="q8"><option value="">Select...</option><option value="true">true</option><option value="false">false</option><option value="nil">nil</option></select></div>
+        <div class="line" data-explain="When the player touches the lap end part, turn debounce off">lapEnd.Touched:Connect(<span class="keyword">function</span>()</div>
+        <div class="line" data-explain="Stop laps from being counted">&nbsp;&nbsp;&nbsp;&nbsp;debounce = <span class="keyword">false</span></div>
         <div class="line" data-explain="End the end touch function"><span class="keyword">end</span>)</div>
         <div class="line"></div>
 
-        <div class="line" data-explain="Create a function to add a lap to a player's count"><span class="keyword">function</span> <select class="blank-dropdown" data-answer="incrementLapCount" id="q9"><option value="">Select...</option><option value="incrementLapCount">incrementLapCount</option><option value="addLap">addLap</option><option value="countLap">countLap</option></select>(localPlayer)</div>
+        <div class="line" data-explain="Create a function to add a lap to a player's count"><span class="keyword">function</span> incrementLapCount(localPlayer)</div>
         <div class="line" data-explain="Stop if debounce is off">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> <span class="keyword">not</span> debounce <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span></div>
-        <div class="line" data-explain="Find the player object by their name">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plr = game.<select class="blank-dropdown" data-answer="Players" id="q10"><option value="">Select...</option><option value="Players">Players</option><option value="Teams">Teams</option><option value="Users">Users</option></select>:FindFirstChild(localPlayer.<select class="blank-dropdown" data-answer="Name" id="q11"><option value="">Select...</option><option value="Name">Name</option><option value="Id">Id</option><option value="Username">Username</option></select>)</div>
+        <div class="line" data-explain="Find the player object by their name">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plr = game.Players:FindFirstChild(localPlayer.Name)</div>
         <div class="line" data-explain="Stop if cooldown is already active">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> lapCooldown <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span></div>
-        <div class="line" data-explain="Turn cooldown on">&nbsp;&nbsp;&nbsp;&nbsp;lapCooldown = <select class="blank-dropdown" data-answer="true" id="q12"><option value="">Select...</option><option value="true">true</option><option value="false">false</option><option value="nil">nil</option></select></div>
-        <div class="line" data-explain="Get the player's leaderboard stats folder">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plrStats = plr:WaitForChild(<span class="string">"<select class="blank-dropdown" data-answer="leaderstats" id="q13"><option value="">Select...</option><option value="leaderstats">leaderstats</option><option value="stats">stats</option><option value="scores">scores</option></select>"</span>)</div>
+        <div class="line" data-explain="Turn cooldown on">&nbsp;&nbsp;&nbsp;&nbsp;lapCooldown = <span class="keyword">true</span></div>
+        <div class="line" data-explain="Get the player's leaderboard stats folder">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plrStats = plr:WaitForChild(<span class="string">"<select class="blank-dropdown" data-answer="leaderstats" id="q4"><option value="">Select...</option><option value="leaderstats">leaderstats</option><option value="stats">stats</option><option value="scores">scores</option></select>"</span>)</div>
         <div class="line" data-explain="Get the lap counter stat">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plrLap = plrStats.<span class="var-display" data-var="var-statname">Laps</span></div>
-        <div class="line" data-explain="Add 1 to their lap count">&nbsp;&nbsp;&nbsp;&nbsp;plrLap.<select class="blank-dropdown" data-answer="Value" id="q14"><option value="">Select...</option><option value="Value">Value</option><option value="Number">Number</option><option value="Count">Count</option></select> <select class="blank-dropdown" data-answer="+=" id="q15"><option value="">Select...</option><option value="+=">+=</option><option value="=">=</option><option value="+">+</option></select> <span class="number">1</span></div>
-        <div class="line" data-explain="Wait 1 second before allowing another lap">&nbsp;&nbsp;&nbsp;&nbsp;task.<select class="blank-dropdown" data-answer="wait" id="q16"><option value="">Select...</option><option value="wait">wait</option><option value="delay">delay</option><option value="spawn">spawn</option></select>(<span class="number">1</span>)</div>
-        <div class="line" data-explain="Turn cooldown off again">&nbsp;&nbsp;&nbsp;&nbsp;lapCooldown = <select class="blank-dropdown" data-answer="false" id="q17"><option value="">Select...</option><option value="true">true</option><option value="false">false</option><option value="nil">nil</option></select></div>
+        <div class="line" data-explain="Add 1 to their lap count">&nbsp;&nbsp;&nbsp;&nbsp;plrLap.Value <select class="blank-dropdown" data-answer="+=" id="q5"><option value="">Select...</option><option value="+=">+=</option><option value="=">=</option><option value="+">+</option></select> <span class="number">1</span></div>
+        <div class="line" data-explain="Wait 1 second before allowing another lap">&nbsp;&nbsp;&nbsp;&nbsp;task.wait(<span class="number">1</span>)</div>
+        <div class="line" data-explain="Turn cooldown off again">&nbsp;&nbsp;&nbsp;&nbsp;lapCooldown = <span class="keyword">false</span></div>
         <div class="line" data-explain="End the function"><span class="keyword">end</span></div>
         <div class="line"></div>
 
-        <div class="line" data-explain="When the server receives a lap event, run the function">lapEvent.<select class="blank-dropdown" data-answer="OnServerEvent" id="q18"><option value="">Select...</option><option value="OnServerEvent">OnServerEvent</option><option value="OnEvent">OnEvent</option><option value="Connect">Connect</option></select>:Connect(incrementLapCount)</div>
+        <div class="line" data-explain="When the server receives a lap event, run the function">lapEvent.OnServerEvent:Connect(incrementLapCount)</div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
@@ -119,8 +119,9 @@
     <div class="modal">
       <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
       <div class="modal-body">
-        <p style="margin-bottom: 15px;">Copy this code into a Script in ServerScriptService:</p>
-        <pre class="modal-code" id="fullCode"></pre>
+        <p class="modal-explanation">This script counts how many laps you have done and adds them to the leaderboard!</p>
+        <p style="margin-bottom: 10px; color: #888; font-size: 0.95rem;">Put this Script in ServerScriptService</p>
+        <pre class="modal-code" id="fullCode" style="display:none"></pre>
       </div>
       <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
     </div>

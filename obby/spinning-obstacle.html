@@ -74,7 +74,7 @@
         <div class="line" data-explain="Get the part this script is inside"><span class="keyword">local</span> part = script.<select class="blank-dropdown" data-answer="Parent" id="q2"><option value="">Select...</option><option value="Parent">Parent</option><option value="Part">Part</option><option value="Object">Object</option></select></div>
         <div class="line"></div>
         <div class="line" data-explain="Every frame (60 times per second), run this">RunService.<select class="blank-dropdown" data-answer="Stepped" id="q3"><option value="">Select...</option><option value="Stepped">Stepped</option><option value="Update">Update</option><option value="Tick">Tick</option></select>:Connect(<span class="keyword">function</span>()</div>
-        <div class="line" data-explain="Rotate the part by adding rotation each frame">&nbsp;&nbsp;&nbsp;&nbsp;part.<select class="blank-dropdown" data-answer="CFrame" id="q4"><option value="">Select...</option><option value="CFrame">CFrame</option><option value="Position">Position</option><option value="Rotation">Rotation</option></select> = part.CFrame * CFrame.<select class="blank-dropdown" data-answer="Angles" id="q5"><option value="">Select...</option><option value="Angles">Angles</option><option value="Rotate">Rotate</option><option value="Spin">Spin</option></select>(math.<select class="blank-dropdown" data-answer="rad" id="q6"><option value="">Select...</option><option value="rad">rad</option><option value="deg">deg</option><option value="angle">angle</option></select>(<span class="number">0</span>, <span class="number var-display" data-var="var-speed">2</span>, <span class="number">0</span>))</div>
+        <div class="line" data-explain="Rotate the part by adding rotation each frame">&nbsp;&nbsp;&nbsp;&nbsp;part.<select class="blank-dropdown" data-answer="CFrame" id="q4"><option value="">Select...</option><option value="CFrame">CFrame</option><option value="Position">Position</option><option value="Rotation">Rotation</option></select> = part.CFrame * CFrame.Angles(math.rad(<span class="number">0</span>, <span class="number var-display" data-var="var-speed">2</span>, <span class="number">0</span>))</div>
         <div class="line" data-explain="End the function"><span class="keyword">end</span>)</div>
       </div>
 
@@ -87,8 +87,9 @@
     <div class="modal">
       <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
       <div class="modal-body">
-        <p style="margin-bottom: 15px;">Copy this code into a Script inside your spinning part:</p>
-        <pre class="modal-code" id="fullCode"></pre>
+        <p class="modal-explanation">This script makes an obstacle spin around so players have to dodge it!</p>
+        <p style="margin-bottom: 10px; color: #888; font-size: 0.95rem;">Put this Script inside the spinning part</p>
+        <pre class="modal-code" id="fullCode" style="display:none"></pre>
       </div>
       <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
     </div>

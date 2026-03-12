@@ -85,14 +85,14 @@
         <div class="line" data-explain="Define a function to build the arena"><span class="keyword">def</span> <select class="blank-dropdown" data-answer="build_arena" id="q1"><option value="">Select...</option><option value="build_arena">build_arena</option><option value="make_arena">make_arena</option><option value="create_spleef">create_spleef</option></select>():</div>
         <div class="line" data-explain="Build the lava pit underneath">&nbsp;&nbsp;&nbsp;&nbsp;blocks.<select class="blank-dropdown" data-answer="fill" id="q2"><option value="">Select...</option><option value="fill">fill</option><option value="place">place</option><option value="set">set</option></select>(LAVA, world(0, y_level - 3, 0), world(size, y_level - 3, size))</div>
         <div class="line" data-explain="Build the breakable platform">&nbsp;&nbsp;&nbsp;&nbsp;blocks.fill(<span class="var-display" data-var="var-platform">SNOW</span>, world(0, y_level, 0), <select class="blank-dropdown" data-answer="world" id="q3"><option value="">Select...</option><option value="world">world</option><option value="pos">pos</option><option value="position">position</option></select>(size, y_level, size))</div>
-        <div class="line" data-explain="Build walls around the arena">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> i <span class="keyword">in</span> <select class="blank-dropdown" data-answer="range" id="q4"><option value="">Select...</option><option value="range">range</option><option value="loop">loop</option><option value="count">count</option></select>(size + 1):</div>
+        <div class="line" data-explain="Build walls around the arena">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> i <span class="keyword">in</span> range(size + 1):</div>
         <div class="line" data-explain="Place wall blocks on each side">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> h <span class="keyword">in</span> range(4):</div>
         <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blocks.place(<span class="var-display" data-var="var-wall">GLASS</span>, world(i, y_level + h, 0))</div>
         <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blocks.place(<span class="var-display" data-var="var-wall">GLASS</span>, world(i, y_level + h, size))</div>
         <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blocks.place(<span class="var-display" data-var="var-wall">GLASS</span>, world(0, y_level + h, i))</div>
         <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blocks.place(<span class="var-display" data-var="var-wall">GLASS</span>, world(size, y_level + h, i))</div>
         <div class="line"></div>
-        <div class="line" data-explain="Run the function when you type 'spleef' in chat">player.<select class="blank-dropdown" data-answer="on_chat" id="q5"><option value="">Select...</option><option value="on_chat">on_chat</option><option value="on_message">on_message</option><option value="when_say">when_say</option></select>(<span class="string">"spleef"</span>, build_arena)</div>
+        <div class="line" data-explain="Run the function when you type 'spleef' in chat">player.<select class="blank-dropdown" data-answer="on_chat" id="q4"><option value="">Select...</option><option value="on_chat">on_chat</option><option value="on_message">on_message</option><option value="when_say">when_say</option></select>(<span class="string">"spleef"</span>, build_arena)</div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
@@ -104,8 +104,9 @@
     <div class="modal">
       <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
       <div class="modal-body">
-        <p style="margin-bottom: 15px;">Copy this code into Code Builder (press C in Minecraft):</p>
-        <pre class="modal-code" id="fullCode"></pre>
+        <p class="modal-explanation">This script builds a spleef arena made of snow blocks that you can break to make other players fall!</p>
+        <p style="margin-bottom: 10px; color: #888; font-size: 0.95rem;">Type the command in Minecraft chat to run it</p>
+        <pre class="modal-code" id="fullCode" style="display:none"></pre>
       </div>
       <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
     </div>

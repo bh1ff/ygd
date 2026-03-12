@@ -84,7 +84,7 @@
         <div class="line" data-explain="Set the Y level">y_level = -60</div>
         <div class="line"></div>
         <div class="line" data-explain="Define a function to build the pen"><span class="keyword">def</span> <select class="blank-dropdown" data-answer="build_pen" id="q1"><option value="">Select...</option><option value="build_pen">build_pen</option><option value="make_pen">make_pen</option><option value="create_fence">create_fence</option></select>():</div>
-        <div class="line" data-explain="Loop to build the fence walls">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> i <span class="keyword">in</span> <select class="blank-dropdown" data-answer="range" id="q2"><option value="">Select...</option><option value="range">range</option><option value="loop">loop</option><option value="count">count</option></select>(pen_size + 1):</div>
+        <div class="line" data-explain="Loop to build the fence walls">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> i <span class="keyword">in</span> range(pen_size + 1):</div>
         <div class="line" data-explain="Build fence on all four sides">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blocks.place(<span class="var-display" data-var="var-fence">OAK_FENCE</span>, world(i, y_level, 0))</div>
         <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blocks.place(<span class="var-display" data-var="var-fence">OAK_FENCE</span>, world(i, y_level, pen_size))</div>
         <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blocks.place(<span class="var-display" data-var="var-fence">OAK_FENCE</span>, world(0, y_level, i))</div>
@@ -92,12 +92,12 @@
         <div class="line"></div>
         <div class="line" data-explain="Define a function to spawn chickens"><span class="keyword">def</span> spawn_chickens():</div>
         <div class="line" data-explain="Loop to spawn each chicken">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> i <span class="keyword">in</span> range(chicken_count):</div>
-        <div class="line" data-explain="Get random X position inside pen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rand_x = <select class="blank-dropdown" data-answer="randint" id="q3"><option value="">Select...</option><option value="randint">randint</option><option value="random">random</option><option value="rand">rand</option></select>(1, pen_size - 1)</div>
+        <div class="line" data-explain="Get random X position inside pen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rand_x = <select class="blank-dropdown" data-answer="randint" id="q2"><option value="">Select...</option><option value="randint">randint</option><option value="random">random</option><option value="rand">rand</option></select>(1, pen_size - 1)</div>
         <div class="line" data-explain="Get random Z position inside pen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rand_z = randint(1, pen_size - 1)</div>
-        <div class="line" data-explain="Spawn a chicken at the position">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mobs.<select class="blank-dropdown" data-answer="spawn" id="q4"><option value="">Select...</option><option value="spawn">spawn</option><option value="create">create</option><option value="make">make</option></select>(CHICKEN, world(rand_x, y_level + 1, rand_z))</div>
+        <div class="line" data-explain="Spawn a chicken at the position">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mobs.<select class="blank-dropdown" data-answer="spawn" id="q3"><option value="">Select...</option><option value="spawn">spawn</option><option value="create">create</option><option value="make">make</option></select>(CHICKEN, world(rand_x, y_level + 1, rand_z))</div>
         <div class="line"></div>
         <div class="line" data-explain="Run build_pen when you type 'pen' in chat">player.on_chat(<span class="string">"pen"</span>, build_pen)</div>
-        <div class="line" data-explain="Run spawn_chickens when you type 'chickens' in chat">player.<select class="blank-dropdown" data-answer="on_chat" id="q5"><option value="">Select...</option><option value="on_chat">on_chat</option><option value="on_message">on_message</option><option value="when_say">when_say</option></select>(<span class="string">"chickens"</span>, spawn_chickens)</div>
+        <div class="line" data-explain="Run spawn_chickens when you type 'chickens' in chat">player.<select class="blank-dropdown" data-answer="on_chat" id="q4"><option value="">Select...</option><option value="on_chat">on_chat</option><option value="on_message">on_message</option><option value="when_say">when_say</option></select>(<span class="string">"chickens"</span>, spawn_chickens)</div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
@@ -109,8 +109,9 @@
     <div class="modal">
       <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
       <div class="modal-body">
-        <p style="margin-bottom: 15px;">Copy this code into Code Builder (press C in Minecraft):</p>
-        <pre class="modal-code" id="fullCode"></pre>
+        <p class="modal-explanation">This script builds a pen and fills it with chickens for you to chase!</p>
+        <p style="margin-bottom: 10px; color: #888; font-size: 0.95rem;">Type the command in Minecraft chat to run it</p>
+        <pre class="modal-code" id="fullCode" style="display:none"></pre>
       </div>
       <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
     </div>

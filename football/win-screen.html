@@ -74,20 +74,20 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line" data-explain="Get the current player"><span class="keyword">local</span> plr = game.<select class="blank-dropdown" data-answer="Players" id="q1"><option value="">Select...</option><option value="Players">Players</option><option value="Teams">Teams</option><option value="Users">Users</option></select>.<select class="blank-dropdown" data-answer="LocalPlayer" id="q2"><option value="">Select...</option><option value="LocalPlayer">LocalPlayer</option><option value="Player">Player</option><option value="CurrentPlayer">CurrentPlayer</option></select></div>
+        <div class="line" data-explain="Get the current player"><span class="keyword">local</span> plr = game.Players.<select class="blank-dropdown" data-answer="LocalPlayer" id="q1"><option value="">Select...</option><option value="LocalPlayer">LocalPlayer</option><option value="Player">Player</option><option value="CurrentPlayer">CurrentPlayer</option></select></div>
         <div class="line"></div>
         <div class="line" data-explain="Keep checking every second if someone won"><span class="keyword">while</span> wait(<span class="number">1</span>) <span class="keyword">do</span></div>
-        <div class="line" data-explain="Check if Team 1 has enough goals to win">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> game.Teams.<span class="var-display" data-var="var-team1">Reds</span>.Goals.<select class="blank-dropdown" data-answer="Value" id="q3"><option value="">Select...</option><option value="Value">Value</option><option value="Score">Score</option><option value="Count">Count</option></select> > <span class="number var-display" data-var="var-goals">2</span> <span class="keyword">then</span></div>
-        <div class="line" data-explain="Show the win screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script.Parent.<select class="blank-dropdown" data-answer="Visible" id="q4"><option value="">Select...</option><option value="Visible">Visible</option><option value="Enabled">Enabled</option><option value="Show">Show</option></select> = <span class="keyword">true</span></div>
-        <div class="line" data-explain="Display Team 1's win message">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script.Parent.<select class="blank-dropdown" data-answer="Text" id="q5"><option value="">Select...</option><option value="Text">Text</option><option value="Value">Value</option><option value="Message">Message</option></select> = <span class="string">"<span class="var-display" data-var="var-team1">Reds</span> Wins!"</span></div>
+        <div class="line" data-explain="Check if Team 1 has enough goals to win">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> game.Teams.<span class="var-display" data-var="var-team1">Reds</span>.Goals.Value > <span class="number var-display" data-var="var-goals">2</span> <span class="keyword">then</span></div>
+        <div class="line" data-explain="Show the win screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script.Parent.<select class="blank-dropdown" data-answer="Visible" id="q2"><option value="">Select...</option><option value="Visible">Visible</option><option value="Enabled">Enabled</option><option value="Show">Show</option></select> = <span class="keyword">true</span></div>
+        <div class="line" data-explain="Display Team 1's win message">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script.Parent.<select class="blank-dropdown" data-answer="Text" id="q3"><option value="">Select...</option><option value="Text">Text</option><option value="Value">Value</option><option value="Message">Message</option></select> = <span class="string">"<span class="var-display" data-var="var-team1">Reds</span> Wins!"</span></div>
         <div class="line" data-explain="Or check if Team 2 has enough goals">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">elseif</span> game.Teams.<span class="var-display" data-var="var-team2">Blues</span>.Goals.Value > <span class="number var-display" data-var="var-goals">2</span> <span class="keyword">then</span></div>
         <div class="line" data-explain="Show the win screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script.Parent.Visible = <span class="keyword">true</span></div>
         <div class="line" data-explain="Display Team 2's win message">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script.Parent.Text = <span class="string">"<span class="var-display" data-var="var-team2">Blues</span> Wins!"</span></div>
         <div class="line" data-explain="End the if block">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
         <div class="line" data-explain="End the while loop"><span class="keyword">end</span></div>
         <div class="line"></div>
-        <div class="line" data-explain="When the Play Again button is clicked">script.Parent.TextButton.<select class="blank-dropdown" data-answer="Activated" id="q6"><option value="">Select...</option><option value="Activated">Activated</option><option value="Clicked">Clicked</option><option value="Pressed">Pressed</option></select>:Connect(<span class="keyword">function</span>()</div>
-        <div class="line" data-explain="Teleport all players to restart the game">&nbsp;&nbsp;&nbsp;&nbsp;game:GetService(<span class="string">"<select class="blank-dropdown" data-answer="TeleportService" id="q7"><option value="">Select...</option><option value="TeleportService">TeleportService</option><option value="ReloadService">ReloadService</option><option value="RestartService">RestartService</option></select>"</span>):TeleportAsync(<span class="number var-display" data-var="var-gameid">123123123</span>, game.Players:GetPlayers())</div>
+        <div class="line" data-explain="When the Play Again button is clicked">script.Parent.TextButton.<select class="blank-dropdown" data-answer="Activated" id="q4"><option value="">Select...</option><option value="Activated">Activated</option><option value="Clicked">Clicked</option><option value="Pressed">Pressed</option></select>:Connect(<span class="keyword">function</span>()</div>
+        <div class="line" data-explain="Teleport all players to restart the game">&nbsp;&nbsp;&nbsp;&nbsp;game:GetService(<span class="string">"TeleportService"</span>):TeleportAsync(<span class="number var-display" data-var="var-gameid">123123123</span>, game.Players:GetPlayers())</div>
         <div class="line" data-explain="End the function"><span class="keyword">end</span>)</div>
       </div>
 
@@ -100,8 +100,9 @@
     <div class="modal">
       <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
       <div class="modal-body">
-        <p style="margin-bottom: 15px;">Copy this code into a LocalScript inside your win TextLabel:</p>
-        <pre class="modal-code" id="fullCode"></pre>
+        <p class="modal-explanation">This script shows a win or lose screen and lets the player click a button to play again!</p>
+        <p style="margin-bottom: 10px; color: #888; font-size: 0.95rem;">Put this LocalScript in StarterGui</p>
+        <pre class="modal-code" id="fullCode" style="display:none"></pre>
       </div>
       <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
     </div>

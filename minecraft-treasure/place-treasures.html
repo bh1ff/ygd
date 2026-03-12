@@ -72,10 +72,10 @@
         <div class="line" data-explain="Set the Y level (ground height)">y_level = <span class="number var-display" data-var="var-ylevel">-60</span></div>
         <div class="line"></div>
         <div class="line" data-explain="Define a function to place all treasures"><span class="keyword">def</span> <select class="blank-dropdown" data-answer="place_treasures" id="q1"><option value="">Select...</option><option value="place_treasures">place_treasures</option><option value="add_treasure">add_treasure</option><option value="make_gold">make_gold</option></select>():</div>
-        <div class="line" data-explain="Loop through each position using index">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> i <span class="keyword">in</span> <select class="blank-dropdown" data-answer="range" id="q2"><option value="">Select...</option><option value="range">range</option><option value="loop">loop</option><option value="count">count</option></select>(<select class="blank-dropdown" data-answer="len" id="q3"><option value="">Select...</option><option value="len">len</option><option value="size">size</option><option value="count">count</option></select>(treasure_x)):</div>
-        <div class="line" data-explain="Get X position from the array">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = <select class="blank-dropdown" data-answer="treasure_x[i]" id="q4"><option value="">Select...</option><option value="treasure_x[i]">treasure_x[i]</option><option value="treasure_x">treasure_x</option><option value="x[i]">x[i]</option></select></div>
+        <div class="line" data-explain="Loop through each position using index">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> i <span class="keyword">in</span> <select class="blank-dropdown" data-answer="range" id="q2"><option value="">Select...</option><option value="range">range</option><option value="loop">loop</option><option value="count">count</option></select>(len(treasure_x)):</div>
+        <div class="line" data-explain="Get X position from the array">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = <select class="blank-dropdown" data-answer="treasure_x[i]" id="q3"><option value="">Select...</option><option value="treasure_x[i]">treasure_x[i]</option><option value="treasure_x">treasure_x</option><option value="x[i]">x[i]</option></select></div>
         <div class="line" data-explain="Get Z position from the array">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;z = treasure_z[i]</div>
-        <div class="line" data-explain="Place treasure block at position">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blocks.<select class="blank-dropdown" data-answer="place" id="q5"><option value="">Select...</option><option value="place">place</option><option value="put">put</option><option value="set">set</option></select>(<span class="var-display" data-var="var-block">GOLD_BLOCK</span>, world(x, y_level, z))</div>
+        <div class="line" data-explain="Place treasure block at position">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blocks.<select class="blank-dropdown" data-answer="place" id="q4"><option value="">Select...</option><option value="place">place</option><option value="put">put</option><option value="set">set</option></select>(<span class="var-display" data-var="var-block">GOLD_BLOCK</span>, world(x, y_level, z))</div>
         <div class="line"></div>
         <div class="line" data-explain="Run the function when you type 'treasure' in chat">player.on_chat(<span class="string">"treasure"</span>, place_treasures)</div>
       </div>
@@ -89,8 +89,9 @@
     <div class="modal">
       <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
       <div class="modal-body">
-        <p style="margin-bottom: 15px;">Copy this code into Code Builder (press C in Minecraft):</p>
-        <pre class="modal-code" id="fullCode"></pre>
+        <p class="modal-explanation">This script places treasure blocks at special spots around the world for players to find!</p>
+        <p style="margin-bottom: 10px; color: #888; font-size: 0.95rem;">Type the command in Minecraft chat to run it</p>
+        <pre class="modal-code" id="fullCode" style="display:none"></pre>
       </div>
       <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
     </div>

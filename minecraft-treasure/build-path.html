@@ -87,10 +87,10 @@
         <div class="line" data-explain="Set the Y level (ground height)">y_level = -60</div>
         <div class="line"></div>
         <div class="line" data-explain="Define a function to build the path"><span class="keyword">def</span> <select class="blank-dropdown" data-answer="build_path" id="q1"><option value="">Select...</option><option value="build_path">build_path</option><option value="make_path">make_path</option><option value="create">create</option></select>():</div>
-        <div class="line" data-explain="Loop from 0 to length">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> x <span class="keyword">in</span> <select class="blank-dropdown" data-answer="range" id="q2"><option value="">Select...</option><option value="range">range</option><option value="loop">loop</option><option value="count">count</option></select>(length):</div>
-        <div class="line" data-explain="Place a block at each position">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blocks.<select class="blank-dropdown" data-answer="place" id="q3"><option value="">Select...</option><option value="place">place</option><option value="put">put</option><option value="set">set</option></select>(<span class="var-display" data-var="var-block">STONE</span>, <select class="blank-dropdown" data-answer="world" id="q4"><option value="">Select...</option><option value="world">world</option><option value="pos">pos</option><option value="location">location</option></select>(start_x + x, y_level, start_z))</div>
+        <div class="line" data-explain="Loop from 0 to length">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> x <span class="keyword">in</span> range(length):</div>
+        <div class="line" data-explain="Place a block at each position">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blocks.<select class="blank-dropdown" data-answer="place" id="q2"><option value="">Select...</option><option value="place">place</option><option value="put">put</option><option value="set">set</option></select>(<span class="var-display" data-var="var-block">STONE</span>, <select class="blank-dropdown" data-answer="world" id="q3"><option value="">Select...</option><option value="world">world</option><option value="pos">pos</option><option value="location">location</option></select>(start_x + x, y_level, start_z))</div>
         <div class="line"></div>
-        <div class="line" data-explain="Run the function when you type 'path' in chat">player.<select class="blank-dropdown" data-answer="on_chat" id="q5"><option value="">Select...</option><option value="on_chat">on_chat</option><option value="on_message">on_message</option><option value="when_say">when_say</option></select>(<span class="string">"path"</span>, build_path)</div>
+        <div class="line" data-explain="Run the function when you type 'path' in chat">player.<select class="blank-dropdown" data-answer="on_chat" id="q4"><option value="">Select...</option><option value="on_chat">on_chat</option><option value="on_message">on_message</option><option value="when_say">when_say</option></select>(<span class="string">"path"</span>, build_path)</div>
       </div>
 
       <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
@@ -102,8 +102,9 @@
     <div class="modal">
       <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
       <div class="modal-body">
-        <p style="margin-bottom: 15px;">Copy this code into Code Builder (press C in Minecraft):</p>
-        <pre class="modal-code" id="fullCode"></pre>
+        <p class="modal-explanation">This script builds a path of blocks in front of you when you type a chat command!</p>
+        <p style="margin-bottom: 10px; color: #888; font-size: 0.95rem;">Type the command in Minecraft chat to run it</p>
+        <pre class="modal-code" id="fullCode" style="display:none"></pre>
       </div>
       <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
     </div>

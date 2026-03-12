@@ -83,11 +83,11 @@
           <div class="line" data-explain="When a new player joins the game">game.Players.<select class="blank-dropdown" data-answer="PlayerAdded" id="l1q1"><option value="">Select...</option><option value="PlayerAdded">PlayerAdded</option><option value="PlayerJoined">PlayerJoined</option><option value="NewPlayer">NewPlayer</option></select>:Connect(<span class="keyword">function</span>(player)</div>
           <div class="line" data-explain="Wait until the player's character fully loads">&nbsp;&nbsp;&nbsp;&nbsp;player.CharacterAppearanceLoaded:Connect(<span class="keyword">function</span>(character)</div>
           <div class="line" data-explain="Create a new folder to hold the player's stats">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> leaderstats = <select class="blank-dropdown" data-answer="Instance" id="l1q2"><option value="">Select...</option><option value="Instance">Instance</option><option value="Object">Object</option><option value="Create">Create</option></select>.new(<span class="string">"Folder"</span>, player)</div>
-          <div class="line" data-explain="Name it 'leaderstats' so Roblox shows it">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leaderstats.<select class="blank-dropdown" data-answer="Name" id="l1q3"><option value="">Select...</option><option value="Name">Name</option><option value="Title">Title</option><option value="Label">Label</option></select> = <span class="string">"<select class="blank-dropdown" data-answer="leaderstats" id="l1q4"><option value="">Select...</option><option value="leaderstats">leaderstats</option><option value="Stats">Stats</option><option value="Scores">Scores</option></select>"</span></div>
+          <div class="line" data-explain="Name it 'leaderstats' so Roblox shows it">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leaderstats.Name = <span class="string">"<select class="blank-dropdown" data-answer="leaderstats" id="l1q3"><option value="">Select...</option><option value="leaderstats">leaderstats</option><option value="Stats">Stats</option><option value="Scores">Scores</option></select>"</span></div>
           <div class="line"></div>
-          <div class="line" data-explain="Create a number to store the player's lap count">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plrLaps = Instance.new(<span class="string">"<select class="blank-dropdown" data-answer="NumberValue" id="l1q5"><option value="">Select...</option><option value="NumberValue">NumberValue</option><option value="IntValue">IntValue</option><option value="Value">Value</option></select>"</span>, leaderstats)</div>
+          <div class="line" data-explain="Create a number to store the player's lap count">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plrLaps = Instance.new(<span class="string">"NumberValue"</span>, leaderstats)</div>
           <div class="line" data-explain="Name the stat so it shows on the leaderboard">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plrLaps.Name = <span class="string">"<span class="var-display" data-var="var-statname">Laps</span>"</span></div>
-          <div class="line" data-explain="Set the starting lap count">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plrLaps.<select class="blank-dropdown" data-answer="Value" id="l1q6"><option value="">Select...</option><option value="Value">Value</option><option value="Number">Number</option><option value="Count">Count</option></select> = <span class="number var-display" data-var="var-startval">0</span></div>
+          <div class="line" data-explain="Set the starting lap count">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plrLaps.Value = <span class="number var-display" data-var="var-startval">0</span></div>
           <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>)</div>
           <div class="line"><span class="keyword">end</span>)</div>
         </div>
@@ -116,13 +116,13 @@
           <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plrLaps.Value = <span class="number var-display" data-var="var-startval">0</span></div>
           <div class="line"></div>
           <div class="line" data-explain="NEW: Create a Lap Time stat"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- NEW: Add these lines for timing</span></div>
-          <div class="line" data-explain="Create a NumberValue for current lap time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> lapTime = Instance.new(<span class="string">"<select class="blank-dropdown" data-answer="NumberValue" id="l3q3"><option value="">Select...</option><option value="NumberValue">NumberValue</option><option value="IntValue">IntValue</option><option value="StringValue">StringValue</option></select>"</span>, leaderstats)</div>
-          <div class="line" data-explain="Name it so it shows on the leaderboard">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lapTime.<select class="blank-dropdown" data-answer="Name" id="l3q4"><option value="">Select...</option><option value="Name">Name</option><option value="Title">Title</option><option value="Label">Label</option></select> = <span class="string">"<span class="var-display" data-var="var-laptime">Lap Time</span>"</span></div>
+          <div class="line" data-explain="Create a NumberValue for current lap time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> lapTime = Instance.new(<span class="string">"NumberValue"</span>, leaderstats)</div>
+          <div class="line" data-explain="Name it so it shows on the leaderboard">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lapTime.Name = <span class="string">"<span class="var-display" data-var="var-laptime">Lap Time</span>"</span></div>
           <div class="line" data-explain="Start at 0 seconds">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lapTime.Value = <span class="number">0</span></div>
           <div class="line"></div>
           <div class="line" data-explain="Create a stat for the fastest lap time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> fastestLap = Instance.new(<span class="string">"NumberValue"</span>, leaderstats)</div>
           <div class="line" data-explain="Name it Fastest Time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fastestLap.Name = <span class="string">"<span class="var-display" data-var="var-fastest">Fastest Time</span>"</span></div>
-          <div class="line" data-explain="Set to infinity so any lap will be faster">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fastestLap.Value = <select class="blank-dropdown" data-answer="math.huge" id="l3q5"><option value="">Select...</option><option value="math.huge">math.huge</option><option value="999">999</option><option value="0">0</option></select></div>
+          <div class="line" data-explain="Set to infinity so any lap will be faster">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fastestLap.Value = <select class="blank-dropdown" data-answer="math.huge" id="l3q3"><option value="">Select...</option><option value="math.huge">math.huge</option><option value="999">999</option><option value="0">0</option></select></div>
           <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>)</div>
           <div class="line"><span class="keyword">end</span>)</div>
         </div>
@@ -162,7 +162,7 @@
           <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fastestLap.Value = math.huge</div>
           <div class="line"></div>
           <div class="line"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- LOAD SAVED DATA</span></div>
-          <div class="line" data-explain="Load the player's saved data using their UserId">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> data = plrData:<select class="blank-dropdown" data-answer="GetAsync" id="l4q3"><option value="">Select...</option><option value="GetAsync">GetAsync</option><option value="LoadData">LoadData</option><option value="ReadData">ReadData</option></select>(player.<select class="blank-dropdown" data-answer="UserId" id="l4q4"><option value="">Select...</option><option value="UserId">UserId</option><option value="Name">Name</option><option value="Id">Id</option></select>)</div>
+          <div class="line" data-explain="Load the player's saved data using their UserId">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> data = plrData:<select class="blank-dropdown" data-answer="GetAsync" id="l4q3"><option value="">Select...</option><option value="GetAsync">GetAsync</option><option value="LoadData">LoadData</option><option value="ReadData">ReadData</option></select>(player.UserId)</div>
           <div class="line"></div>
           <div class="line" data-explain="If saved data exists, load it">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> data ~= <span class="keyword">nil</span> <span class="keyword">then</span></div>
           <div class="line" data-explain="Restore their saved lap count">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plrLaps.Value = data[<span class="string">"<span class="var-display" data-var="var-statname">Laps</span>"</span>]</div>
@@ -173,13 +173,13 @@
           <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<span class="string">"<span class="var-display" data-var="var-statname">Laps</span>"</span>] = <span class="number">0</span>,</div>
           <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<span class="string">"<span class="var-display" data-var="var-fastest">Fastest Time</span>"</span>] = <span class="number">0</span></div>
           <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
-          <div class="line" data-explain="Save the default data using pcall for safety">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> success, err = <select class="blank-dropdown" data-answer="pcall" id="l4q5"><option value="">Select...</option><option value="pcall">pcall</option><option value="try">try</option><option value="catch">catch</option></select>(<span class="keyword">function</span>()</div>
-          <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plrData:<select class="blank-dropdown" data-answer="SetAsync" id="l4q6"><option value="">Select...</option><option value="SetAsync">SetAsync</option><option value="SaveData">SaveData</option><option value="WriteData">WriteData</option></select>(player.UserId, data)</div>
+          <div class="line" data-explain="Save the default data using pcall for safety">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> success, err = <select class="blank-dropdown" data-answer="pcall" id="l4q4"><option value="">Select...</option><option value="pcall">pcall</option><option value="try">try</option><option value="catch">catch</option></select>(<span class="keyword">function</span>()</div>
+          <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plrData:SetAsync(player.UserId, data)</div>
           <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>)</div>
           <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
           <div class="line"></div>
           <div class="line"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- SAVE DATA ON GAME CLOSE</span></div>
-          <div class="line" data-explain="When the game server shuts down, save data">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.<select class="blank-dropdown" data-answer="OnClose" id="l4q7"><option value="">Select...</option><option value="OnClose">OnClose</option><option value="OnExit">OnExit</option><option value="OnShutdown">OnShutdown</option></select> = <span class="keyword">function</span>()</div>
+          <div class="line" data-explain="When the game server shuts down, save data">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.OnClose = <span class="keyword">function</span>()</div>
           <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data = {</div>
           <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<span class="string">"<span class="var-display" data-var="var-statname">Laps</span>"</span>] = plrLaps.Value,</div>
           <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<span class="string">"<span class="var-display" data-var="var-fastest">Fastest Time</span>"</span>] = fastestLap.Value</div>
@@ -202,8 +202,9 @@
     <div class="modal">
       <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
       <div class="modal-body">
-        <p style="margin-bottom: 15px;">Copy this code into a Script in ServerScriptService:</p>
-        <pre class="modal-code" id="fullCode"></pre>
+        <p class="modal-explanation" id="modal-explain"></p>
+        <p style="margin-bottom: 10px; color: #888; font-size: 0.95rem;">Put this Script in ServerScriptService</p>
+        <pre class="modal-code" id="fullCode" style="display:none"></pre>
       </div>
       <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
     </div>
@@ -359,6 +360,12 @@ end)`;
         feedback.className = 'feedback show success';
         feedback.textContent = 'All correct! Opening your code...';
         let code;
+        const explanations = {
+          lesson1: 'This script creates a leaderboard that shows how many laps each player has done!',
+          lesson3: 'This script creates a leaderboard that tracks your laps, lap time, and fastest time!',
+          lesson4: 'This script creates a leaderboard and saves your progress so it is there next time you play!'
+        };
+        document.getElementById('modal-explain').textContent = explanations[tab];
         if (tab === 'lesson1') code = generateLesson1Code();
         else if (tab === 'lesson3') code = generateLesson3Code();
         else code = generateLesson4Code();

@@ -96,14 +96,14 @@
           <div class="line" data-explain="Get the finish line checkpoint"><span class="keyword">local</span> endOfLap = game.Workspace:WaitForChild(<span class="string">"<span class="var-display" data-var="var-endcheck">LapCheckpoint</span>"</span>)</div>
           <div class="line"></div>
           <div class="line" data-explain="When something touches the start checkpoint">startOfLap.<select class="blank-dropdown" data-answer="Touched" id="lq2"><option value="">Select...</option><option value="Touched">Touched</option><option value="Clicked">Clicked</option><option value="Changed">Changed</option></select>:Connect(<span class="keyword">function</span>(hit)</div>
-          <div class="line" data-explain="Check if it was our car that touched it">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> hit.<select class="blank-dropdown" data-answer="Parent" id="lq3"><option value="">Select...</option><option value="Parent">Parent</option><option value="Model">Model</option><option value="Name">Name</option></select> == game.Workspace.<span class="var-display" data-var="var-car">myCar</span> <span class="keyword">then</span></div>
-          <div class="line" data-explain="Tell the server to start the timer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;startTimeEvent:<select class="blank-dropdown" data-answer="FireServer" id="lq4"><option value="">Select...</option><option value="FireServer">FireServer</option><option value="Trigger">Trigger</option><option value="Send">Send</option></select>()</div>
+          <div class="line" data-explain="Check if it was our car that touched it">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> hit.Parent == game.Workspace.<span class="var-display" data-var="var-car">myCar</span> <span class="keyword">then</span></div>
+          <div class="line" data-explain="Tell the server to start the timer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;startTimeEvent:<select class="blank-dropdown" data-answer="FireServer" id="lq3"><option value="">Select...</option><option value="FireServer">FireServer</option><option value="Trigger">Trigger</option><option value="Send">Send</option></select>()</div>
           <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
           <div class="line"><span class="keyword">end</span>)</div>
           <div class="line"></div>
-          <div class="line" data-explain="When something touches the finish line">endOfLap.<select class="blank-dropdown" data-answer="Touched" id="lq5"><option value="">Select...</option><option value="Touched">Touched</option><option value="Clicked">Clicked</option><option value="Changed">Changed</option></select>:Connect(<span class="keyword">function</span>(hit)</div>
+          <div class="line" data-explain="When something touches the finish line">endOfLap.Touched:Connect(<span class="keyword">function</span>(hit)</div>
           <div class="line" data-explain="Check if it was our car">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> hit.Parent == game.Workspace.<span class="var-display" data-var="var-car">myCar</span> <span class="keyword">then</span></div>
-          <div class="line" data-explain="Tell the server to stop the timer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endTimeEvent:<select class="blank-dropdown" data-answer="FireServer" id="lq6"><option value="">Select...</option><option value="FireServer">FireServer</option><option value="Connect">Connect</option><option value="Invoke">Invoke</option></select>()</div>
+          <div class="line" data-explain="Tell the server to stop the timer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endTimeEvent:FireServer()</div>
           <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
           <div class="line"><span class="keyword">end</span>)</div>
         </div>
@@ -127,32 +127,32 @@
           <div class="line" data-explain="Get the event that fires when timer ends"><span class="keyword">local</span> endTimeEvent = repStore:WaitForChild(<span class="string">"<span class="var-display" data-var="var-endevent">EndTimeEvent</span>"</span>)</div>
           <div class="line" data-explain="Variable to store when the lap started"><span class="keyword">local</span> startingTime = <span class="number">0</span></div>
           <div class="line" data-explain="Variable to store the current lap time"><span class="keyword">local</span> currentLapTime = <span class="number">0</span></div>
-          <div class="line" data-explain="Debounce variable to stop double-triggering"><span class="keyword">local</span> db = <select class="blank-dropdown" data-answer="true" id="sq1"><option value="">Select...</option><option value="true">true</option><option value="false">false</option><option value="0">0</option></select></div>
+          <div class="line" data-explain="Debounce variable to stop double-triggering"><span class="keyword">local</span> db = <span class="keyword">true</span></div>
           <div class="line"></div>
           <div class="line" data-explain="Function to record when the lap starts"><span class="keyword">function</span> GetStartingTime()</div>
-          <div class="line" data-explain="Save the current time using tick()">&nbsp;&nbsp;&nbsp;&nbsp;startingTime = <select class="blank-dropdown" data-answer="tick" id="sq2"><option value="">Select...</option><option value="tick">tick</option><option value="time">time</option><option value="clock">clock</option></select>()</div>
+          <div class="line" data-explain="Save the current time using tick()">&nbsp;&nbsp;&nbsp;&nbsp;startingTime = <select class="blank-dropdown" data-answer="tick" id="sq1"><option value="">Select...</option><option value="tick">tick</option><option value="time">time</option><option value="clock">clock</option></select>()</div>
           <div class="line"><span class="keyword">end</span></div>
           <div class="line"></div>
-          <div class="line" data-explain="When start event fires, record the time">startTimeEvent.<select class="blank-dropdown" data-answer="OnServerEvent" id="sq3"><option value="">Select...</option><option value="OnServerEvent">OnServerEvent</option><option value="OnEvent">OnEvent</option><option value="Connect">Connect</option></select>:Connect(GetStartingTime)</div>
+          <div class="line" data-explain="When start event fires, record the time">startTimeEvent.<select class="blank-dropdown" data-answer="OnServerEvent" id="sq2"><option value="">Select...</option><option value="OnServerEvent">OnServerEvent</option><option value="OnEvent">OnEvent</option><option value="Connect">Connect</option></select>:Connect(GetStartingTime)</div>
           <div class="line"></div>
           <div class="line" data-explain="Function to calculate lap time when finished"><span class="keyword">function</span> GetFinishingTime(localPlayer)</div>
           <div class="line" data-explain="If timer wasn't started, exit early">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> startingTime == <span class="number">0</span> <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span></div>
           <div class="line"></div>
-          <div class="line" data-explain="Calculate lap time: current time minus start time">&nbsp;&nbsp;&nbsp;&nbsp;currentLapTime = <select class="blank-dropdown" data-answer="tick" id="sq4"><option value="">Select...</option><option value="tick">tick</option><option value="time">time</option><option value="now">now</option></select>() - <select class="blank-dropdown" data-answer="startingTime" id="sq5"><option value="">Select...</option><option value="startingTime">startingTime</option><option value="beginTime">beginTime</option><option value="lapStart">lapStart</option></select></div>
+          <div class="line" data-explain="Calculate lap time: current time minus start time">&nbsp;&nbsp;&nbsp;&nbsp;currentLapTime = tick() - <select class="blank-dropdown" data-answer="startingTime" id="sq3"><option value="">Select...</option><option value="startingTime">startingTime</option><option value="beginTime">beginTime</option><option value="lapStart">lapStart</option></select></div>
           <div class="line" data-explain="Reset the starting time for next lap">&nbsp;&nbsp;&nbsp;&nbsp;startingTime = <span class="number">0</span></div>
           <div class="line"></div>
           <div class="line" data-explain="Get the player who finished">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plr = game.Players:FindFirstChild(localPlayer.Name)</div>
           <div class="line" data-explain="Get their leaderboard stats">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> plrStats = plr:WaitForChild(<span class="string">"leaderstats"</span>)</div>
           <div class="line" data-explain="Get the stat that shows current lap time">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> lapTime = plrStats:FindFirstChild(<span class="string">"<span class="var-display" data-var="var-laptime">Lap Time</span>"</span>)</div>
           <div class="line"></div>
-          <div class="line" data-explain="Check the debounce - only run if db is true">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> <select class="blank-dropdown" data-answer="db" id="sq6"><option value="">Select...</option><option value="db">db</option><option value="true">true</option><option value="lapTime">lapTime</option></select> <span class="keyword">then</span></div>
-          <div class="line" data-explain="Set debounce to false so it can't run again yet">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db = <select class="blank-dropdown" data-answer="false" id="sq7"><option value="">Select...</option><option value="false">false</option><option value="true">true</option><option value="0">0</option></select></div>
-          <div class="line" data-explain="Update the player's lap time on the leaderboard">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lapTime.<select class="blank-dropdown" data-answer="Value" id="sq8"><option value="">Select...</option><option value="Value">Value</option><option value="Time">Time</option><option value="Score">Score</option></select> = currentLapTime</div>
-          <div class="line" data-explain="Reset debounce so it can run next lap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db = <select class="blank-dropdown" data-answer="true" id="sq9"><option value="">Select...</option><option value="true">true</option><option value="false">false</option><option value="0">0</option></select></div>
+          <div class="line" data-explain="Check the debounce - only run if db is true">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> db <span class="keyword">then</span></div>
+          <div class="line" data-explain="Set debounce to false so it can't run again yet">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db = <span class="keyword">false</span></div>
+          <div class="line" data-explain="Update the player's lap time on the leaderboard">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lapTime.Value = currentLapTime</div>
+          <div class="line" data-explain="Reset debounce so it can run next lap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db = <span class="keyword">true</span></div>
           <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
           <div class="line"></div>
           <div class="line" data-explain="Get their fastest time stat">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">local</span> fastestTime = plrStats:FindFirstChild(<span class="string">"<span class="var-display" data-var="var-timestat">Fastest Time</span>"</span>)</div>
-          <div class="line" data-explain="If this lap was faster than their best time">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> currentLapTime <select class="blank-dropdown" data-answer="<" id="sq10"><option value="">Select...</option><option value="<">&lt;</option><option value=">">&gt;</option><option value="==">=</option></select> fastestTime.<select class="blank-dropdown" data-answer="Value" id="sq11"><option value="">Select...</option><option value="Value">Value</option><option value="Time">Time</option><option value="Number">Number</option></select> <span class="keyword">then</span></div>
+          <div class="line" data-explain="If this lap was faster than their best time">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> currentLapTime <select class="blank-dropdown" data-answer="<" id="sq4"><option value="">Select...</option><option value="<">&lt;</option><option value=">">&gt;</option><option value="==">=</option></select> fastestTime.Value <span class="keyword">then</span></div>
           <div class="line" data-explain="Update their fastest time to the new record">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fastestTime.Value = currentLapTime</div>
           <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
           <div class="line"><span class="keyword">end</span></div>
@@ -170,8 +170,9 @@
     <div class="modal">
       <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
       <div class="modal-body">
-        <p style="margin-bottom: 15px;" id="modal-instruction">Copy this code:</p>
-        <pre class="modal-code" id="fullCode"></pre>
+        <p class="modal-explanation" id="modal-explain"></p>
+        <p style="margin-bottom: 10px; color: #888; font-size: 0.95rem;" id="modal-instruction">Copy this code:</p>
+        <pre class="modal-code" id="fullCode" style="display:none"></pre>
       </div>
       <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
     </div>
@@ -292,8 +293,12 @@ endTimeEvent.OnServerEvent:Connect(GetFinishingTime)`;
         feedback.textContent = 'All correct! Opening your code...';
         const code = tab === 'local' ? generateLocalCode() : generateServerCode();
         const instruction = tab === 'local'
-          ? 'Copy this code into a LocalScript in StarterGui:'
-          : 'Copy this code into a Script in ServerScriptService:';
+          ? 'Put this LocalScript in StarterGui'
+          : 'Put this Script in ServerScriptService';
+        const explanation = tab === 'local'
+          ? 'This script watches for your car crossing the start and finish lines and tells the server to start and stop the timer!'
+          : 'This script tracks how long each lap takes and saves your fastest time on the leaderboard!';
+        document.getElementById('modal-explain').textContent = explanation;
         document.getElementById('modal-instruction').textContent = instruction;
         document.getElementById('fullCode').textContent = code;
         setTimeout(() => { document.getElementById('modal').classList.add('show'); }, 500);

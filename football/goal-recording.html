@@ -73,11 +73,11 @@
       </div>
 
       <div class="code-quiz">
-        <div class="line" data-explain="When something touches this goal trigger, run this code">script.<select class="blank-dropdown" data-answer="Parent" id="q1"><option value="">Select...</option><option value="Parent">Parent</option><option value="Name">Name</option><option value="Goal">Goal</option></select>.<select class="blank-dropdown" data-answer="Touched" id="q2"><option value="">Select...</option><option value="Touched">Touched</option><option value="Hit">Hit</option><option value="Collision">Collision</option></select>:Connect(<span class="keyword">function</span>(hit)</div>
-        <div class="line" data-explain="Check if the thing that touched is the ball">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> hit.<select class="blank-dropdown" data-answer="Name" id="q3"><option value="">Select...</option><option value="Name">Name</option><option value="Parent">Parent</option><option value="Type">Type</option></select> == <span class="string">"<span class="var-display" data-var="var-ball">Ball</span>"</span> <span class="keyword">then</span></div>
-        <div class="line" data-explain="Add 1 point to the scoring team's goals">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.<select class="blank-dropdown" data-answer="Teams" id="q4"><option value="">Select...</option><option value="Teams">Teams</option><option value="Players">Players</option><option value="Workspace">Workspace</option></select>.<span class="var-display" data-var="var-team">Reds</span>.Goals.<select class="blank-dropdown" data-answer="Value" id="q5"><option value="">Select...</option><option value="Value">Value</option><option value="Score">Score</option><option value="Number">Number</option></select> += <span class="number">1</span></div>
+        <div class="line" data-explain="When something touches this goal trigger, run this code">script.Parent.<select class="blank-dropdown" data-answer="Touched" id="q1"><option value="">Select...</option><option value="Touched">Touched</option><option value="Hit">Hit</option><option value="Collision">Collision</option></select>:Connect(<span class="keyword">function</span>(hit)</div>
+        <div class="line" data-explain="Check if the thing that touched is the ball">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> hit.<select class="blank-dropdown" data-answer="Name" id="q2"><option value="">Select...</option><option value="Name">Name</option><option value="Parent">Parent</option><option value="Type">Type</option></select> == <span class="string">"<span class="var-display" data-var="var-ball">Ball</span>"</span> <span class="keyword">then</span></div>
+        <div class="line" data-explain="Add 1 point to the scoring team's goals">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.Teams.<span class="var-display" data-var="var-team">Reds</span>.Goals.<select class="blank-dropdown" data-answer="Value" id="q3"><option value="">Select...</option><option value="Value">Value</option><option value="Score">Score</option><option value="Number">Number</option></select> += <span class="number">1</span></div>
         <div class="line" data-explain="Wait before resetting the ball">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">wait</span>(<span class="number var-display" data-var="var-delay">2</span>)</div>
-        <div class="line" data-explain="Move the ball back to the center circle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hit.<select class="blank-dropdown" data-answer="Position" id="q6"><option value="">Select...</option><option value="Position">Position</option><option value="CFrame">CFrame</option><option value="Location">Location</option></select> = workspace.<span class="var-display" data-var="var-reset">CentreCircle</span>.<select class="blank-dropdown" data-answer="Position" id="q7"><option value="">Select...</option><option value="Position">Position</option><option value="CFrame">CFrame</option><option value="Origin">Origin</option></select></div>
+        <div class="line" data-explain="Move the ball back to the center circle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hit.<select class="blank-dropdown" data-answer="Position" id="q4"><option value="">Select...</option><option value="Position">Position</option><option value="CFrame">CFrame</option><option value="Location">Location</option></select> = workspace.<span class="var-display" data-var="var-reset">CentreCircle</span>.Position</div>
         <div class="line" data-explain="End the if block">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span></div>
         <div class="line" data-explain="End the function"><span class="keyword">end</span>)</div>
       </div>
@@ -91,8 +91,9 @@
     <div class="modal">
       <div class="modal-header"><h3>Correct! Well Done!</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
       <div class="modal-body">
-        <p style="margin-bottom: 15px;">Copy this code into a Script inside your goal trigger part:</p>
-        <pre class="modal-code" id="fullCode"></pre>
+        <p class="modal-explanation">This script adds a point to the team's score when the ball goes into the goal!</p>
+        <p style="margin-bottom: 10px; color: #888; font-size: 0.95rem;">Put this Script inside the goal part</p>
+        <pre class="modal-code" id="fullCode" style="display:none"></pre>
       </div>
       <div class="modal-footer"><button class="copy-btn" onclick="copyCode()">Copy Code</button></div>
     </div>
